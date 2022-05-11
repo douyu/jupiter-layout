@@ -1,0 +1,9 @@
+version: v1
+lint:
+  ignore:
+    - vendor
+  use:
+    - DEFAULT
+    - COMMENTS
+    - UNARY_RPC
+    - PACKAGE_NO_IMPORT_CYCLE

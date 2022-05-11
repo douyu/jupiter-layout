@@ -1,0 +1,33 @@
+run:
+  timeout: 5m
+  tests: false
+  
+  skip-dirs:
+    - .go/
+
+  skip-files:
+    - ".*pb.go"
+
+  modules-download-mode: vendor
+
+  sort-results: true
+
+linters:
+  enable:
+    - deadcode
+    - govet
+    - ineffassign
+    - staticcheck
+    - structcheck
+    - typecheck
+    - unused
+    - varcheck
+    - bodyclose
+    - depguard
+    - goconst
+    - gofmt
+    - goimports
+    - gosec
+    - misspell
+    - prealloc
+    - unconvert

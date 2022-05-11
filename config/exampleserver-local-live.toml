@@ -1,0 +1,7 @@
+[jupiter.server.http]
+    port = 9527
+[jupiter.server.grpc]
+    port = 9528
+[jupiter.client.example]
+    address = "127.0.0.1:9528"
+    onDialError = "error"

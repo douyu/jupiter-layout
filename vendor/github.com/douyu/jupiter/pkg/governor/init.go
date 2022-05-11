@@ -1,0 +1,73 @@
+// Copyright 2020 Douyu
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//     http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
+package governor
+
+import (
+	"encoding/json"
+	"log"
+	"net/http"
+	"os"
+
+	"github.com/douyu/jupiter/pkg"
+	"github.com/douyu/jupiter/pkg/conf"
+	"github.com/douyu/jupiter/pkg/util/xstring"
+	jsoniter "github.com/json-iterator/go"
+)
+
+func init() {
+	conf.OnLoaded(func(c *conf.Configuration) {
+		log.Print("hook config, init runtime(governor)")
+
+	})
+
+	registerHandlers()
+}
+
+func registerHandlers() {
+	HandleFunc("/configs", func(w http.ResponseWriter, r *http.Request) {
+		encoder := json.NewEncoder(w)
+		if r.URL.Query().Get("pretty") == "true" {
+			encoder.SetIndent("", "    ")
+		}
+		_ = encoder.Encode(conf.Traverse("."))
+	})
+
+	HandleFunc("/debug/config", func(w http.ResponseWriter, r *http.Request) {
+		w.WriteHeader(200)
+		_, _ = w.Write(xstring.PrettyJSONBytes(conf.Traverse(".")))
+	})
+
+	HandleFunc("/debug/env", func(w http.ResponseWriter, r *http.Request) {
+		w.WriteHeader(200)
+		_ = jsoniter.NewEncoder(w).Encode(os.Environ())
+	})
+
+	HandleFunc("/build/info", func(w http.ResponseWriter, r *http.Request) {
+		serverStats := map[string]string{
+			"name":           pkg.Name(),
+			"appID":          pkg.AppID(),
+			"appMode":        pkg.AppMode(),
+			"appVersion":     pkg.AppVersion(),
+			"jupiterVersion": pkg.JupiterVersion(),
+			"buildUser":      pkg.BuildUser(),
+			"buildHost":      pkg.BuildHost(),
+			"buildTime":      pkg.BuildTime(),
+			"startTime":      pkg.StartTime(),
+			"hostName":       pkg.HostName(),
+			"goVersion":      pkg.GoVersion(),
+		}
+		_ = jsoniter.NewEncoder(w).Encode(serverStats)
+	})
+}
