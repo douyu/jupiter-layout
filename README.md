@@ -71,5 +71,12 @@ $ curl "localhost:9527?name=bob"
 ---
 
 ```bash
-$ buf lint
+$ buf lint --path api
+```
+
+校验golang
+---
+
+```bash
+$ golangci-lint run
 ```

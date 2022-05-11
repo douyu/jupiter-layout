@@ -19,14 +19,14 @@ type Options struct {
 
 func initApp(app *jupiter.Application, opts Options) error {
 	// http
-	app.Serve(
-		opts.http,
-	)
+	if err := app.Serve(opts.http); err != nil {
+		return err
+	}
 
 	// grpc
-	app.Serve(
-		opts.grpc,
-	)
+	if err := app.Serve(opts.grpc); err != nil {
+		return err
+	}
 
 	return nil
 }
