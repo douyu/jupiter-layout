@@ -13,7 +13,7 @@ github.com/coreos/go-semver/semver
 github.com/coreos/go-systemd/v22/journal
 # github.com/davecgh/go-spew v1.1.1
 github.com/davecgh/go-spew/spew
-# github.com/douyu/jupiter v0.4.4-0.20220510094848-9d798c2078a1
+# github.com/douyu/jupiter v0.4.4
 ## explicit
 github.com/douyu/jupiter
 github.com/douyu/jupiter/pkg
