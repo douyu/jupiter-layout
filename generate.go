@@ -5,6 +5,6 @@ package main
 // 依赖注入：https://github.com/google/wire
 // mock代码生成：https://github.com/vektra/mockery
 
-//go:generate buf generate --path api
+//go:generate buf generate --template ./api/buf.gen.yaml --path api
 //go:generate wire ./...
 //go:generate mockery --all --inpackage --dir internal/pkg
