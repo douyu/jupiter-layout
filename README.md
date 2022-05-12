@@ -68,16 +68,20 @@ $ curl "localhost:9527?name=bob"
 {"error":0,"msg":"请求正常","data":{"message":"hello wolrd"}}
 ```
 
-校验protobuf
----
+## Bugs and Feedback
 
-```bash
-$ buf lint --path api
-```
+For bug report, questions and discussions please submit an issue.
 
-校验golang
----
+## Contributing
 
-```bash
-$ golangci-lint run
-```
+Contributions are always welcomed!
+
+You can start with the issues labeled with good first issue.
+
+<a href="https://github.com/douyu/jupiter-layout/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=douyu/jupiter-layout" />
+</a>
+
+## Contact
+
+- [Wechat Group](https://jupiter.douyu.com/join/#%E5%BE%AE%E4%BF%A1)
