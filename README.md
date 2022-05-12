@@ -17,6 +17,7 @@ Jupiter 项目模板
 go install -v github.com/google/wire/cmd/wire@latest
 go install -v github.com/vektra/mockery/v2@latest
 go install -v github.com/bufbuild/buf/cmd/buf@latest
+go install -v github.com/onsi/ginkgo/v2/ginkgo
 ```
 
 初始化
