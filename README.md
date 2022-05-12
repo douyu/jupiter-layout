@@ -29,6 +29,23 @@ git clone https://github.com/douyu/jupiter-layout
 cd jupiter-layout
 ```
 
+生成依赖代码
+---
+
+```
+$ go generate
+
+struct2interface: internal/pkg/grpc: wrote internal/pkg/grpc/interface_Example.go
+wire: github.com/douyu/jupiter-layout/internal/exampleserver/service: wrote /home/liqi/workspace/jupiter-layout/internal/exampleserver/service/wire_gen.go
+wire: github.com/douyu/jupiter-layout/internal/exampleserver/server: wrote /home/liqi/workspace/jupiter-layout/internal/exampleserver/server/wire_gen.go
+wire: github.com/douyu/jupiter-layout/tests/e2e: wrote /home/liqi/workspace/jupiter-layout/tests/e2e/wire_gen.go
+12 May 22 11:40 CST INF Starting mockery dry-run=false version=v2.10.4
+12 May 22 11:40 CST INF Walking dry-run=false version=v2.10.4
+12 May 22 11:40 CST INF Generating mock dry-run=false interface=ExampleInterface qualified-name=github.com/douyu/jupiter-layout/internal/pkg/grpc version=v2.10.4
+12 May 22 11:40 CST INF Generating mock dry-run=false interface=ExampleInterface qualified-name=github.com/douyu/jupiter-layout/internal/pkg/mysql version=v2.10.4
+12 May 22 11:40 CST INF Generating mock dry-run=false interface=ExampleInterface qualified-name=github.com/douyu/jupiter-layout/internal/pkg/redis version=v2.10.4
+```
+
 运行项目
 ---
 
