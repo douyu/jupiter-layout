@@ -7,3 +7,10 @@ lint:
     - COMMENTS
     - UNARY_RPC
     - PACKAGE_NO_IMPORT_CYCLE
+
+breaking:
+  use:
+    - FILE
+
+  except:
+    - RPC_NO_DELETE
