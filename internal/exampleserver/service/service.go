@@ -3,7 +3,7 @@ package service
 import (
 	"context"
 
-	helloworldv1 "github.com/douyu/jupiter-layout/api/gen/proto/go/helloworld/v1"
+	helloworldv1 "github.com/douyu/jupiter-layout/gen/api/go/helloworld/v1"
 	"github.com/douyu/jupiter-layout/internal/pkg/grpc"
 	"github.com/douyu/jupiter-layout/internal/pkg/mysql"
 	"github.com/douyu/jupiter-layout/internal/pkg/redis"

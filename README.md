@@ -18,6 +18,7 @@ go install -v github.com/google/wire/cmd/wire@latest
 go install -v github.com/vektra/mockery/v2@latest
 go install -v github.com/bufbuild/buf/cmd/buf@latest
 go install -v github.com/onsi/ginkgo/v2/ginkgo
+go install -v github.com/hnlq715/struct2interface/cmd/struct2interface@latest
 ```
 
 初始化
