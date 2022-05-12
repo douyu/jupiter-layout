@@ -1,7 +1,7 @@
 package server
 
 import (
-	"github.com/douyu/jupiter-layout/gen/proto/go/api/helloworldv1"
+	helloworldv1 "github.com/douyu/jupiter-layout/api/gen/proto/go/helloworld/v1"
 	"github.com/douyu/jupiter-layout/internal/exampleserver/service"
 	"github.com/douyu/jupiter/pkg/server/xgrpc"
 )

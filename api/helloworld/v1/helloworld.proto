@@ -1,11 +1,11 @@
 syntax = "proto3";
 
 option java_multiple_files = true;
-option java_package = "com.douyu.api.helloworld.v1";
+option java_package = "com.douyu.helloworld.v1";
 option java_outer_classname = "HelloWorldProtoV1";
-option go_package = "api/helloworldv1";
+option go_package = "helloworld/v1;helloworldv1";
 
-package api.helloworld.v1;
+package helloworld.v1;
 
 // The greeting service definition.
 service GreeterService {
