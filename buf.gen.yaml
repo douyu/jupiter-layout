@@ -7,8 +7,8 @@ managed:
     default: 
 plugins:
   - remote: buf.build/protocolbuffers/plugins/go:v1.27.1-1
-    out: gen/proto/go
+    out: gen/api/go
   - remote: buf.build/library/plugins/go-grpc:v1.1.0-2
-    out: gen/proto/go
+    out: gen/api/go
     opt:
       - require_unimplemented_servers=false

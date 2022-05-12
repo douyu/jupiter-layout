@@ -1,6 +1,8 @@
 package grpc
 
 import (
+	"context"
+
 	grpcclient "github.com/douyu/jupiter/pkg/client/grpc"
 	"github.com/google/wire"
 	"google.golang.org/grpc"
@@ -13,9 +15,6 @@ var (
 	)
 )
 
-type ExampleInterface interface {
-}
-
 type Example struct {
 	cc grpc.ClientConnInterface
 }
@@ -24,4 +23,8 @@ func NewExample() ExampleInterface {
 	return &Example{
 		cc: grpcclient.StdConfig("example").Build(),
 	}
+}
+
+func (s *Example) SayHello(ctx context.Context) error {
+	return nil
 }

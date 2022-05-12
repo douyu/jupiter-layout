@@ -128,8 +128,6 @@ github.com/davecgh/go-spew v1.1.1/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSs
 github.com/denisenkom/go-mssqldb v0.0.0-20191124224453-732737034ffd h1:83Wprp6ROGeiHFAP8WJdI2RoxALQYgdllERc3N5N2DM=
 github.com/denisenkom/go-mssqldb v0.0.0-20191124224453-732737034ffd/go.mod h1:xbL0rPBG9cCiLr28tMa8zpbdarY27NDyej4t/EjAShU=
 github.com/dgrijalva/jwt-go v3.2.0+incompatible/go.mod h1:E3ru+11k8xSBh+hMPgOLZmtrrCbhqsmaPHjLKYnJCaQ=
-github.com/douyu/jupiter v0.4.4-0.20220510094848-9d798c2078a1 h1:KNm9D8vVZQwpsfEgbQOVaLia7WtI/qCi4dVAZ6+2bec=
-github.com/douyu/jupiter v0.4.4-0.20220510094848-9d798c2078a1/go.mod h1:YCYVfg07BvLqlqIexfR6kNDRXxRX0NfUkOSU1YlCekI=
 github.com/douyu/jupiter v0.4.4 h1:moc0hAovOe+2+6L+kot0/v+nTXMdW3HQotKxiqLZ07Q=
 github.com/douyu/jupiter v0.4.4/go.mod h1:YCYVfg07BvLqlqIexfR6kNDRXxRX0NfUkOSU1YlCekI=
 github.com/dustin/go-humanize v0.0.0-20171111073723-bb3d318650d4/go.mod h1:HtrtbFcZ19U5GC7JDqmcUSB87Iq5E25KnS6fMYU6eOk=
