@@ -9,4 +9,4 @@ package main
 //go:generate struct2interface -d internal/pkg
 //go:generate buf generate
 //go:generate wire ./...
-//go:generate mockery --all --keeptree --dir internal/pkg
+//go:generate mockery --all --keeptree --dir internal/pkg --output gen/mocks

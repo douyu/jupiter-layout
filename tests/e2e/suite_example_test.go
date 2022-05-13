@@ -1,7 +1,7 @@
 package e2e
 
 import (
-	mocks "github.com/douyu/jupiter-layout/mocks/grpc"
+	mocks "github.com/douyu/jupiter-layout/gen/mocks/grpc"
 	. "github.com/onsi/ginkgo/v2"
 	. "github.com/onsi/gomega"
 )
