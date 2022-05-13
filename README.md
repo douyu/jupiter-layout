@@ -22,13 +22,13 @@ go install -v github.com/onsi/ginkgo/v2/ginkgo
 go install -v github.com/hnlq715/struct2interface/cmd/struct2interface@latest
 ```
 
-初始化 & 运行
+初始化
 ---
 
 ```bash
 jupiter new testproject-go
 cd testproject-go
-
+go mod tidy -v
 ```
 
 生成依赖代码
