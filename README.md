@@ -1,5 +1,8 @@
 [Jupiter](https://github.com/douyu/jupiter) 项目模板
 ===
+[![GoTest](https://github.com/douyu/jupiter-layout/workflows/Go/badge.svg)](https://github.com/douyu/jupiter-layout/actions)
+[![Go Report Card](https://goreportcard.com/badge/github.com/douyu/jupiter-layout)](https://goreportcard.com/report/github.com/douyu/jupiter-layout)
+![license](https://img.shields.io/badge/license-Apache--2.0-green.svg)
 
 概念
 ---
