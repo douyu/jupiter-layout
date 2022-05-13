@@ -1,4 +1,4 @@
-Jupiter 项目模板
+[Jupiter](https://github.com/douyu/jupiter) 项目模板
 ===
 
 概念
