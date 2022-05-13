@@ -17,3 +17,5 @@ bin
 cmd/exampleserver/exampleserver
 .idea
 __debug_bin
+
+vendor/
