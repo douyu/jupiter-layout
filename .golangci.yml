@@ -8,8 +8,6 @@ run:
   skip-files:
     - ".*pb.go"
 
-  modules-download-mode: vendor
-
   sort-results: true
 
 linters:
