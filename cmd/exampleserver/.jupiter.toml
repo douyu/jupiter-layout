@@ -3,7 +3,7 @@ tmp_dir = "tmp"
 
 [build]
   bin = "./tmp/exampleserver"
-  args = "--config=config/exampleserver-local-live.toml"
+  args_bin = ["--config=config/exampleserver-local-live.toml"]
   cmd = "go build -o ./tmp/ ./cmd/..."
   delay = 1000
   exclude_dir = ["assets", "tmp", "vendor"]

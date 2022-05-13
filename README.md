@@ -14,6 +14,7 @@ Jupiter 项目模板
 ---
 
 ```bash
+go install -v github.com/douyu/jupiter/cmd/jupiter@latest
 go install -v github.com/google/wire/cmd/wire@latest
 go install -v github.com/vektra/mockery/v2@latest
 go install -v github.com/bufbuild/buf/cmd/buf@latest
@@ -21,12 +22,13 @@ go install -v github.com/onsi/ginkgo/v2/ginkgo
 go install -v github.com/hnlq715/struct2interface/cmd/struct2interface@latest
 ```
 
-初始化
+初始化 & 运行
 ---
 
 ```bash
-git clone https://github.com/douyu/jupiter-layout
-cd jupiter-layout
+jupiter new testproject-go
+cd testproject-go
+
 ```
 
 生成依赖代码
@@ -48,6 +50,14 @@ wire: github.com/douyu/jupiter-layout/tests/e2e: wrote /home/liqi/workspace/jupi
 
 运行项目
 ---
+
+* 启动，并监听文件变更自动重新构建
+
+```
+$ jupiter run -c cmd/exampleserver/.jupiter.toml
+```
+
+* 仅启动
 
 ```
 $ go run ./cmd/exampleserver --config config/exampleserver-local-live.toml
