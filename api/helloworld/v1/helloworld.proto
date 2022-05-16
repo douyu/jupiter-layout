@@ -21,7 +21,9 @@ message SayHelloRequest {
 
 // The response message containing the greetings
 message SayHelloResponse {
+  // Data ...
   message Data {
+    // message ...
     string message = 1;
   }
 
