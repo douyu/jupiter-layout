@@ -10,9 +10,9 @@ import (
 	. "github.com/onsi/gomega"
 )
 
-func TestE2ESuites(t *testing.T) {
+func TestMockSuites(t *testing.T) {
 	conf.LoadFromDataSource(file.NewDataSource("../../config/exampleserver-local-live.toml", false), toml.Unmarshal)
 
 	RegisterFailHandler(Fail)
-	RunSpecs(t, "e2e test cases")
+	RunSpecs(t, "mock test cases")
 }
