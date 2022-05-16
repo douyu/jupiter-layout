@@ -42,7 +42,14 @@ func (s *HelloWorld) SayHello(ctx context.Context, req *helloworldv1.SayHelloReq
 		return nil, xerror.InvalidArgument.WithMsg("name参数错误")
 	}
 
+	err := s.ExampleGrpc.SayHello(ctx)
+	if err != nil {
+		return nil, err
+	}
+
 	return &helloworldv1.SayHelloResponse{
-		Message: "hello wolrd",
+		Data: &helloworldv1.SayHelloResponse_Data{
+			Message: "hello world",
+		},
 	}, nil
 }

@@ -2,21 +2,24 @@ package e2e
 
 import (
 	"context"
+	"errors"
 
 	helloworldv1 "github.com/douyu/jupiter-layout/gen/api/go/helloworld/v1"
 	mocks "github.com/douyu/jupiter-layout/gen/mocks/grpc"
 	. "github.com/onsi/ginkgo/v2"
 	. "github.com/onsi/gomega"
+	"github.com/stretchr/testify/mock"
 )
 
 var _ = Describe("exampleService", func() {
 
-	mockExampleGrpc := &mocks.ExampleInterface{}
-
-	exampleService := CreateExampleService()
-	exampleService.ExampleGrpc = mockExampleGrpc
-
 	Context("SayHello", func() {
+		mockExampleGrpc := &mocks.ExampleInterface{}
+		mockExampleGrpc.On("SayHello", mock.Anything).Return(nil)
+
+		exampleService := CreateExampleService()
+		exampleService.ExampleGrpc = mockExampleGrpc
+
 		It("normal case", func() {
 			Expect(exampleService).ShouldNot(BeNil())
 
@@ -26,8 +29,25 @@ var _ = Describe("exampleService", func() {
 			Expect(err).Should(BeNil())
 
 			Expect(res).Should(Equal(&helloworldv1.SayHelloResponse{
-				Message: "hello wolrd",
+				Data: &helloworldv1.SayHelloResponse_Data{
+					Message: "hello world",
+				},
 			}))
+		})
+
+		It("error case", func() {
+			mockExampleGrpc := &mocks.ExampleInterface{}
+			mockExampleGrpc.On("SayHello", mock.Anything).Return(errors.New("Who are you?"))
+
+			exampleService := CreateExampleService()
+			exampleService.ExampleGrpc = mockExampleGrpc
+
+			Expect(exampleService).ShouldNot(BeNil())
+
+			_, err := exampleService.SayHello(context.Background(), &helloworldv1.SayHelloRequest{
+				Name: "bob",
+			})
+			Expect(err).Should(Equal(errors.New("Who are you?")))
 		})
 	})
 })

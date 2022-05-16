@@ -2,7 +2,7 @@ package server
 
 import (
 	helloworldv1 "github.com/douyu/jupiter-layout/gen/api/go/helloworld/v1"
-	"github.com/douyu/jupiter-layout/internal/exampleserver/service"
+	"github.com/douyu/jupiter-layout/internal/exampleserver/controller"
 	"github.com/douyu/jupiter/pkg/server/xgrpc"
 )
 
@@ -10,16 +10,15 @@ import (
 
 type GrpcServer struct {
 	*xgrpc.Server
-	Helloworld *service.HelloWorld
+	controller.Options
 }
 
-func NewGrpcServer(opts *service.HelloWorld) *GrpcServer {
+func NewGrpcServer(opts controller.Options) *GrpcServer {
 
 	s := xgrpc.StdConfig("grpc").MustBuild()
-	helloworldv1.RegisterGreeterServiceServer(s.Server, opts)
+	helloworldv1.RegisterGreeterServiceServer(s.Server, opts.HelloWorldGRPC)
 
 	return &GrpcServer{
-		Server:     s,
-		Helloworld: opts,
+		Server: s,
 	}
 }

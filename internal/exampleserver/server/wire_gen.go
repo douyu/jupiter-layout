@@ -22,11 +22,13 @@ func InitApp(app *application.Application) error {
 	}
 	helloWorld := service.NewHelloWorldService(options)
 	helloWorldHTTP := controller.NewHelloWorldHTTPController(helloWorld)
+	helloWorldGRPC := controller.NewHelloWorldGRPCController(helloWorld)
 	controllerOptions := controller.Options{
 		HelloWorldHTTP: helloWorldHTTP,
+		HelloWorldGRPC: helloWorldGRPC,
 	}
 	httpServer := NewHttpServer(controllerOptions)
-	grpcServer := NewGrpcServer(helloWorld)
+	grpcServer := NewGrpcServer(controllerOptions)
 	serverOptions := Options{
 		http: httpServer,
 		grpc: grpcServer,
