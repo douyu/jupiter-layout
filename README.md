@@ -23,6 +23,7 @@ go install -v github.com/vektra/mockery/v2@latest
 go install -v github.com/bufbuild/buf/cmd/buf@latest
 go install -v github.com/onsi/ginkgo/v2/ginkgo@latest
 go install -v github.com/hnlq715/struct2interface/cmd/struct2interface@latest
+go install github.com/fullstorydev/grpcurl/cmd/grpcurl@latest
 ```
 
 初始化
@@ -93,12 +94,22 @@ $ go run ./cmd/exampleserver --config config/exampleserver-local-live.toml
 测试接口
 ---
 
-```s
+* HTTP
+```
 $ curl "localhost:9527?name=bob"
 
 {"error":0,"msg":"请求正常","data":{"message":"hello wolrd"}}
 ```
 
+* GRPC
+
+```
+grpcurl -proto api/helloworld/v1/helloworld.proto -plaintext -d '{"name":"bob"}' localhost:9528  helloworld.v1.GreeterService/SayHello
+
+{
+  "message": "hello wolrd"
+}
+```
 ## Bugs and Feedback
 
 For bug report, questions and discussions please submit an issue.
