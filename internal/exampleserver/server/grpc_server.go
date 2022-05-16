@@ -14,12 +14,12 @@ type GrpcServer struct {
 }
 
 func NewGrpcServer(opts *service.HelloWorld) *GrpcServer {
+
+	s := xgrpc.StdConfig("grpc").MustBuild()
+	helloworldv1.RegisterGreeterServiceServer(s.Server, opts)
+
 	return &GrpcServer{
-		Server:     xgrpc.StdConfig("grpc").MustBuild(),
+		Server:     s,
 		Helloworld: opts,
 	}
-}
-
-func (s *GrpcServer) Mux() {
-	helloworldv1.RegisterGreeterServiceServer(s.Server.Server, s.Helloworld)
 }
