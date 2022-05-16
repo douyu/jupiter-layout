@@ -2,7 +2,7 @@ package main
 
 import (
 	"github.com/douyu/jupiter"
-	"github.com/douyu/jupiter-layout/internal/exampleserver/server"
+	"github.com/douyu/jupiter-layout/internal/app/exampleserver/server"
 )
 
 func main() {

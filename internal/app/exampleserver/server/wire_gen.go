@@ -7,8 +7,8 @@
 package server
 
 import (
-	"github.com/douyu/jupiter-layout/internal/exampleserver/controller"
-	"github.com/douyu/jupiter-layout/internal/exampleserver/service"
+	"github.com/douyu/jupiter-layout/internal/app/exampleserver/controller"
+	"github.com/douyu/jupiter-layout/internal/app/exampleserver/service"
 	"github.com/douyu/jupiter-layout/internal/pkg/grpc"
 	"github.com/douyu/jupiter/pkg/application"
 )

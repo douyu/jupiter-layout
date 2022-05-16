@@ -136,11 +136,13 @@ func (x *SayHelloResponse) GetData() *SayHelloResponse_Data {
 	return nil
 }
 
+// Data ...
 type SayHelloResponse_Data struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
+	// message ...
 	Message string `protobuf:"bytes,1,opt,name=message,proto3" json:"message,omitempty"`
 }
 

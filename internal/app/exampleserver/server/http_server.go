@@ -1,7 +1,7 @@
 package server
 
 import (
-	"github.com/douyu/jupiter-layout/internal/exampleserver/controller"
+	"github.com/douyu/jupiter-layout/internal/app/exampleserver/controller"
 	"github.com/douyu/jupiter/pkg/server/xecho"
 	echo "github.com/labstack/echo/v4"
 )

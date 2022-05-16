@@ -4,7 +4,7 @@ import (
 	"net/http"
 
 	helloworldv1 "github.com/douyu/jupiter-layout/gen/api/go/helloworld/v1"
-	"github.com/douyu/jupiter-layout/internal/exampleserver/service"
+	"github.com/douyu/jupiter-layout/internal/app/exampleserver/service"
 	"github.com/douyu/jupiter/pkg/util/xerror"
 	"github.com/douyu/jupiter/pkg/xlog"
 	"github.com/labstack/echo/v4"
