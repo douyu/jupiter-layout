@@ -11,7 +11,7 @@ import (
 )
 
 func TestMockSuites(t *testing.T) {
-	conf.LoadFromDataSource(file.NewDataSource("../../config/exampleserver-local-live.toml", false), toml.Unmarshal)
+	conf.LoadFromDataSource(file.NewDataSource("../../config/exampleserver/local-live.toml", false), toml.Unmarshal)
 
 	RegisterFailHandler(Fail)
 	RunSpecs(t, "mock test cases")

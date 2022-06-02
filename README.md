@@ -64,9 +64,9 @@ $ jupiter run -c cmd/exampleserver/.jupiter.toml
 * 仅启动
 
 ```
-$ go run ./cmd/exampleserver --config config/exampleserver-local-live.toml
+$ go run ./cmd/exampleserver --config config/exampleserver/local-live.toml
 
-2022/05/11 15:57:51 read config: config/exampleserver-local-live.toml
+2022/05/11 15:57:51 read config: config/exampleserver/local-live.toml
 2022/05/11 15:57:51 load config successfully
 2022/05/11 15:57:51 hook config, init loggers
 2022/05/11 15:57:51 reload default logger with configKey: jupiter.logger.default
@@ -75,7 +75,7 @@ $ go run ./cmd/exampleserver --config config/exampleserver-local-live.toml
 2022/05/11 15:57:51 hook config, init registry
 2022/05/11 15:57:51 hook config, read registry config failed: jupiter.registry: invalid key, maybe not exist in config
 2022/05/11 15:57:51 hook config, init sentinel rules
-2022/05/11 15:57:51 load config from datasource[config/exampleserver-local-live.toml] completely!
+2022/05/11 15:57:51 load config from datasource[config/exampleserver/local-live.toml] completely!
 
    (_)_   _ _ __ (_) |_ ___ _ __
    | | | | | '_ \| | __/ _ \ '__|
