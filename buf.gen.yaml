@@ -4,11 +4,14 @@ managed:
 
   # Go
   go_package_prefix:
-    default: 
+    default: github.com/douyu/jupiter-layout/gen/api/go
 plugins:
   - remote: buf.build/protocolbuffers/plugins/go:v1.27.1-1
     out: gen/api/go
+    opt:
+      - paths=source_relative
   - remote: buf.build/library/plugins/go-grpc:v1.1.0-2
     out: gen/api/go
     opt:
       - require_unimplemented_servers=false
+      - paths=source_relative

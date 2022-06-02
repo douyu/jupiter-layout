@@ -7,30 +7,11 @@ option go_package = "helloworld/v1;helloworldv1";
 
 package helloworld.v1;
 
+import "common/v1/msg.proto";
+
 // The greeting service definition.
 service GreeterService {
   // Sends a greeting
-  rpc SayHello (SayHelloRequest) returns (SayHelloResponse) {}
+  rpc SayHello (common.v1.SayHelloRequest) returns (common.v1.SayHelloResponse) {}
 }
 
-// The request message containing the user's name.
-message SayHelloRequest {
-  // name ...
-  string name = 1;
-}
-
-// The response message containing the greetings
-message SayHelloResponse {
-  // Data ...
-  message Data {
-    // message ...
-    string message = 1;
-  }
-
-  // error
-  uint32 error = 1;
-  // msg
-  string msg = 2;
-  // data ...
-  Data data = 3;
-}
