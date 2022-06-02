@@ -4,6 +4,7 @@ import (
 	"context"
 	"errors"
 
+	commonv1 "github.com/douyu/jupiter-layout/gen/api/go/common/v1"
 	helloworldv1 "github.com/douyu/jupiter-layout/gen/api/go/helloworld/v1"
 	mocks "github.com/douyu/jupiter-layout/gen/mocks/grpc"
 	. "github.com/onsi/ginkgo/v2"
@@ -29,7 +30,7 @@ var _ = Describe("exampleService", func() {
 			Expect(err).Should(BeNil())
 
 			Expect(res).Should(Equal(&helloworldv1.SayHelloResponse{
-				Data: &helloworldv1.SayHelloResponse_Data{
+				Data: &commonv1.CommonData{
 					Message: "hello world",
 				},
 			}))
