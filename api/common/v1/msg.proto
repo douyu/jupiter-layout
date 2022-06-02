@@ -7,24 +7,8 @@ option go_package = "common/v1;commonv1";
 
 package common.v1;
 
-// The request message containing the user's name.
-message SayHelloRequest {
-    // name ...
-    string name = 1;
-  }
-  
-  // The response message containing the greetings
-  message SayHelloResponse {
-    // Data ...
-    message Data {
-      // message ...
-      string message = 1;
-    }
-  
-    // error
-    uint32 error = 1;
-    // msg
-    string msg = 2;
-    // data ...
-    Data data = 3;
-  }
+// Data ...
+message CommonData {
+  // message ...
+  string message = 1;
+}

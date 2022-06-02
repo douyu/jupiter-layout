@@ -12,6 +12,22 @@ import "common/v1/msg.proto";
 // The greeting service definition.
 service GreeterService {
   // Sends a greeting
-  rpc SayHello (common.v1.SayHelloRequest) returns (common.v1.SayHelloResponse) {}
+  rpc SayHello (SayHelloRequest) returns (SayHelloResponse) {}
 }
 
+
+// The request message containing the user's name.
+message SayHelloRequest {
+  // name ...
+  string name = 1;
+}
+
+// The response message containing the greetings
+message SayHelloResponse {
+  // error
+  uint32 error = 1;
+  // msg
+  string msg = 2;
+  // data ...
+  common.v1.CommonData data = 3;
+}

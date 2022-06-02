@@ -3,6 +3,7 @@ package service
 import (
 	"context"
 
+	commonv1 "github.com/douyu/jupiter-layout/gen/api/go/common/v1"
 	helloworldv1 "github.com/douyu/jupiter-layout/gen/api/go/helloworld/v1"
 	"github.com/douyu/jupiter-layout/internal/pkg/grpc"
 	"github.com/douyu/jupiter-layout/internal/pkg/mysql"
@@ -48,7 +49,7 @@ func (s *HelloWorld) SayHello(ctx context.Context, req *helloworldv1.SayHelloReq
 	}
 
 	return &helloworldv1.SayHelloResponse{
-		Data: &helloworldv1.SayHelloResponse_Data{
+		Data: &commonv1.CommonData{
 			Message: "hello world",
 		},
 	}, nil

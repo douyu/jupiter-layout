@@ -7,7 +7,6 @@ import (
 )
 
 // ExampleInterface ...
-//
 type ExampleInterface interface {
 	SayHello(ctx context.Context) error
 }
