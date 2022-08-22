@@ -1,7 +1,17 @@
-[jupiter.server.http]
-    port = 9527
-[jupiter.server.grpc]
-    port = 9528
-[jupiter.client.example]
-    address = "127.0.0.1:9528"
-    onDialError = "error"
+[jupiter.server]
+    [jupiter.server.http]
+        port = 9527
+    [jupiter.server.grpc]
+        port = 9528
+
+    [jupiter.client.example]
+        address = "127.0.0.1:9528"
+        onDialError = "error"
+
+[jupiter.logger]
+    [jupiter.logger.default]
+        level = "info"
+        dir = "./logs/"
+    [jupiter.logger.jupiter]
+        level = "info"
+        dir = "./logs/"

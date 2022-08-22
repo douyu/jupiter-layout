@@ -19,3 +19,4 @@ cmd/exampleserver/exampleserver
 __debug_bin
 
 vendor/
+logs/

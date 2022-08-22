@@ -1,11 +1,12 @@
 [Jupiter](https://github.com/douyu/jupiter) 项目模板
-===
+================
+
 [![GoTest](https://github.com/douyu/jupiter-layout/workflows/Go/badge.svg)](https://github.com/douyu/jupiter-layout/actions)
 [![Go Report Card](https://goreportcard.com/badge/github.com/douyu/jupiter-layout)](https://goreportcard.com/report/github.com/douyu/jupiter-layout)
 ![license](https://img.shields.io/badge/license-Apache--2.0-green.svg)
 
 概念
----
+----
 
 * 单仓库多应用
 * 依赖注入
@@ -14,20 +15,19 @@
 * 高内聚低耦合
 
 安装依赖
----
+--------
 
 ```bash
 go install -v github.com/douyu/jupiter/cmd/jupiter@latest
-go install -v github.com/google/wire/cmd/wire@latest
-go install -v github.com/vektra/mockery/v2@latest
-go install -v github.com/bufbuild/buf/cmd/buf@latest
-go install -v github.com/onsi/ginkgo/v2/ginkgo@latest
-go install -v github.com/hnlq715/struct2interface/cmd/struct2interface@latest
-go install -v github.com/fullstorydev/grpcurl/cmd/grpcurl@latest
+go install -v github.com/google/wire/cmd/wire@v0.5.0
+go install -v github.com/vektra/mockery/v2@v2.14.0
+go install -v github.com/bufbuild/buf/cmd/buf@v1.6.0
+go install -v github.com/onsi/ginkgo/v2/ginkgo@v2.1.3
+go install -v github.com/fullstorydev/grpcurl/cmd/grpcurl@v1.8.7
 ```
 
 初始化
----
+------
 
 ```bash
 jupiter new testproject-go
@@ -36,7 +36,7 @@ go mod tidy -v
 ```
 
 生成依赖代码
----
+------------
 
 ```bash
 go generate
@@ -55,7 +55,7 @@ wire: github.com/douyu/jupiter-layout/tests/e2e: wrote /home/liqi/workspace/jupi
 ```
 
 运行项目
----
+--------
 
 * 启动，并监听文件变更自动重新构建
 
@@ -96,9 +96,10 @@ go run ./cmd/exampleserver --config config/exampleserver/local-live.toml
 ```
 
 测试接口
----
+--------
 
 * HTTP
+
 ```bash
 curl "localhost:9527?name=bob"
 ```

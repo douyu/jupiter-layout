@@ -24,7 +24,7 @@ func (s *HelloWorldGRPC) SayHello(ctx context.Context, req *helloworldv1.SayHell
 
 	res, err := s.helloworld.SayHello(ctx, req)
 	if err != nil {
-		xlog.Error("sayHello failed", zap.Error(err), zap.Any("res", res), zap.Any("req", req))
+		xlog.FromContext(ctx).Error("sayHello failed", zap.Error(err), zap.Any("res", res), zap.Any("req", req))
 		return &helloworldv1.SayHelloResponse{
 			Error: uint32(xerror.Convert(err).GetEcode()),
 			Msg:   xerror.Convert(err).GetMsg(),

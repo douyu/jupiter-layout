@@ -30,7 +30,7 @@ func (s *HelloWorldHTTP) SayHello(c echo.Context) error {
 
 	res, err := s.helloworld.SayHello(c.Request().Context(), req)
 	if err != nil {
-		xlog.Error("sayHello failed", zap.Error(err), zap.Any("res", res), zap.Any("req", req))
+		xlog.FromContext(c.Request().Context()).Error("sayHello failed", zap.Error(err), zap.Any("res", res), zap.Any("req", req))
 		return c.JSON(http.StatusOK, err)
 	}
 
