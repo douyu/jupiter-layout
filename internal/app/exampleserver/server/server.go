@@ -1,8 +1,11 @@
 package server
 
 import (
+	"fmt"
+
 	"github.com/douyu/jupiter"
 	"github.com/douyu/jupiter-layout/internal/app/exampleserver/controller"
+	"github.com/douyu/jupiter/pkg/registry/etcdv3"
 	"github.com/google/wire"
 )
 
@@ -27,6 +30,8 @@ func initApp(app *jupiter.Application, opts Options) error {
 	if err := app.Serve(opts.grpc); err != nil {
 		return err
 	}
+	fmt.Println("~~~~", etcdv3.StdConfig("etcdv3"))
+	app.SetRegistry(etcdv3.StdConfig("etcdv3").MustBuild())
 
 	return nil
 }

@@ -1,3 +1,10 @@
+[jupiter.registry.etcdv3]
+    configKey = "jupiter.etcdv3.local"
+
+[jupiter.etcdv3.local]
+    endpoints = ["http://0.0.0.0:2379"]
+    timeout = "3s"
+
 [jupiter.server]
     [jupiter.server.http]
         port = 9527
