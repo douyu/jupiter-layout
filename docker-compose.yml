@@ -1,4 +1,4 @@
-version: '3.8'
+version: '3.3'
 services:
   cache:
     image: redis:6.2-alpine
@@ -6,13 +6,13 @@ services:
     ports:
       - '6379:6379'
     command: redis-server
-    volumes: 
+    volumes:
       - cache:/data
   db:
     image: mysql:5.7
     volumes:
       - db:/var/lib/mysql
-    environment: 
+    environment:
       MYSQL_ROOT_PASSWORD: 123456
       MYSQL_DATABASE: jupiter
 
@@ -56,4 +56,3 @@ volumes:
     driver: local
   cache:
     driver: local
-
