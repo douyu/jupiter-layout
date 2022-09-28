@@ -8,5 +8,5 @@ import (
 
 // ExampleInterface ...
 type ExampleInterface interface {
-	HttpBin(ctx context.Context) (string, error)
+	SayHello(ctx context.Context) (string, error)
 }

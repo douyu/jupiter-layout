@@ -55,15 +55,21 @@ func (s *HelloWorld) SayHello(ctx context.Context, req *helloworldv1.SayHelloReq
 		return nil, err
 	}
 
-	_, err = s.ExampleResty.HttpBin(ctx)
-	if err != nil {
-		return nil, err
-	}
+	resp := new(helloworldv1.SayHelloResponse)
+	if req.Name != "done" {
+		resp, err := s.ExampleGrpc.SayHello(ctx, &helloworldv1.SayHelloRequest{
+			Name: "done",
+		})
+		if err != nil {
+			xlog.L(ctx).Error("sayHello failed", zap.Error(err), zap.Any("res", resp), zap.Any("req", req))
+			return nil, err
+		}
 
-	resp, err := s.ExampleGrpc.SayHello(ctx, &helloworldv1.SayHelloRequest{})
-	if err != nil {
-		xlog.L(ctx).Error("sayHello failed", zap.Error(err), zap.Any("res", resp), zap.Any("req", req))
-		return nil, err
+		_, err = s.ExampleResty.SayHello(ctx)
+		if err != nil {
+			return nil, err
+		}
+
 	}
 
 	return resp, nil

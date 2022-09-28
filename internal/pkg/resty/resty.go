@@ -33,10 +33,10 @@ func NewExample() ExampleInterface {
 	}
 }
 
-func (s *Example) HttpBin(ctx context.Context) (string, error) {
-	res, err := s.cc.R().SetContext(ctx).Get("get")
+func (s *Example) SayHello(ctx context.Context) (string, error) {
+	res, err := s.cc.R().SetContext(ctx).Get("/")
 	if err != nil {
-		xlog.L(ctx).Error("httpbin failed", zap.Error(err))
+		xlog.L(ctx).Error("SayHello failed", zap.Error(err))
 		return "", err
 	}
 

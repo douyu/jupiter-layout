@@ -29,7 +29,7 @@
         #     addrs = ["127.0.0.1:6379"]
 
     [jupiter.resty.example]
-        addr = "http://httpbin.org"
+        addr = "http://127.0.0.1:9527"
 [jupiter.logger]
     [jupiter.logger.default]
         debug = true
