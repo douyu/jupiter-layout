@@ -4,18 +4,25 @@ services:
     image: redis:6.2-alpine
     restart: always
     ports:
-      - '6379:6379'
+      - 6379:6379
     command: redis-server
-    volumes:
-      - cache:/data
+    # volumes:
+    #   - ./data/cache:/data
   db:
     image: mysql:5.7
-    volumes:
-      - db:/var/lib/mysql
+    # volumes:
+    #   - ./data/db:/var/run/mysqld/
+    command: --default-authentication-plugin=mysql_native_password
     environment:
       MYSQL_ROOT_PASSWORD: 123456
       MYSQL_DATABASE: jupiter
-
+    ports:
+      - 3306:3306
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
   etcd:
     image: "quay.io/coreos/etcd:v3.3"
     environment:
@@ -33,8 +40,8 @@ services:
     container_name: rmqnamesrv
     ports:
       - 9876:9876
-    volumes:
-      - ./data/namesrv/logs:/home/rocketmq/logs
+    # volumes:
+    #   - ./data/namesrv/logs:/home/rocketmq/logs
     command: sh mqnamesrv
   broker:
     image: apacherocketmq/rocketmq:4.5.0
@@ -44,15 +51,9 @@ services:
       - 10911:10911
       - 10912:10912
     volumes:
-      - ./data/broker/logs:/home/rocketmq/logs
-      - ./data/broker/store:/home/rocketmq/store
+      # - ./data/broker/logs:/home/rocketmq/logs
+      # - ./data/broker/store:/home/rocketmq/store
       - ./data/broker/conf/broker.conf:/home/rocketmq/rocketmq-4.5.0/conf/broker.conf
     command: sh mqbroker -n namesrv:9876 -c ../conf/broker.conf
     depends_on:
       - namesrv
-
-volumes:
-  db:
-    driver: local
-  cache:
-    driver: local

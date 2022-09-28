@@ -9,14 +9,20 @@ package e2e
 import (
 	"github.com/douyu/jupiter-layout/internal/app/exampleserver/service"
 	"github.com/douyu/jupiter-layout/internal/pkg/grpc"
+	"github.com/douyu/jupiter-layout/internal/pkg/mysql"
+	"github.com/douyu/jupiter-layout/internal/pkg/resty"
 )
 
 // Injectors from wire.go:
 
 func CreateExampleService() *service.HelloWorld {
 	exampleInterface := grpc.NewExample()
+	mysqlExampleInterface := mysql.NewExample()
+	restyExampleInterface := resty.NewExample()
 	options := service.Options{
-		ExampleGrpc: exampleInterface,
+		ExampleGrpc:  exampleInterface,
+		ExampleMysql: mysqlExampleInterface,
+		ExampleResty: restyExampleInterface,
 	}
 	helloWorld := service.NewHelloWorldService(options)
 	return helloWorld

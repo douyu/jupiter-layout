@@ -6,7 +6,9 @@ import (
 	helloworldv1 "github.com/douyu/jupiter-layout/gen/api/go/helloworld/v1"
 	"github.com/douyu/jupiter-layout/internal/pkg/grpc"
 	"github.com/douyu/jupiter-layout/internal/pkg/mysql"
-	"github.com/douyu/jupiter-layout/internal/pkg/redis"
+
+	// "github.com/douyu/jupiter-layout/internal/pkg/redis"
+	"github.com/douyu/jupiter-layout/internal/pkg/resty"
 	"github.com/douyu/jupiter/pkg/util/xerror"
 	"github.com/douyu/jupiter/pkg/xlog"
 	"github.com/google/wire"
@@ -16,16 +18,18 @@ import (
 var ProviderSet = wire.NewSet(
 	NewHelloWorldService,
 	wire.Struct(new(Options), "*"),
-	redis.ProviderSet,
+	// redis.ProviderSet,
 	mysql.ProviderSet,
 	grpc.ProviderSet,
+	resty.ProviderSet,
 )
 
 // Options wireservice
 type Options struct {
-	ExampleGrpc grpc.ExampleInterface
-	// ExampleMysql mysql.ExampleInterface
+	ExampleGrpc  grpc.ExampleInterface
+	ExampleMysql mysql.ExampleInterface
 	// ExampleRedis redis.ExampleInterface
+	ExampleResty resty.ExampleInterface
 }
 
 type HelloWorld struct {
@@ -44,6 +48,16 @@ func (s *HelloWorld) SayHello(ctx context.Context, req *helloworldv1.SayHelloReq
 
 	if req.GetName() == "" {
 		return nil, xerror.InvalidArgument.WithMsg("name参数错误")
+	}
+
+	err := s.ExampleMysql.Migrate(ctx)
+	if err != nil {
+		return nil, err
+	}
+
+	_, err = s.ExampleResty.HttpBin(ctx)
+	if err != nil {
+		return nil, err
 	}
 
 	resp, err := s.ExampleGrpc.SayHello(ctx, &helloworldv1.SayHelloRequest{})

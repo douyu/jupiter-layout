@@ -10,6 +10,8 @@ import (
 	"github.com/douyu/jupiter-layout/internal/app/exampleserver/controller"
 	"github.com/douyu/jupiter-layout/internal/app/exampleserver/service"
 	"github.com/douyu/jupiter-layout/internal/pkg/grpc"
+	"github.com/douyu/jupiter-layout/internal/pkg/mysql"
+	"github.com/douyu/jupiter-layout/internal/pkg/resty"
 	"github.com/douyu/jupiter/pkg/application"
 )
 
@@ -17,8 +19,12 @@ import (
 
 func InitApp(app *application.Application) error {
 	exampleInterface := grpc.NewExample()
+	mysqlExampleInterface := mysql.NewExample()
+	restyExampleInterface := resty.NewExample()
 	options := service.Options{
-		ExampleGrpc: exampleInterface,
+		ExampleGrpc:  exampleInterface,
+		ExampleMysql: mysqlExampleInterface,
+		ExampleResty: restyExampleInterface,
 	}
 	helloWorld := service.NewHelloWorldService(options)
 	helloWorldHTTP := controller.NewHelloWorldHTTPController(helloWorld)

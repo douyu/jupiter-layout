@@ -16,6 +16,20 @@
         onDialError = "error"
         block = false
 
+    [jupiter.mysql.example]
+        dsn = "root:123456@tcp(127.0.0.1:3306)/jupiter?timeout=20s&readTimeout=20s"
+        debug = true
+        maxIdleConns = 50
+        connMaxLifeTime = "20m"
+        level = "panic"
+        slowThreshold = "400ms"
+        dialTimeout = "1s"
+
+        # [jupiter.redis.example]
+        #     addrs = ["127.0.0.1:6379"]
+
+    [jupiter.resty.example]
+        addr = "http://httpbin.org"
 [jupiter.logger]
     [jupiter.logger.default]
         debug = true
