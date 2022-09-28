@@ -122,6 +122,20 @@ grpcurl -import-path api -proto api/helloworld/v1/helloworld.proto -plaintext -d
 }
 ```
 
+## Docker
+
+- build
+
+```bash
+docker build -t <image-name> .
+```
+
+- run
+
+```bash
+docker run --rm -p 9527:9527 -p 9528:9528 -v </path/config>:/config <image-name>
+```
+
 ## Bugs and Feedback
 
 For bug report, questions and discussions please submit an issue.
