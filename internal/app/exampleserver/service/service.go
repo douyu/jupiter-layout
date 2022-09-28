@@ -3,7 +3,6 @@ package service
 import (
 	"context"
 
-	commonv1 "github.com/douyu/jupiter-layout/gen/api/go/common/v1"
 	helloworldv1 "github.com/douyu/jupiter-layout/gen/api/go/helloworld/v1"
 	"github.com/douyu/jupiter-layout/internal/pkg/grpc"
 	"github.com/douyu/jupiter-layout/internal/pkg/mysql"
@@ -41,20 +40,17 @@ func NewHelloWorldService(options Options) *HelloWorld {
 }
 
 func (s *HelloWorld) SayHello(ctx context.Context, req *helloworldv1.SayHelloRequest) (*helloworldv1.SayHelloResponse, error) {
-	xlog.FromContext(ctx).Warn("SayHello started", zap.String("name", req.GetName()))
+	xlog.L(ctx).Info("SayHello started", zap.String("name", req.GetName()))
 
 	if req.GetName() == "" {
 		return nil, xerror.InvalidArgument.WithMsg("name参数错误")
 	}
 
-	err := s.ExampleGrpc.SayHello(ctx)
+	resp, err := s.ExampleGrpc.SayHello(ctx, &helloworldv1.SayHelloRequest{})
 	if err != nil {
+		xlog.L(ctx).Error("sayHello failed", zap.Error(err), zap.Any("res", resp), zap.Any("req", req))
 		return nil, err
 	}
 
-	return &helloworldv1.SayHelloResponse{
-		Data: &commonv1.CommonData{
-			Message: "hello world",
-		},
-	}, nil
+	return resp, nil
 }

@@ -5,6 +5,8 @@ package mocks
 import (
 	context "context"
 
+	helloworldv1 "github.com/douyu/jupiter-layout/gen/api/go/helloworld/v1"
+
 	mock "github.com/stretchr/testify/mock"
 )
 
@@ -13,18 +15,27 @@ type ExampleInterface struct {
 	mock.Mock
 }
 
-// SayHello provides a mock function with given fields: ctx
-func (_m *ExampleInterface) SayHello(ctx context.Context) error {
-	ret := _m.Called(ctx)
+// SayHello provides a mock function with given fields: ctx, req
+func (_m *ExampleInterface) SayHello(ctx context.Context, req *helloworldv1.SayHelloRequest) (*helloworldv1.SayHelloResponse, error) {
+	ret := _m.Called(ctx, req)
 
-	var r0 error
-	if rf, ok := ret.Get(0).(func(context.Context) error); ok {
-		r0 = rf(ctx)
+	var r0 *helloworldv1.SayHelloResponse
+	if rf, ok := ret.Get(0).(func(context.Context, *helloworldv1.SayHelloRequest) *helloworldv1.SayHelloResponse); ok {
+		r0 = rf(ctx, req)
 	} else {
-		r0 = ret.Error(0)
+		if ret.Get(0) != nil {
+			r0 = ret.Get(0).(*helloworldv1.SayHelloResponse)
+		}
 	}
 
-	return r0
+	var r1 error
+	if rf, ok := ret.Get(1).(func(context.Context, *helloworldv1.SayHelloRequest) error); ok {
+		r1 = rf(ctx, req)
+	} else {
+		r1 = ret.Error(1)
+	}
+
+	return r0, r1
 }
 
 type mockConstructorTestingTNewExampleInterface interface {

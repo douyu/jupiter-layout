@@ -2,7 +2,7 @@
     configKey = "jupiter.etcdv3.local"
 
 [jupiter.etcdv3.local]
-    endpoints = ["http://0.0.0.0:2379"]
+    endpoints = ["http://127.0.0.1:2379"]
     timeout = "3s"
 
 [jupiter.server]
@@ -14,11 +14,18 @@
     [jupiter.client.example]
         address = "127.0.0.1:9528"
         onDialError = "error"
+        block = false
 
 [jupiter.logger]
     [jupiter.logger.default]
+        debug = true
         level = "info"
         dir = "./logs/"
     [jupiter.logger.jupiter]
+        debug = true
         level = "info"
         dir = "./logs/"
+
+[jupiter.trace]
+    [jupiter.trace.jaeger]
+        sampler = 1

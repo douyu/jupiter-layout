@@ -18,6 +18,6 @@ type Example struct {
 
 func NewExample() ExampleInterface {
 	return &Example{
-		cc: gorm.StdConfig("example").Build(),
+		cc: gorm.StdConfig("example").MustBuild(),
 	}
 }

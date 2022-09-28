@@ -21,3 +21,6 @@ __debug_bin
 vendor/
 logs/
 data/broker/store/
+
+go.work
+go.work.sum
