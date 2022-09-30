@@ -5,7 +5,7 @@
         dir = "./logs/"
     [jupiter.logger.jupiter]
         debug = true
-        level = "debug"
+        level = "info"
         dir = "./logs/"
 
     [jupiter.trace.jaeger]
