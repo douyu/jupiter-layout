@@ -78,7 +78,10 @@ func (s *HelloWorld) SayHello(ctx context.Context, req *helloworldv1.SayHelloReq
 		}
 	}
 
-	s.ExampleRocketMQ.PushExampleMessage(ctx)
+	err = s.ExampleRocketMQ.PushExampleMessage(ctx)
+	if err != nil {
+		return nil, err
+	}
 
 	return resp, nil
 }

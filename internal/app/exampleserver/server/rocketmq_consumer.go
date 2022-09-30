@@ -21,7 +21,7 @@ func NewRocketMQ() *RocketMQ {
 
 func (ins *RocketMQ) Register() error {
 	ins.exampleConsumer.RegisterSingleMessage(func(ctx context.Context, me *primitive.MessageExt) error {
-		xlog.L(ctx).Info("message recieved", zap.Any("data", me))
+		xlog.L(ctx).Info("message received", zap.Any("data", me))
 
 		return nil
 	})
