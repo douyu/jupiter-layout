@@ -20,3 +20,10 @@ __debug_bin
 
 vendor/
 logs/
+data/broker/store/
+data/db/
+data/cache/
+data/namesrv/
+
+go.work
+go.work.sum

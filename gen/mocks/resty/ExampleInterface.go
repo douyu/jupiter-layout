@@ -13,8 +13,8 @@ type ExampleInterface struct {
 	mock.Mock
 }
 
-// Info provides a mock function with given fields: ctx
-func (_m *ExampleInterface) Info(ctx context.Context) (string, error) {
+// SayHello provides a mock function with given fields: ctx
+func (_m *ExampleInterface) SayHello(ctx context.Context) (string, error) {
 	ret := _m.Called(ctx)
 
 	var r0 string

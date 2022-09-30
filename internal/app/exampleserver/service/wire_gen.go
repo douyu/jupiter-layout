@@ -8,14 +8,23 @@ package service
 
 import (
 	"github.com/douyu/jupiter-layout/internal/pkg/grpc"
+	"github.com/douyu/jupiter-layout/internal/pkg/mysql"
+	"github.com/douyu/jupiter-layout/internal/pkg/resty"
+	"github.com/douyu/jupiter-layout/internal/pkg/rocketmq"
 )
 
 // Injectors from wire.go:
 
 func createMockHelloWorldService() *HelloWorld {
 	exampleInterface := grpc.NewExample()
+	mysqlExampleInterface := mysql.NewExample()
+	restyExampleInterface := resty.NewExample()
+	rocketmqExampleInterface := rocketmq.NewInstance()
 	options := Options{
-		ExampleGrpc: exampleInterface,
+		ExampleGrpc:     exampleInterface,
+		ExampleMysql:    mysqlExampleInterface,
+		ExampleResty:    restyExampleInterface,
+		ExampleRocketMQ: rocketmqExampleInterface,
 	}
 	helloWorld := NewHelloWorldService(options)
 	return helloWorld

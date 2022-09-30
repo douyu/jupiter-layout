@@ -1,6 +1,8 @@
 package redis
 
 import (
+	"context"
+
 	"github.com/douyu/jupiter/pkg/client/redis"
 
 	"github.com/google/wire"
@@ -11,9 +13,6 @@ var ProviderSet = wire.NewSet(
 	NewExample,
 )
 
-type ExampleInterface interface {
-}
-
 type Example struct {
 	cc *redis.Redis
 }
@@ -22,4 +21,8 @@ func NewExample() ExampleInterface {
 	return &Example{
 		cc: redis.StdRedisConfig("example").Build(),
 	}
+}
+
+func (s *Example) Info(ctx context.Context) (string, error) {
+	return s.cc.Stub().WithContext(ctx).Info().Result()
 }

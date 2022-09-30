@@ -4,9 +4,11 @@ package grpc
 
 import (
 	"context"
+
+	helloworldv1 "github.com/douyu/jupiter-layout/gen/api/go/helloworld/v1"
 )
 
 // ExampleInterface ...
 type ExampleInterface interface {
-	SayHello(ctx context.Context) error
+	SayHello(ctx context.Context, req *helloworldv1.SayHelloRequest) (*helloworldv1.SayHelloResponse, error)
 }

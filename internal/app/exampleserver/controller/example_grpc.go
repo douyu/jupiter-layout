@@ -31,5 +31,7 @@ func (s *HelloWorldGRPC) SayHello(ctx context.Context, req *helloworldv1.SayHell
 		}, nil
 	}
 
-	return res, nil
+	return &helloworldv1.SayHelloResponse{
+		Data: res,
+	}, nil
 }

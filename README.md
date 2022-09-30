@@ -1,12 +1,12 @@
 [Jupiter](https://github.com/douyu/jupiter) 项目模板
-================
+===
 
 [![GoTest](https://github.com/douyu/jupiter-layout/workflows/Go/badge.svg)](https://github.com/douyu/jupiter-layout/actions)
 [![Go Report Card](https://goreportcard.com/badge/github.com/douyu/jupiter-layout)](https://goreportcard.com/report/github.com/douyu/jupiter-layout)
 ![license](https://img.shields.io/badge/license-Apache--2.0-green.svg)
 
 概念
-----
+---
 
 * 单仓库多应用
 * 依赖注入
@@ -15,19 +15,15 @@
 * 高内聚低耦合
 
 安装依赖
---------
+---
 
 ```bash
 go install -v github.com/douyu/jupiter/cmd/jupiter@latest
-go install -v github.com/google/wire/cmd/wire@v0.5.0
-go install -v github.com/vektra/mockery/v2@v2.14.0
-go install -v github.com/bufbuild/buf/cmd/buf@v1.6.0
-go install -v github.com/onsi/ginkgo/v2/ginkgo@v2.1.3
-go install -v github.com/fullstorydev/grpcurl/cmd/grpcurl@v1.8.7
+jupter init
 ```
 
 初始化
-------
+---
 
 ```bash
 jupiter new testproject-go
@@ -36,13 +32,13 @@ go mod tidy -v
 ```
 
 生成依赖代码
-------------
+---
 
 ```bash
 go generate
 ```
 
-```
+```bash
 struct2interface: internal/pkg/grpc: wrote internal/pkg/grpc/interface_Example.go
 wire: github.com/douyu/jupiter-layout/internal/exampleserver/service: wrote /home/liqi/workspace/jupiter-layout/internal/exampleserver/service/wire_gen.go
 wire: github.com/douyu/jupiter-layout/internal/exampleserver/server: wrote /home/liqi/workspace/jupiter-layout/internal/exampleserver/server/wire_gen.go
@@ -54,8 +50,15 @@ wire: github.com/douyu/jupiter-layout/tests/e2e: wrote /home/liqi/workspace/jupi
 12 May 22 11:40 CST INF Generating mock dry-run=false interface=ExampleInterface qualified-name=github.com/douyu/jupiter-layout/internal/pkg/redis version=v2.10.4
 ```
 
+启动依赖中间件
+---
+
+```bash
+docker-compose up -d
+```
+
 运行项目
---------
+---
 
 * 启动，并监听文件变更自动重新构建
 
@@ -69,7 +72,7 @@ jupiter run -c cmd/exampleserver/.jupiter.toml
 go run ./cmd/exampleserver --config config/exampleserver/local-live.toml
 ```
 
-```
+```bash
 2022/05/11 15:57:51 read config: config/exampleserver/local-live.toml
 2022/05/11 15:57:51 load config successfully
 2022/05/11 15:57:51 hook config, init loggers
@@ -96,7 +99,7 @@ go run ./cmd/exampleserver --config config/exampleserver/local-live.toml
 ```
 
 测试接口
---------
+---
 
 * HTTP
 
@@ -122,25 +125,35 @@ grpcurl -import-path api -proto api/helloworld/v1/helloworld.proto -plaintext -d
 }
 ```
 
-## Docker
+Jaeger Admin
+---
 
-- build
+open [http://localhost:16686/search](http://localhost:16686/search) to checkout opentelemtry trace data.
+
+![](https://raw.githubusercontent.com/hnlq715/imgs-all-in-one/main/obsidian/%E6%88%AA%E5%B1%8F2022-09-30%2018.31.27.png)
+
+Docker
+---
+
+* build
 
 ```bash
 docker build -t <image-name> .
 ```
 
-- run
+* run
 
 ```bash
 docker run --rm -p 9527:9527 -p 9528:9528 -v </path/config>:/config <image-name>
 ```
 
-## Bugs and Feedback
+Bugs and Feedback
+---
 
 For bug report, questions and discussions please submit an issue.
 
-## Contributing
+Contributing
+---
 
 Contributions are always welcomed!
 
@@ -150,6 +163,7 @@ You can start with the issues labeled with good first issue.
   <img src="https://contrib.rocks/image?repo=douyu/jupiter-layout" />
 </a>
 
-## Contact
+Contact
+---
 
-- [Wechat Group](https://jupiter.douyu.com/join/#%E5%BE%AE%E4%BF%A1)
+* [Wechat Group](https://jupiter.douyu.com/join/#%E5%BE%AE%E4%BF%A1)
