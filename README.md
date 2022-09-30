@@ -50,6 +50,13 @@ wire: github.com/douyu/jupiter-layout/tests/e2e: wrote /home/liqi/workspace/jupi
 12 May 22 11:40 CST INF Generating mock dry-run=false interface=ExampleInterface qualified-name=github.com/douyu/jupiter-layout/internal/pkg/redis version=v2.10.4
 ```
 
+启动依赖中间件
+---
+
+```bash
+docker-compose up -d
+```
+
 运行项目
 ---
 
@@ -117,6 +124,13 @@ grpcurl -import-path api -proto api/helloworld/v1/helloworld.proto -plaintext -d
   }
 }
 ```
+
+Jaeger Admin
+---
+
+open [http://localhost:16686/search](http://localhost:16686/search) to checkout opentelemtry trace data.
+
+![](https://raw.githubusercontent.com/hnlq715/imgs-all-in-one/main/obsidian/%E6%88%AA%E5%B1%8F2022-09-30%2018.31.27.png)
 
 Docker
 ---
