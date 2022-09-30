@@ -7,7 +7,7 @@ require (
 	github.com/apache/rocketmq-client-go/v2 v2.1.1
 	github.com/douyu/jupiter v0.6.4
 	github.com/google/wire v0.5.0
-	github.com/labstack/echo/v4 v4.6.3
+	github.com/labstack/echo/v4 v4.1.16
 	github.com/onsi/ginkgo/v2 v2.2.0
 	github.com/onsi/gomega v1.20.2
 	github.com/stretchr/testify v1.8.0
