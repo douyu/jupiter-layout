@@ -14,8 +14,14 @@ type Example struct {
 }
 
 func NewInstance() ExampleInterface {
+	example := rocketmq.StdProducerConfig("example").Build()
+	err := example.Start()
+	if err != nil {
+		panic(err)
+	}
+
 	return &Example{
-		exampleProducer: rocketmq.StdProducerConfig("example").Build(),
+		exampleProducer: example,
 	}
 }
 

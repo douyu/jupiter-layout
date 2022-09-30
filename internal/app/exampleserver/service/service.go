@@ -68,13 +68,14 @@ func (s *HelloWorld) SayHello(ctx context.Context, req *helloworldv1.SayHelloReq
 			Name: "done",
 		})
 		if err != nil {
-			xlog.L(ctx).Error("sayHello failed", zap.Error(err), zap.Any("res", resp), zap.Any("req", req))
-			return nil, err
+			xlog.L(ctx).Error("ExampleGrpc.SayHello failed", zap.Error(err), zap.Any("res", resp), zap.Any("req", req))
+			// return nil, err
 		}
 
 		_, err = s.ExampleResty.SayHello(ctx)
 		if err != nil {
-			return nil, err
+			xlog.L(ctx).Error("ExampleResty.SayHello failed", zap.Error(err), zap.Any("res", resp), zap.Any("req", req))
+			// return nil, err
 		}
 	}
 
