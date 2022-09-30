@@ -3,6 +3,7 @@ package service
 import (
 	"context"
 
+	commonv1 "github.com/douyu/jupiter-layout/gen/api/go/common/v1"
 	helloworldv1 "github.com/douyu/jupiter-layout/gen/api/go/helloworld/v1"
 	"github.com/douyu/jupiter-layout/internal/pkg/grpc"
 	"github.com/douyu/jupiter-layout/internal/pkg/mysql"
@@ -43,7 +44,7 @@ func NewHelloWorldService(options Options) *HelloWorld {
 	}
 }
 
-func (s *HelloWorld) SayHello(ctx context.Context, req *helloworldv1.SayHelloRequest) (*helloworldv1.SayHelloResponse, error) {
+func (s *HelloWorld) SayHello(ctx context.Context, req *helloworldv1.SayHelloRequest) (*commonv1.CommonData, error) {
 	xlog.L(ctx).Info("SayHello started", zap.String("name", req.GetName()))
 
 	if req.GetName() == "" {
@@ -55,7 +56,10 @@ func (s *HelloWorld) SayHello(ctx context.Context, req *helloworldv1.SayHelloReq
 		return nil, err
 	}
 
-	resp := new(helloworldv1.SayHelloResponse)
+	resp := &commonv1.CommonData{
+		Message: "hello " + req.GetName(),
+	}
+
 	if req.Name != "done" {
 		resp, err := s.ExampleGrpc.SayHello(ctx, &helloworldv1.SayHelloRequest{
 			Name: "done",
@@ -69,7 +73,6 @@ func (s *HelloWorld) SayHello(ctx context.Context, req *helloworldv1.SayHelloReq
 		if err != nil {
 			return nil, err
 		}
-
 	}
 
 	return resp, nil
