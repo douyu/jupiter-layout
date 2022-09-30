@@ -19,7 +19,7 @@
 
 ```bash
 go install -v github.com/douyu/jupiter/cmd/jupiter@latest
-jupter init
+jupiter init
 ```
 
 初始化
