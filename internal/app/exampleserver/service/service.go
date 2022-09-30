@@ -7,6 +7,7 @@ import (
 	helloworldv1 "github.com/douyu/jupiter-layout/gen/api/go/helloworld/v1"
 	"github.com/douyu/jupiter-layout/internal/pkg/grpc"
 	"github.com/douyu/jupiter-layout/internal/pkg/mysql"
+	"github.com/douyu/jupiter-layout/internal/pkg/rocketmq"
 
 	// "github.com/douyu/jupiter-layout/internal/pkg/redis"
 	"github.com/douyu/jupiter-layout/internal/pkg/resty"
@@ -23,6 +24,7 @@ var ProviderSet = wire.NewSet(
 	mysql.ProviderSet,
 	grpc.ProviderSet,
 	resty.ProviderSet,
+	rocketmq.ProviderSet,
 )
 
 // Options wireservice
@@ -30,7 +32,8 @@ type Options struct {
 	ExampleGrpc  grpc.ExampleInterface
 	ExampleMysql mysql.ExampleInterface
 	// ExampleRedis redis.ExampleInterface
-	ExampleResty resty.ExampleInterface
+	ExampleResty    resty.ExampleInterface
+	ExampleRocketMQ rocketmq.ExampleInterface
 }
 
 type HelloWorld struct {
@@ -74,6 +77,8 @@ func (s *HelloWorld) SayHello(ctx context.Context, req *helloworldv1.SayHelloReq
 			return nil, err
 		}
 	}
+
+	s.ExampleRocketMQ.PushExampleMessage(ctx)
 
 	return resp, nil
 }

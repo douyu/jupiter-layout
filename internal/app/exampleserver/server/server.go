@@ -11,14 +11,18 @@ var ProviderSet = wire.NewSet(
 	wire.Struct(new(controller.Options), "*"),
 	NewGrpcServer,
 	NewHttpServer,
+	NewRocketMQ,
 )
 
 type Options struct {
-	http *HttpServer
-	grpc *GrpcServer
+	http     *HttpServer
+	grpc     *GrpcServer
+	rocketmq *RocketMQ
 }
 
 func initApp(app *jupiter.Application, opts Options) error {
+	app.SetRegistry(etcdv3.StdConfig("etcdv3").MustBuild())
+
 	// http
 	if err := app.Serve(opts.http); err != nil {
 		return err
@@ -29,7 +33,10 @@ func initApp(app *jupiter.Application, opts Options) error {
 		return err
 	}
 
-	app.SetRegistry(etcdv3.StdConfig("etcdv3").MustBuild())
+	// rocketmq
+	if err := opts.rocketmq.Register(); err != nil {
+		return err
+	}
 
 	return nil
 }

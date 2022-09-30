@@ -5,7 +5,6 @@ package e2e
 
 import (
 	"github.com/douyu/jupiter-layout/internal/app/exampleserver/service"
-	// "github.com/douyu/jupiter-layout/internal/pkg/redis"
 	"github.com/google/wire"
 )
 

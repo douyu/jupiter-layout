@@ -12,6 +12,7 @@ import (
 	"github.com/douyu/jupiter-layout/internal/pkg/grpc"
 	"github.com/douyu/jupiter-layout/internal/pkg/mysql"
 	"github.com/douyu/jupiter-layout/internal/pkg/resty"
+	"github.com/douyu/jupiter-layout/internal/pkg/rocketmq"
 	"github.com/douyu/jupiter/pkg/application"
 )
 
@@ -21,10 +22,12 @@ func InitApp(app *application.Application) error {
 	exampleInterface := grpc.NewExample()
 	mysqlExampleInterface := mysql.NewExample()
 	restyExampleInterface := resty.NewExample()
+	rocketmqExampleInterface := rocketmq.NewInstance()
 	options := service.Options{
-		ExampleGrpc:  exampleInterface,
-		ExampleMysql: mysqlExampleInterface,
-		ExampleResty: restyExampleInterface,
+		ExampleGrpc:     exampleInterface,
+		ExampleMysql:    mysqlExampleInterface,
+		ExampleResty:    restyExampleInterface,
+		ExampleRocketMQ: rocketmqExampleInterface,
 	}
 	helloWorld := service.NewHelloWorldService(options)
 	helloWorldHTTP := controller.NewHelloWorldHTTPController(helloWorld)
@@ -35,9 +38,11 @@ func InitApp(app *application.Application) error {
 	}
 	httpServer := NewHttpServer(controllerOptions)
 	grpcServer := NewGrpcServer(controllerOptions)
+	rocketMQ := NewRocketMQ()
 	serverOptions := Options{
-		http: httpServer,
-		grpc: grpcServer,
+		http:     httpServer,
+		grpc:     grpcServer,
+		rocketmq: rocketMQ,
 	}
 	error2 := initApp(app, serverOptions)
 	return error2

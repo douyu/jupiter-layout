@@ -1,9 +1,22 @@
-[jupiter.registry.etcdv3]
-    configKey = "jupiter.etcdv3.local"
+[jupiter]
+    [jupiter.logger.default]
+        debug = true
+        level = "info"
+        dir = "./logs/"
+    [jupiter.logger.jupiter]
+        debug = true
+        level = "debug"
+        dir = "./logs/"
 
-[jupiter.etcdv3.local]
-    endpoints = ["http://127.0.0.1:2379"]
-    timeout = "3s"
+    [jupiter.trace.jaeger]
+        sampler = 1
+
+    [jupiter.registry.etcdv3]
+        configKey = "jupiter.etcdv3.local"
+
+    [jupiter.etcdv3.local]
+        endpoints = ["http://127.0.0.1:2379"]
+        timeout = "3s"
 
 [jupiter.server]
     [jupiter.server.http]
@@ -11,6 +24,7 @@
     [jupiter.server.grpc]
         port = 9528
 
+[jupiter.client]
     [jupiter.client.example]
         address = "127.0.0.1:9528"
         onDialError = "error"
@@ -25,21 +39,27 @@
         slowThreshold = "400ms"
         dialTimeout = "1s"
 
-        # [jupiter.redis.example]
-        #     addrs = ["127.0.0.1:6379"]
+    [jupiter.rocketmq.example]
+        [jupiter.rocketmq.example.consumer]
+            enable = true
+            addr = ["10.1.41.171:9876"]
+            group = "testGroup"
+            dialTimeout = "3s"
+            rwTimeout = "3s"
+            topic = "DefaultCluster"
+            subExpression = "*"
+            rate = 100
+            enableTrace = true
+        [jupiter.rocketmq.example.producer]
+            group = "testGroup"
+            addr = ["10.1.41.171:9876"]
+            dialTimeout = "3s"
+            rwTimeout = "3s"
+            topic = "DefaultCluster"
+            enableTrace = true
 
-    [jupiter.resty.example]
-        addr = "http://127.0.0.1:9527"
-[jupiter.logger]
-    [jupiter.logger.default]
-        debug = true
-        level = "info"
-        dir = "./logs/"
-    [jupiter.logger.jupiter]
-        debug = true
-        level = "info"
-        dir = "./logs/"
+[jupiter.resty.example]
+    addr = "http://127.0.0.1:9527"
 
-[jupiter.trace]
-    [jupiter.trace.jaeger]
-        sampler = 1
+    # [jupiter.redis.example]
+    #     addrs = ["127.0.0.1:6379"]

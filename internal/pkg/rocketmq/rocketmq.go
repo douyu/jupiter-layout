@@ -1,15 +1,24 @@
 package rocketmq
 
 import (
+	"context"
+
 	"github.com/douyu/jupiter/pkg/client/rocketmq"
+	"github.com/google/wire"
 )
 
-type Instance struct {
-	pushConsumer *rocketmq.PushConsumer
+var ProviderSet = wire.NewSet(NewInstance)
+
+type Example struct {
+	exampleProducer *rocketmq.Producer
 }
 
-func NewInstance() *Instance {
-	return &Instance{
-		pushConsumer: rocketmq.StdPushConsumerConfig("example").Build(),
+func NewInstance() ExampleInterface {
+	return &Example{
+		exampleProducer: rocketmq.StdProducerConfig("example").Build(),
 	}
+}
+
+func (ins *Example) PushExampleMessage(ctx context.Context) error {
+	return ins.exampleProducer.SendWithContext(ctx, []byte("hello world"))
 }
