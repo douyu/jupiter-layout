@@ -42,7 +42,7 @@
     [jupiter.rocketmq.example]
         [jupiter.rocketmq.example.consumer]
             enable = true
-            addr = ["10.1.41.171:9876"]
+            addr = ["127.0.0.1:9876"]
             group = "testGroup"
             dialTimeout = "3s"
             rwTimeout = "3s"
@@ -52,7 +52,7 @@
             enableTrace = true
         [jupiter.rocketmq.example.producer]
             group = "testGroup"
-            addr = ["10.1.41.171:9876"]
+            addr = ["127.0.0.1:9876"]
             dialTimeout = "3s"
             rwTimeout = "3s"
             topic = "DefaultCluster"
