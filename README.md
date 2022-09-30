@@ -130,7 +130,7 @@ Jaeger Admin
 
 open [http://localhost:16686/search](http://localhost:16686/search) to checkout opentelemtry trace data.
 
-![](https://raw.githubusercontent.com/hnlq715/imgs-all-in-one/main/obsidian/%E6%88%AA%E5%B1%8F2022-09-30%2018.31.27.png)
+![Jaeger](https://raw.githubusercontent.com/hnlq715/imgs-all-in-one/main/obsidian/%E6%88%AA%E5%B1%8F2022-09-30%2018.31.27.png)
 
 Docker
 ---
