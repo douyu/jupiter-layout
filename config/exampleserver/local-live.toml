@@ -31,7 +31,7 @@
         block = false
 
     [jupiter.mysql.example]
-        dsn = "root:123456@tcp(127.0.0.1:3306)/jupiter?timeout=20s&readTimeout=20s"
+        dsn = "root:root@tcp(127.0.0.1:3306)/juno?timeout=20s&readTimeout=20s"
         debug = true
         maxIdleConns = 50
         connMaxLifeTime = "20m"

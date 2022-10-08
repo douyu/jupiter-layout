@@ -1,23 +1,23 @@
 
 [app]
-  secretKey = "ASDFASDFASDF"
+    secretKey = "ASDFASDFASDF"
 
 [confgo]
-  dir = "/tmp/www/server"
-  prefix = "juno-agent"
+    dir = "/tmp/www/server"
+    prefix = "juno-agent"
 
-  [confgo.agent]
-    port = 50010
+    [confgo.agent]
+        port = 50010
 
 
 [logger.system]
-    debug = false          # 是否在命令行输出
+    debug = false        # 是否在命令行输出
     level = "debug"
     async = true
     name = "system.json" # 日志名称
     dir = "."
 [logger.biz]
-    debug = false          # 是否在命令行输出
+    debug = false     # 是否在命令行输出
     level = "debug"
     async = false
     name = "biz.json" # 日志名称
@@ -25,9 +25,9 @@
 
 
 [register]
-    enable=true
+    enable = true
     connectTimeout = "1s"
-    endpoints=["127.0.0.1:2379"]
+    endpoints = ["etcd:2379"]
     secure = false
 
 
@@ -55,7 +55,7 @@
     debug = true
     addr = "stream"
     internal = "120s"
-    hostName = "JUNO_HOST" # 环境变量的名称，或者命令行参数的名称
+    hostName = "JUNO_HOST"     # 环境变量的名称，或者命令行参数的名称
     regionCode = "REGION_CODE" # 环境变量的名称，或者命令行参数的名称
     regionName = "REGION_NAME"
     zoneCode = "ZONE_CODE"
@@ -65,12 +65,12 @@
 [serverProxy.etcd]
     enable = true
     listenAddr = "127.0.0.1:52379"
-    endpoints = ["127.0.0.1:2379"]
+    endpoints = ["etcd:2379"]
     namespace = ""
     [serverProxy.etcd.tls]
-      cert = ""
-      key = ""
-      cacert = ""
+        cert = ""
+        key = ""
+        cacert = ""
 
 [serverProxy.prometheus]
     enable = true
