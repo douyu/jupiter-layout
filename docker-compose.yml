@@ -128,12 +128,19 @@ services:
       - 50004:50004
     volumes:
       - ./data/config/juno/:/root/juno/config
-      - ./data/config/wait-for.sh:/root/juno/wait-for.sh
-    command: sh -c '/root/juno/wait-for.sh mysql:3306 -- /root/juno/config/entry.sh'
     depends_on:
       - mysql
       - prometheus
       - etcd
+
+  juno-admin-init:
+    image: ghcr.io/douyu/juno-admin:latest
+    volumes:
+      - ./data/config/juno/:/root/juno/config
+      - ./data/config/wait-for.sh:/root/juno/wait-for.sh
+    command: sh -c '/root/juno/wait-for.sh mysql:3306 -- /root/juno/config/entry.sh'
+    depends_on:
+      - juno-admin
 
   juno-agent:
     image: ghcr.io/douyu/juno-agent:latest
