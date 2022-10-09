@@ -1,4 +1,10 @@
 version: '3.3'
+
+# jaeger: http://localhost:16686
+# prometheus: http://localhost:9090
+# grafana: http://localhost:3000
+# juno-admin: http://localhost:50002
+
 services:
   redis:
     image: redis:6.2-alpine
@@ -36,7 +42,7 @@ services:
         ]
       timeout: 20s
       retries: 10
-  # http://localhost:8080
+
   adminer:
     image: adminer
     restart: always
@@ -74,7 +80,7 @@ services:
     command: sh mqbroker -n namesrv:9876 -c ../conf/broker.conf
     depends_on:
       - namesrv
-  # http://localhost:19876
+
   mqconsole:
     image: styletang/rocketmq-console-ng
     ports:
@@ -83,6 +89,7 @@ services:
       JAVA_OPTS: -Drocketmq.namesrv.addr=namesrv:9876 -Dcom.rocketmq.sendMessageWithVIPChannel=falses
     depends_on:
       - namesrv
+
   jaeger:
     image: jaegertracing/all-in-one:1.32
     ports:
@@ -98,7 +105,6 @@ services:
     environment:
       COLLECTOR_ZIPKIN_HOST_PORT: :9411
 
-  # http://localhost:9090
   prometheus:
     image: prom/prometheus:latest
     restart: always
@@ -109,7 +115,6 @@ services:
     depends_on:
       - etcd
 
-  #http://localhost:3000
   grafana:
     image: grafana/grafana:latest
     restart: always
