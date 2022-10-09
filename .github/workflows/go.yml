@@ -27,6 +27,13 @@ jobs:
       - name: Check out code into the Go module directory
         uses: actions/checkout@v3.0.2
 
+      - name: Login to GitHub Container Registry
+        uses: docker/login-action@v1
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
       - name: docker-compose
         run: docker-compose up -d
 
