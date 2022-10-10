@@ -21,3 +21,8 @@ jobs:
         uses: golangci/golangci-lint-action@v3.2.0
         with:
           args: "--out-${NO_FUTURE}format colored-line-number"
+          skip-build-cache: false
+          skip-cache: false
+          skip-pkg-cache: false
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          only-new-issues: false
