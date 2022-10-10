@@ -31,6 +31,13 @@ cd testproject-go
 go mod tidy -v
 ```
 
+启动依赖中间件
+---
+
+```bash
+docker-compose -f deployment/docker-compose.yml up
+```
+
 生成依赖代码
 ---
 
@@ -38,27 +45,14 @@ go mod tidy -v
 go generate
 ```
 
-```bash
-struct2interface: internal/pkg/grpc: wrote internal/pkg/grpc/interface_Example.go
-wire: github.com/douyu/jupiter-layout/internal/exampleserver/service: wrote /home/liqi/workspace/jupiter-layout/internal/exampleserver/service/wire_gen.go
-wire: github.com/douyu/jupiter-layout/internal/exampleserver/server: wrote /home/liqi/workspace/jupiter-layout/internal/exampleserver/server/wire_gen.go
-wire: github.com/douyu/jupiter-layout/tests/e2e: wrote /home/liqi/workspace/jupiter-layout/tests/e2e/wire_gen.go
-12 May 22 11:40 CST INF Starting mockery dry-run=false version=v2.10.4
-12 May 22 11:40 CST INF Walking dry-run=false version=v2.10.4
-12 May 22 11:40 CST INF Generating mock dry-run=false interface=ExampleInterface qualified-name=github.com/douyu/jupiter-layout/internal/pkg/grpc version=v2.10.4
-12 May 22 11:40 CST INF Generating mock dry-run=false interface=ExampleInterface qualified-name=github.com/douyu/jupiter-layout/internal/pkg/mysql version=v2.10.4
-12 May 22 11:40 CST INF Generating mock dry-run=false interface=ExampleInterface qualified-name=github.com/douyu/jupiter-layout/internal/pkg/redis version=v2.10.4
-```
-
-启动依赖中间件
----
-
-```bash
-docker-compose up -d
-```
-
 运行项目
 ---
+
+* 【推荐】通过docker-compose启动服务，并监听文件变更自动重新构建
+
+```bash
+docker-compose up
+```
 
 * 启动，并监听文件变更自动重新构建
 
@@ -70,32 +64,6 @@ jupiter run -c cmd/exampleserver/.jupiter.toml
 
 ```bash
 go run ./cmd/exampleserver --config config/exampleserver/local-live.toml
-```
-
-```bash
-2022/05/11 15:57:51 read config: config/exampleserver/local-live.toml
-2022/05/11 15:57:51 load config successfully
-2022/05/11 15:57:51 hook config, init loggers
-2022/05/11 15:57:51 reload default logger with configKey: jupiter.logger.default
-2022/05/11 15:57:51 reload default logger with configKey: jupiter.logger.jupiter
-2022/05/11 15:57:51 hook config, init runtime(governor)
-2022/05/11 15:57:51 hook config, init registry
-2022/05/11 15:57:51 hook config, read registry config failed: jupiter.registry: invalid key, maybe not exist in config
-2022/05/11 15:57:51 hook config, init sentinel rules
-2022/05/11 15:57:51 load config from datasource[config/exampleserver/local-live.toml] completely!
-
-   (_)_   _ _ __ (_) |_ ___ _ __
-   | | | | | '_ \| | __/ _ \ '__|
-   | | |_| | |_) | | ||  __/ |
-  _/ |\__,_| .__/|_|\__\___|_|
- |__/      |_|
-
- Welcome to jupiter, starting application ...
-
-1652255874      INFO    init listen signal                      {"mod": "app", "event": "init"}
-⇨ http server started on 127.0.0.1:9527
-1652255875      INFO    start server                            {"mod": "app", "event": "init", "name": "exampleserver", "addr": "grpc://127.0.0.1:9528", "scheme": "grpc"}
-1652255875      INFO    start server                            {"mod": "app", "event": "init", "name": "exampleserver", "addr": "http://127.0.0.1:9527", "scheme": "http"}
 ```
 
 测试接口
@@ -131,21 +99,6 @@ Jaeger Admin
 open [http://localhost:16686/search](http://localhost:16686/search) to checkout opentelemtry trace data.
 
 ![Jaeger](https://raw.githubusercontent.com/hnlq715/imgs-all-in-one/main/obsidian/%E6%88%AA%E5%B1%8F2022-09-30%2018.31.27.png)
-
-Docker
----
-
-* build
-
-```bash
-docker build -t <image-name> .
-```
-
-* run
-
-```bash
-docker run --rm -p 9527:9527 -p 9528:9528 -v </path/config>:/config <image-name>
-```
 
 Bugs and Feedback
 ---
