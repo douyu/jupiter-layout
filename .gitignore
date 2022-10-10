@@ -24,6 +24,7 @@ data/broker/store/
 data/db/
 data/cache/
 data/namesrv/
+data/mysql/
 
 go.work
 go.work.sum
