@@ -44,7 +44,7 @@ services:
       retries: 10
 
   adminer:
-    image: adminer
+    image: adminer:4.8.1
     restart: always
     ports:
       - 8080:8080
@@ -82,7 +82,7 @@ services:
       - namesrv
 
   mqconsole:
-    image: styletang/rocketmq-console-ng
+    image: apacherocketmq/rocketmq-dashboard:1.0.0
     ports:
       - 19876:8080
     environment:
