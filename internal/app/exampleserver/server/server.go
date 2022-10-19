@@ -3,7 +3,7 @@ package server
 import (
 	"github.com/douyu/jupiter"
 	"github.com/douyu/jupiter-layout/internal/app/exampleserver/controller"
-	"github.com/douyu/jupiter/pkg/registry/etcdv3"
+	"github.com/douyu/jupiter/pkg/governor"
 	"github.com/google/wire"
 )
 
@@ -21,7 +21,11 @@ type Options struct {
 }
 
 func initApp(app *jupiter.Application, opts Options) error {
-	app.SetRegistry(etcdv3.StdConfig("etcdv3").MustBuild())
+
+	// governor
+	if err := app.Serve(governor.StdConfig("govern").Build()); err != nil {
+		return err
+	}
 
 	// http
 	if err := app.Serve(opts.http); err != nil {

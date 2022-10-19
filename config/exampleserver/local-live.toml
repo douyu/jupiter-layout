@@ -1,31 +1,30 @@
-[jupiter]
-    [jupiter.logger.default]
-        debug = true
-        level = "info"
-        dir = "./logs/"
-    [jupiter.logger.jupiter]
-        debug = true
-        level = "info"
-        dir = "./logs/"
+[jupiter.registry.default]
+    endpoints = ["etcd-naming.dz11.com:2379"]
+    timeout = "3s"
 
-    [jupiter.trace.jaeger]
-        sampler = 1
+[jupiter.logger.default]
+    debug = true
+    level = "info"
+    dir = "./logs/"
+[jupiter.logger.jupiter]
+    debug = true
+    level = "info"
+    dir = "./logs/"
 
-    [jupiter.registry.etcdv3]
-        configKey = "jupiter.etcdv3.local"
-
-    [jupiter.etcdv3.local]
-        endpoints = ["http://127.0.0.1:2379"]
-        timeout = "3s"
+[jupiter.trace.jaeger]
+    endpoint = "http://localhost:14268/api/traces"
+    sampler = 1
 
 [jupiter.server]
     [jupiter.server.http]
         port = 9527
     [jupiter.server.grpc]
         port = 9528
+    [jupiter.server.govern]
+        port = 9529
 
-[jupiter.client]
-    [jupiter.client.example]
+[jupiter.grpc]
+    [jupiter.grpc.example]
         address = "127.0.0.1:9528"
         onDialError = "error"
         block = false
