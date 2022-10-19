@@ -1,5 +1,5 @@
 [jupiter.registry.default]
-    endpoints = ["etcd-naming.dz11.com:2379"]
+    endpoints = ["localhost:2379"]
     timeout = "3s"
 
 [jupiter.logger.default]
