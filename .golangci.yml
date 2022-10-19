@@ -13,14 +13,14 @@ run:
 
 linters:
   enable:
-    - deadcode
+    # - deadcode
     - govet
     - ineffassign
     - staticcheck
-    - structcheck
-    # - typecheck
+    # - structcheck
+    - typecheck
     - unused
-    - varcheck
+    # - varcheck
     - bodyclose
     - depguard
     - goconst

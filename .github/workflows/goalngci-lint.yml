@@ -16,13 +16,13 @@ jobs:
     name: lint
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3.1.0
+      - uses: actions/checkout@v3.0.2
       - name: golangci-lint
         uses: golangci/golangci-lint-action@v3.2.0
         with:
           args: "--out-${NO_FUTURE}format colored-line-number"
-          # skip-build-cache: false
-          # skip-cache: false
-          # skip-pkg-cache: false
-          # github-token: ${{ secrets.GITHUB_TOKEN }}
-          # only-new-issues: false
+          skip-build-cache: false
+          skip-cache: false
+          skip-pkg-cache: false
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          only-new-issues: false
