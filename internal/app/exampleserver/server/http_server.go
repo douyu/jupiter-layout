@@ -8,7 +8,6 @@ import (
 
 type HttpServer struct {
 	*xecho.Server
-	controller.Options
 }
 
 func NewHttpServer(opts controller.Options) *HttpServer {
