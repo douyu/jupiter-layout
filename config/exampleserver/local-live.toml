@@ -1,19 +1,22 @@
-[jupiter.registry.default]
-    endpoints = ["localhost:2379"]
-    timeout = "3s"
+[jupiter]
+    mode = "local"
 
-[jupiter.logger.default]
-    debug = true
-    level = "info"
-    dir = "./logs/"
-[jupiter.logger.jupiter]
-    debug = true
-    level = "info"
-    dir = "./logs/"
+    [jupiter.registry.default]
+        endpoints = ["localhost:2379"]
+        timeout = "3s"
 
-[jupiter.trace.jaeger]
-    endpoint = "http://localhost:14268/api/traces"
-    sampler = 1
+    [jupiter.logger.default]
+        debug = true
+        level = "info"
+        dir = "./logs/"
+    [jupiter.logger.jupiter]
+        debug = true
+        level = "info"
+        dir = "./logs/"
+
+    [jupiter.trace.jaeger]
+        endpoint = "http://localhost:14268/api/traces"
+        sampler = 1
 
 [jupiter.server]
     [jupiter.server.http]
