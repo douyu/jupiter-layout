@@ -10,7 +10,6 @@ import (
 
 type GrpcServer struct {
 	*xgrpc.Server
-	controller.Options
 }
 
 func NewGrpcServer(opts controller.Options) *GrpcServer {

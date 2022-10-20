@@ -1,7 +1,7 @@
 run:
   timeout: 5m
   tests: false
-  
+
   skip-dirs:
     - .go/
 
@@ -9,17 +9,18 @@ run:
     - ".*pb.go"
 
   sort-results: true
+  go: "1.17"
 
 linters:
   enable:
-    - deadcode
+    # - deadcode
     - govet
     - ineffassign
     - staticcheck
-    - structcheck
+    # - structcheck
     - typecheck
     - unused
-    - varcheck
+    # - varcheck
     - bodyclose
     - depguard
     - goconst

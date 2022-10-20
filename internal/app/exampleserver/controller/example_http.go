@@ -7,7 +7,7 @@ import (
 	"github.com/douyu/jupiter-layout/internal/app/exampleserver/service"
 	"github.com/douyu/jupiter/pkg/util/xerror"
 	"github.com/douyu/jupiter/pkg/xlog"
-	"github.com/labstack/echo/v4"
+	echo "github.com/labstack/echo/v4"
 	"go.uber.org/zap"
 )
 
@@ -30,7 +30,7 @@ func (s *HelloWorldHTTP) SayHello(c echo.Context) error {
 
 	res, err := s.helloworld.SayHello(c.Request().Context(), req)
 	if err != nil {
-		xlog.FromContext(c.Request().Context()).Error("sayHello failed", zap.Error(err), zap.Any("res", res), zap.Any("req", req))
+		xlog.L(c.Request().Context()).Error("sayHello failed", zap.Error(err), zap.Any("res", res), zap.Any("req", req))
 		return c.JSON(http.StatusOK, err)
 	}
 
