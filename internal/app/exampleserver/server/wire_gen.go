@@ -38,10 +38,12 @@ func InitApp(app *application.Application) error {
 	}
 	httpServer := NewHttpServer(controllerOptions)
 	grpcServer := NewGrpcServer(controllerOptions)
+	server := NewGovernServer()
 	rocketMQ := NewRocketMQ()
 	serverOptions := Options{
 		http:     httpServer,
 		grpc:     grpcServer,
+		govern:   server,
 		rocketmq: rocketMQ,
 	}
 	error2 := initApp(app, serverOptions)
