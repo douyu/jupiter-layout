@@ -13,7 +13,7 @@ import (
 	"github.com/douyu/jupiter-layout/internal/pkg/mysql"
 	"github.com/douyu/jupiter-layout/internal/pkg/resty"
 	"github.com/douyu/jupiter-layout/internal/pkg/rocketmq"
-	"github.com/douyu/jupiter/pkg/application"
+	"github.com/douyu/jupiter/pkg/core/application"
 )
 
 // Injectors from wire.go:
