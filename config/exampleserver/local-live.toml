@@ -73,8 +73,8 @@
             idleTimeout="60s"
             enableAccessLog = true
             [jupiter.redisgo.example.stub.master]
-                addr="redis://:password@127.0.0.1:6379"
+                addr="redis://@127.0.0.1:6379"
             [jupiter.redisgo.example.stub.slaves]
                 addr=[
-                    "redis://:password@127.0.0.1:6379",
+                    "redis://@127.0.0.1:6379",
                 ]
