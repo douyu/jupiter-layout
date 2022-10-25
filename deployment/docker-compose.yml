@@ -73,6 +73,8 @@ services:
     # volumes:
     #   - ./data/namesrv/logs:/home/rocketmq/logs
     command: sh mqnamesrv
+    environment:
+      JAVA_OPT_EXT: -Xmx256m -Xms256m -Xmn128m
   broker:
     image: apacherocketmq/rocketmq:4.5.0
     restart: always
@@ -82,6 +84,8 @@ services:
       - 10912:10912
     volumes:
       - ./data/config/broker/broker.conf:/home/rocketmq/rocketmq-4.5.0/conf/broker.conf
+    environment:
+      JAVA_OPT_EXT: -Xmx256m -Xms256m -Xmn128m
     command: sh mqbroker -n namesrv:9876 -c ../conf/broker.conf
     depends_on:
       - namesrv
@@ -93,6 +97,7 @@ services:
       - 19876:8080
     environment:
       JAVA_OPTS: -Drocketmq.namesrv.addr=namesrv:9876 -Dcom.rocketmq.sendMessageWithVIPChannel=falses
+      JAVA_OPT_EXT: -Xmx256m -Xms256m -Xmn128m
     depends_on:
       - namesrv
 
