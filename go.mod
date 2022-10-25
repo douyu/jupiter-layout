@@ -3,7 +3,7 @@ module github.com/douyu/jupiter-layout
 go 1.18
 
 require (
-	github.com/BurntSushi/toml v1.2.0
+	github.com/BurntSushi/toml v1.2.1
 	github.com/apache/rocketmq-client-go/v2 v2.1.1
 	github.com/douyu/jupiter v0.8.0
 	github.com/google/wire v0.5.0
