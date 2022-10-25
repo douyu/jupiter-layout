@@ -5,8 +5,6 @@ package mocks
 import (
 	context "context"
 
-	helloworldv1 "github.com/douyu/jupiter-layout/gen/api/go/helloworld/v1"
-
 	mock "github.com/stretchr/testify/mock"
 )
 
@@ -15,22 +13,20 @@ type ExampleInterface struct {
 	mock.Mock
 }
 
-// SayHello provides a mock function with given fields: ctx, req
-func (_m *ExampleInterface) SayHello(ctx context.Context, req *helloworldv1.SayHelloRequest) (*helloworldv1.SayHelloResponse, error) {
-	ret := _m.Called(ctx, req)
+// Info provides a mock function with given fields: ctx
+func (_m *ExampleInterface) Info(ctx context.Context) (string, error) {
+	ret := _m.Called(ctx)
 
-	var r0 *helloworldv1.SayHelloResponse
-	if rf, ok := ret.Get(0).(func(context.Context, *helloworldv1.SayHelloRequest) *helloworldv1.SayHelloResponse); ok {
-		r0 = rf(ctx, req)
+	var r0 string
+	if rf, ok := ret.Get(0).(func(context.Context) string); ok {
+		r0 = rf(ctx)
 	} else {
-		if ret.Get(0) != nil {
-			r0 = ret.Get(0).(*helloworldv1.SayHelloResponse)
-		}
+		r0 = ret.Get(0).(string)
 	}
 
 	var r1 error
-	if rf, ok := ret.Get(1).(func(context.Context, *helloworldv1.SayHelloRequest) error); ok {
-		r1 = rf(ctx, req)
+	if rf, ok := ret.Get(1).(func(context.Context) error); ok {
+		r1 = rf(ctx)
 	} else {
 		r1 = ret.Error(1)
 	}

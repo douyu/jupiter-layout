@@ -3,6 +3,8 @@ package service
 import (
 	"context"
 
+	"github.com/douyu/jupiter-layout/internal/pkg/redisgo"
+
 	commonv1 "github.com/douyu/jupiter-layout/gen/api/go/common/v1"
 	helloworldv1 "github.com/douyu/jupiter-layout/gen/api/go/helloworld/v1"
 	"github.com/douyu/jupiter-layout/internal/pkg/grpc"
@@ -20,7 +22,7 @@ import (
 var ProviderSet = wire.NewSet(
 	NewHelloWorldService,
 	wire.Struct(new(Options), "*"),
-	// redis.ProviderSet,
+	redisgo.ProviderSet,
 	mysql.ProviderSet,
 	grpc.ProviderSet,
 	resty.ProviderSet,
@@ -29,9 +31,9 @@ var ProviderSet = wire.NewSet(
 
 // Options wireservice
 type Options struct {
-	ExampleGrpc  grpc.ExampleInterface
-	ExampleMysql mysql.ExampleInterface
-	// ExampleRedis redis.ExampleInterface
+	ExampleGrpc     grpc.ExampleInterface
+	ExampleMysql    mysql.ExampleInterface
+	ExampleRedis    redisgo.ExampleInterface
 	ExampleResty    resty.ExampleInterface
 	ExampleRocketMQ rocketmq.ExampleInterface
 }
@@ -71,7 +73,11 @@ func (s *HelloWorld) SayHello(ctx context.Context, req *helloworldv1.SayHelloReq
 			xlog.L(ctx).Error("ExampleGrpc.SayHello failed", zap.Error(err), zap.Any("res", resp), zap.Any("req", req))
 			// return nil, err
 		}
-
+		_, err = s.ExampleRedis.Info(ctx)
+		if err != nil {
+			xlog.L(ctx).Error("ExampleRedis.Info failed", zap.Error(err), zap.Any("res", resp), zap.Any("req", req))
+			// return nil, err
+		}
 		_, err = s.ExampleResty.SayHello(ctx)
 		if err != nil {
 			xlog.L(ctx).Error("ExampleResty.SayHello failed", zap.Error(err), zap.Any("res", resp), zap.Any("req", req))
