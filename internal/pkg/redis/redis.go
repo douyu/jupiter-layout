@@ -1,9 +1,7 @@
-package redisgo
+package redis
 
 import (
 	"context"
-
-	"github.com/go-redis/redis/v8"
 
 	"github.com/douyu/jupiter/pkg/client/redis"
 
@@ -21,7 +19,7 @@ type Example struct {
 
 func NewExample() ExampleInterface {
 	return &Example{
-		cc: redis.StdConfig("example").Build(),
+		cc: redis.StdConfig("example").MustSingleton(),
 	}
 }
 

@@ -3,12 +3,11 @@ package service
 import (
 	"context"
 
-	"github.com/douyu/jupiter-layout/internal/pkg/redisgo"
-
 	commonv1 "github.com/douyu/jupiter-layout/gen/api/go/common/v1"
 	helloworldv1 "github.com/douyu/jupiter-layout/gen/api/go/helloworld/v1"
 	"github.com/douyu/jupiter-layout/internal/pkg/grpc"
 	"github.com/douyu/jupiter-layout/internal/pkg/mysql"
+	"github.com/douyu/jupiter-layout/internal/pkg/redis"
 	"github.com/douyu/jupiter-layout/internal/pkg/rocketmq"
 
 	// "github.com/douyu/jupiter-layout/internal/pkg/redis"
@@ -22,7 +21,7 @@ import (
 var ProviderSet = wire.NewSet(
 	NewHelloWorldService,
 	wire.Struct(new(Options), "*"),
-	redisgo.ProviderSet,
+	redis.ProviderSet,
 	mysql.ProviderSet,
 	grpc.ProviderSet,
 	resty.ProviderSet,
@@ -33,7 +32,7 @@ var ProviderSet = wire.NewSet(
 type Options struct {
 	ExampleGrpc     grpc.ExampleInterface
 	ExampleMysql    mysql.ExampleInterface
-	ExampleRedis    redisgo.ExampleInterface
+	ExampleRedis    redis.ExampleInterface
 	ExampleResty    resty.ExampleInterface
 	ExampleRocketMQ rocketmq.ExampleInterface
 }
