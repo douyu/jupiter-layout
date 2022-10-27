@@ -14,6 +14,7 @@ import (
 )
 
 func TestMockSuites(t *testing.T) {
+	// load config
 	conf.LoadFromDataSource(file.NewDataSource("../../config/exampleserver/local-live.toml", false), toml.Unmarshal)
 
 	app := jupiter.DefaultApp()
@@ -21,6 +22,7 @@ func TestMockSuites(t *testing.T) {
 	go app.Run()
 	defer app.Stop()
 
+	// wait for server start
 	time.Sleep(time.Second)
 
 	RegisterFailHandler(Fail)
