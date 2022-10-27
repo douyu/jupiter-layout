@@ -6,12 +6,12 @@
         timeout = "3s"
 
     [jupiter.logger.default]
-        debug = true
-        level = "debug"
+        # debug = true
+        level = "info"
         dir = "./logs/"
     [jupiter.logger.jupiter]
-        debug = true
-        level = "debug"
+        # debug = true
+        level = "info"
         dir = "./logs/"
 
     [jupiter.trace.jaeger]
@@ -67,18 +67,16 @@
 [jupiter.resty.example]
     addr = "http://127.0.0.1:9527"
 
-    [jupiter.redis.example]
-        [jupiter.redis.example.stub]
-            debug=true
-            maxIdle=10
-            maxActive=50
-            dialTimeout="2s"
-            readTimeout="2s"
-            idleTimeout="60s"
-            enableAccessLog = true
-            [jupiter.redis.example.stub.master]
-                addr="redis://@127.0.0.1:6379"
-            [jupiter.redis.example.stub.slaves]
-                addr=[
-                    "redis://@127.0.0.1:6379",
-                ]
+[jupiter.redis.example]
+    [jupiter.redis.example.stub]
+        debug = true
+        maxIdle = 10
+        maxActive = 50
+        dialTimeout = "2s"
+        readTimeout = "2s"
+        idleTimeout = "60s"
+        enableAccessLog = true
+        [jupiter.redis.example.stub.master]
+            addr = "redis://@127.0.0.1:6379"
+        [jupiter.redis.example.stub.slaves]
+            addr = ["redis://@127.0.0.1:6379"]
