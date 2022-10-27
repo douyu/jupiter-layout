@@ -69,13 +69,13 @@
 
 [jupiter.redis.example]
     [jupiter.redis.example.stub]
-        debug = true
+        debug = false
         maxIdle = 10
         maxActive = 50
         dialTimeout = "2s"
         readTimeout = "2s"
         idleTimeout = "60s"
-        enableAccessLog = true
+        enableAccessLog = false
         [jupiter.redis.example.stub.master]
             addr = "redis://@127.0.0.1:6379"
         [jupiter.redis.example.stub.slaves]
