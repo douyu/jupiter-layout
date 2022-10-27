@@ -14,15 +14,15 @@ var ProviderSet = wire.NewSet(
 )
 
 type Example struct {
-	cc *redis.Redis
+	cc *redis.Client
 }
 
 func NewExample() ExampleInterface {
 	return &Example{
-		cc: redis.StdRedisConfig("example").Build(),
+		cc: redis.StdConfig("example").MustSingleton(),
 	}
 }
 
 func (s *Example) Info(ctx context.Context) (string, error) {
-	return s.cc.Stub().WithContext(ctx).Info().Result()
+	return s.cc.CmdOnMaster().Info(ctx).Result()
 }
