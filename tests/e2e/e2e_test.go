@@ -8,7 +8,8 @@ import (
 )
 
 func TestMockSuites(t *testing.T) {
-	startServer()
+	stop := startServer()
+	defer stop()
 
 	RegisterFailHandler(Fail)
 	RunSpecs(t, "mock test cases")
