@@ -4,7 +4,6 @@ import (
 	"context"
 
 	"github.com/douyu/jupiter/pkg/client/redis"
-
 	"github.com/google/wire"
 )
 

@@ -75,7 +75,7 @@ func (s *HelloWorld) SayHello(ctx context.Context, req *helloworldv1.SayHelloReq
 		_, err = s.ExampleRedis.Info(ctx)
 		if err != nil {
 			xlog.L(ctx).Error("ExampleRedis.Info failed", zap.Error(err), zap.Any("res", resp), zap.Any("req", req))
-			// return nil, err
+			return nil, err
 		}
 		_, err = s.ExampleResty.SayHello(ctx)
 		if err != nil {

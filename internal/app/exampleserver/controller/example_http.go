@@ -1,6 +1,7 @@
 package controller
 
 import (
+	"errors"
 	"net/http"
 
 	helloworldv1 "github.com/douyu/jupiter-layout/gen/api/go/helloworld/v1"
@@ -21,14 +22,50 @@ func NewHelloWorldHTTPController(helloworld *service.HelloWorld) *HelloWorldHTTP
 	}
 }
 
-func (s *HelloWorldHTTP) SayHello(c echo.Context) error {
-	name := c.QueryParam("name")
+type SayHelloRequest struct {
+	Name string `query:"name"`
+}
 
-	req := &helloworldv1.SayHelloRequest{
-		Name: name,
+type SayHelloRequestJSON struct {
+	Name string `json:"name"`
+}
+
+type SayHelloRequestForm struct {
+	Name string `form:"name"`
+}
+
+func (s *HelloWorldHTTP) SayHello(c echo.Context) error {
+	req := new(SayHelloRequest)
+	err := c.Bind(req)
+	if err != nil {
+		return err
 	}
 
-	res, err := s.helloworld.SayHello(c.Request().Context(), req)
+	jsonReq := new(SayHelloRequestJSON)
+	err = c.Bind(jsonReq)
+	if err != nil {
+		return err
+	}
+
+	if jsonReq.Name != "" {
+		xlog.L(c.Request().Context()).Error("should not pass", zap.Any("req", jsonReq))
+		return errors.New("invalid request")
+	}
+
+	formReq := new(SayHelloRequestForm)
+	err = c.Bind(formReq)
+	if err != nil {
+		return err
+	}
+
+	if formReq.Name != "" {
+		xlog.L(c.Request().Context()).Error("should not pass", zap.Any("req", formReq))
+		return errors.New("invalid request")
+	}
+
+	res, err := s.helloworld.SayHello(c.Request().Context(), &helloworldv1.SayHelloRequest{
+		Name: req.Name,
+	})
 	if err != nil {
 		xlog.L(c.Request().Context()).Error("sayHello failed", zap.Error(err), zap.Any("res", res), zap.Any("req", req))
 		return c.JSON(http.StatusOK, err)
