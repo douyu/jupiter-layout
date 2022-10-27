@@ -20,7 +20,6 @@
 
 ```bash
 go install -v github.com/douyu/jupiter/cmd/jupiter@latest
-jupiter init
 ```
 
 初始化
@@ -36,26 +35,27 @@ go mod tidy -v
 ---
 
 ```bash
-docker-compose -f deployment/docker-compose.yml up
+docker-compose -f deployment/docker-compose.yml up -d
 ```
 
 生成依赖代码
 ---
 
 ```bash
-go generate
+make init
+make generate
 ```
 
 运行项目
 ---
 
-* 【推荐】通过docker-compose启动服务，并监听文件变更自动重新构建
+* 通过docker-compose启动服务，并监听文件变更自动重新构建
 
 ```bash
 docker-compose up
 ```
 
-* 启动，并监听文件变更自动重新构建
+* 【推荐】启动，并监听文件变更自动重新构建
 
 ```bash
 jupiter run -c cmd/exampleserver/.jupiter.toml
