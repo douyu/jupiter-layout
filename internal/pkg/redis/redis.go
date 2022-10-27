@@ -3,7 +3,9 @@ package redisgo
 import (
 	"context"
 
-	"github.com/douyu/jupiter/pkg/client/redisgo"
+	"github.com/go-redis/redis/v8"
+
+	"github.com/douyu/jupiter/pkg/client/redis"
 
 	"github.com/google/wire"
 )
@@ -14,12 +16,12 @@ var ProviderSet = wire.NewSet(
 )
 
 type Example struct {
-	cc *redisgo.Client
+	cc *redis.Client
 }
 
 func NewExample() ExampleInterface {
 	return &Example{
-		cc: redisgo.StdConfig("example").Build(),
+		cc: redis.StdConfig("example").Build(),
 	}
 }
 
