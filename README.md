@@ -2,6 +2,7 @@
 ===
 
 [![GoTest](https://github.com/douyu/jupiter-layout/workflows/Go/badge.svg)](https://github.com/douyu/jupiter-layout/actions)
+[![codecov](https://codecov.io/gh/douyu/jupiter-layout/branch/main/graph/badge.svg?token=DO7GHMMELG)](https://codecov.io/gh/douyu/jupiter-layout)
 [![Go Report Card](https://goreportcard.com/badge/github.com/douyu/jupiter-layout)](https://goreportcard.com/report/github.com/douyu/jupiter-layout)
 ![license](https://img.shields.io/badge/license-Apache--2.0-green.svg)
 
