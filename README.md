@@ -34,6 +34,18 @@ go mod tidy -v
 启动依赖中间件
 ---
 
+* etcd
+* redis
+* mysql
+* grafana
+* prometheus
+* rocketmq
+* juno-admin
+* juno-agent
+* jaeger
+* otel-collector
+* uptrace
+
 ```bash
 docker-compose -f deployment/docker-compose.yml up -d
 ```
@@ -49,16 +61,22 @@ make generate
 运行项目
 ---
 
-* 通过docker-compose启动服务，并监听文件变更自动重新构建
+* 通过 Makefile 启动 exampleserver
 
 ```bash
-docker-compose up
+make run
 ```
 
-* 【推荐】启动，并监听文件变更自动重新构建
+* 启动，并监听文件变更自动重新构建
 
 ```bash
 jupiter run -c cmd/exampleserver/.jupiter.toml
+```
+
+* 通过 docker-compose 启动服务，并监听文件变更自动重新构建
+
+```bash
+docker-compose up
 ```
 
 * 仅启动
