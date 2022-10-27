@@ -63,8 +63,8 @@
 [jupiter.resty.example]
     addr = "http://127.0.0.1:9527"
 
-    [jupiter.redisgo.example]
-        [jupiter.redisgo.example.stub]
+    [jupiter.redis.example]
+        [jupiter.redis.example.stub]
             debug=true
             maxIdle=10
             maxActive=50
@@ -72,9 +72,9 @@
             readTimeout="2s"
             idleTimeout="60s"
             enableAccessLog = true
-            [jupiter.redisgo.example.stub.master]
+            [jupiter.redis.example.stub.master]
                 addr="redis://@127.0.0.1:6379"
-            [jupiter.redisgo.example.stub.slaves]
+            [jupiter.redis.example.stub.slaves]
                 addr=[
                     "redis://@127.0.0.1:6379",
                 ]
