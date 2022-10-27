@@ -37,6 +37,7 @@ go mod tidy -v
 * etcd
 * redis
 * mysql
+* clickhouse
 * grafana
 * prometheus
 * rocketmq
