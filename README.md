@@ -34,19 +34,6 @@ go mod tidy -v
 启动依赖中间件
 ---
 
-* etcd
-* redis
-* mysql
-* clickhouse
-* grafana
-* prometheus
-* rocketmq
-* juno-admin
-* juno-agent
-* jaeger
-* otel-collector
-* uptrace
-
 ```bash
 docker-compose -f deployment/docker-compose.yml up -d
 ```
