@@ -5,7 +5,7 @@ go 1.18
 require (
 	github.com/BurntSushi/toml v1.2.1
 	github.com/apache/rocketmq-client-go/v2 v2.1.1
-	github.com/douyu/jupiter v0.9.2
+	github.com/douyu/jupiter v0.9.3
 	github.com/go-resty/resty/v2 v2.7.0
 	github.com/google/wire v0.5.0
 	github.com/labstack/echo/v4 v4.9.1
