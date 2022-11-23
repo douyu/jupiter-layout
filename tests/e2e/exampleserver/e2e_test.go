@@ -1,4 +1,4 @@
-package e2e
+package exampleserver
 
 import (
 	"testing"
@@ -13,9 +13,9 @@ import (
 	. "github.com/onsi/gomega"
 )
 
-func TestMockSuites(t *testing.T) {
+func TestE2ESuites(t *testing.T) {
 	// load config
-	conf.LoadFromDataSource(file.NewDataSource("../../config/exampleserver/local-live.toml", false), toml.Unmarshal)
+	conf.LoadFromDataSource(file.NewDataSource("../../../config/exampleserver/local-live.toml", false), toml.Unmarshal)
 
 	app := jupiter.DefaultApp()
 	server.InitApp(app)
