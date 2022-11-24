@@ -6,15 +6,15 @@ import (
 	commonv1 "github.com/douyu/jupiter-layout/gen/api/go/common/v1"
 	helloworldv1 "github.com/douyu/jupiter-layout/gen/api/go/helloworld/v1"
 	"github.com/douyu/jupiter/pkg/core/tests"
-	. "github.com/onsi/ginkgo/v2"
+	"github.com/onsi/ginkgo/v2"
 )
 
-var _ = Describe("exampleServer", func() {
+var _ = ginkgo.Describe("exampleServer", func() {
 
-	DescribeTable("HTTP", func(htc tests.HTTPTestCase) {
+	ginkgo.DescribeTable("HTTP", func(htc tests.HTTPTestCase) {
 		tests.RunHTTPTestCase(htc)
 	},
-		Entry("SayHello", tests.HTTPTestCase{
+		ginkgo.Entry("SayHello", tests.HTTPTestCase{
 			Host:         "http://localhost:9527",
 			Method:       http.MethodGet,
 			Path:         "/",
@@ -24,10 +24,10 @@ var _ = Describe("exampleServer", func() {
 		}),
 	)
 
-	DescribeTable("GRPC", func(gtc tests.GRPCTestCase) {
+	ginkgo.DescribeTable("GRPC", func(gtc tests.GRPCTestCase) {
 		tests.RunGRPCTestCase(gtc)
 	},
-		Entry("SayHello", tests.GRPCTestCase{
+		ginkgo.Entry("SayHello", tests.GRPCTestCase{
 			Addr:   "localhost:9528",
 			Method: "/helloworld.v1.GreeterService/SayHello",
 			Args: &helloworldv1.SayHelloRequest{

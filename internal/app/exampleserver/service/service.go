@@ -3,6 +3,7 @@ package service
 import (
 	"context"
 
+	"github.com/apache/rocketmq-client-go/v2/primitive"
 	commonv1 "github.com/douyu/jupiter-layout/gen/api/go/common/v1"
 	helloworldv1 "github.com/douyu/jupiter-layout/gen/api/go/helloworld/v1"
 	"github.com/douyu/jupiter-layout/internal/pkg/grpc"
@@ -90,4 +91,8 @@ func (s *HelloWorld) SayHello(ctx context.Context, req *helloworldv1.SayHelloReq
 	}
 
 	return resp, nil
+}
+
+func (s *HelloWorld) ProcessConsumer(ctx context.Context, msg *primitive.MessageExt) error {
+	return nil
 }

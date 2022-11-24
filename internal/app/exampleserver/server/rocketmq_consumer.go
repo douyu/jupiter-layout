@@ -1,16 +1,14 @@
 package server
 
 import (
-	"context"
-
-	"github.com/apache/rocketmq-client-go/v2/primitive"
+	"github.com/douyu/jupiter-layout/internal/app/exampleserver/service"
 	"github.com/douyu/jupiter/pkg/client/rocketmq"
-	"github.com/douyu/jupiter/pkg/xlog"
-	"go.uber.org/zap"
 )
 
 type RocketMQ struct {
 	exampleConsumer *rocketmq.PushConsumer
+
+	exampleServerService *service.HelloWorld
 }
 
 func NewRocketMQ() *RocketMQ {
@@ -20,10 +18,8 @@ func NewRocketMQ() *RocketMQ {
 }
 
 func (ins *RocketMQ) Register() error {
-	ins.exampleConsumer.RegisterSingleMessage(func(ctx context.Context, me *primitive.MessageExt) error {
-		xlog.L(ctx).Info("message received", zap.Any("data", me))
+	ins.exampleConsumer.RegisterSingleMessage(ins.exampleServerService.ProcessConsumer)
+	_ = ins.exampleConsumer.Start()
 
-		return nil
-	})
 	return nil
 }
