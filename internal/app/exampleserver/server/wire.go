@@ -10,12 +10,12 @@ import (
 	"github.com/google/wire"
 )
 
-func InitApp(app *jupiter.Application) error {
+func NewApp() (*jupiter.Application, error) {
 	panic(wire.Build(
 		wire.Struct(new(Options), "*"),
 		controller.ProviderSet,
 		service.ProviderSet,
 		ProviderSet,
-		initApp,
+		newApp,
 	))
 }

@@ -22,27 +22,28 @@ type Options struct {
 	rocketmq *RocketMQ
 }
 
-func initApp(app *jupiter.Application, opts Options) error {
+func newApp(opts Options) (*jupiter.Application, error) {
+	app := jupiter.DefaultApp()
 
 	// governor
 	if err := app.Serve(opts.govern); err != nil {
-		return err
+		return nil, err
 	}
 
 	// http
 	if err := app.Serve(opts.http); err != nil {
-		return err
+		return nil, err
 	}
 
 	// grpc
 	if err := app.Serve(opts.grpc); err != nil {
-		return err
+		return nil, err
 	}
 
 	// rocketmq
 	if err := opts.rocketmq.Register(); err != nil {
-		return err
+		return nil, err
 	}
 
-	return nil
+	return app, nil
 }

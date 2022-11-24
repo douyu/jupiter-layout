@@ -19,7 +19,7 @@ import (
 
 // Injectors from wire.go:
 
-func InitApp(app *application.Application) error {
+func NewApp() (*application.Application, error) {
 	exampleInterface := grpc.NewExample()
 	mysqlExampleInterface := mysql.NewExample()
 	redisExampleInterface := redis.NewExample()
@@ -49,6 +49,9 @@ func InitApp(app *application.Application) error {
 		govern:   server,
 		rocketmq: rocketMQ,
 	}
-	error2 := initApp(app, serverOptions)
-	return error2
+	applicationApplication, err := newApp(serverOptions)
+	if err != nil {
+		return nil, err
+	}
+	return applicationApplication, nil
 }
