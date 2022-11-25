@@ -5,6 +5,7 @@ init:
 	go install -v github.com/google/wire/cmd/wire@v0.5.0
 	go install -v github.com/vektra/mockery/v2@v2.14.0
 	go install -v gorm.io/gen/tools/gentool@v0.3.13
+	go install -v github.com/bufbuild/buf/cmd/buf@v1.9.0
 
 .PHONY: generate
 # generate code
