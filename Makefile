@@ -2,6 +2,7 @@
 .PHONY: init
 # install tools
 init:
+	go install -v github.com/douyu/jupiter/cmd/jupiter@latest
 	go install -v github.com/google/wire/cmd/wire@v0.5.0
 	go install -v github.com/vektra/mockery/v2@v2.14.0
 	go install -v gorm.io/gen/tools/gentool@v0.3.13
