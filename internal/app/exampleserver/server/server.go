@@ -16,27 +16,31 @@ var ProviderSet = wire.NewSet(
 )
 
 type Options struct {
+	app      *jupiter.Application
 	http     *HttpServer
 	grpc     *GrpcServer
 	govern   *governor.Server
 	rocketmq *RocketMQ
 }
 
-func newApp(opts Options) (*jupiter.Application, error) {
-	app := jupiter.DefaultApp()
+type App struct {
+	*jupiter.Application
+}
+
+func newApp(opts Options) (*App, error) {
 
 	// governor
-	if err := app.Serve(opts.govern); err != nil {
+	if err := opts.app.Serve(opts.govern); err != nil {
 		return nil, err
 	}
 
 	// http
-	if err := app.Serve(opts.http); err != nil {
+	if err := opts.app.Serve(opts.http); err != nil {
 		return nil, err
 	}
 
 	// grpc
-	if err := app.Serve(opts.grpc); err != nil {
+	if err := opts.app.Serve(opts.grpc); err != nil {
 		return nil, err
 	}
 
@@ -45,5 +49,5 @@ func newApp(opts Options) (*jupiter.Application, error) {
 		return nil, err
 	}
 
-	return app, nil
+	return &App{opts.app}, nil
 }
