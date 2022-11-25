@@ -52,7 +52,10 @@ jobs:
           go get -v -t -d ./...
 
       - name: Build
-        run: go build -v ./cmd/...
+        run: |
+          make init
+          make generate
+          go build -v ./cmd/...
 
       - name: Test
         run: |
