@@ -1,13 +1,5 @@
 version: '3.3'
 
-# mysql admin: http://localhost:8080
-# jaeger: http://localhost:16686
-# prometheus: http://localhost:9090
-# grafana: http://localhost:3000
-# juno-admin: http://localhost:50002
-# uptrace: http://localhost:14318
-
-
 services:
   redis:
     image: redis:6.2-alpine

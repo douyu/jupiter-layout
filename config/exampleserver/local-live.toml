@@ -32,9 +32,8 @@
 
 [jupiter.grpc]
     [jupiter.grpc.example]
-        address = "127.0.0.1:9528"
-        level = "error"
-        block = false
+        addr = "127.0.0.1:9528"
+        timeout = "3s"
 
     [jupiter.mysql.example]
         dsn = "root:root@tcp(127.0.0.1:3306)/juno?timeout=20s&readTimeout=20s"
