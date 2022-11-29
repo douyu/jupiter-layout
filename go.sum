@@ -110,8 +110,8 @@ github.com/davecgh/go-spew v1.1.1/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSs
 github.com/dgrijalva/jwt-go v3.2.0+incompatible/go.mod h1:E3ru+11k8xSBh+hMPgOLZmtrrCbhqsmaPHjLKYnJCaQ=
 github.com/dgryski/go-rendezvous v0.0.0-20200823014737-9f7001d12a5f h1:lO4WD4F/rVNCu3HqELle0jiPLLBs70cWOduZpkS1E78=
 github.com/dgryski/go-rendezvous v0.0.0-20200823014737-9f7001d12a5f/go.mod h1:cuUVRXasLTGF7a8hSLbxyZXjz+1KgoB3wDUb6vlszIc=
-github.com/douyu/jupiter v0.9.9 h1:0VKRj+15JyEMyBen2CIwgoDELR+q3HSFcERF4vdDscc=
-github.com/douyu/jupiter v0.9.9/go.mod h1:tTJNePtSIHQTfxi4zKszx5+6CP0xYaLa4bQbiVYfDTQ=
+github.com/douyu/jupiter v0.9.10 h1:sAdlokgxwFgSGukqRvJo3J5uWKfvdrioDfR+3QsNyFU=
+github.com/douyu/jupiter v0.9.10/go.mod h1:AWGYC7SOOE2s8D0aTdDkWAChjwnzHL7IS/jCXfmnZY4=
 github.com/dustin/go-humanize v0.0.0-20171111073723-bb3d318650d4/go.mod h1:HtrtbFcZ19U5GC7JDqmcUSB87Iq5E25KnS6fMYU6eOk=
 github.com/dustin/go-humanize v1.0.0/go.mod h1:HtrtbFcZ19U5GC7JDqmcUSB87Iq5E25KnS6fMYU6eOk=
 github.com/eapache/go-resiliency v1.1.0/go.mod h1:kFI+JgMyC7bLPUVY133qvEBtVayf5mFgVsvEsIPBvNs=
