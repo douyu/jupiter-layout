@@ -33,6 +33,19 @@ lint:
 test:
 	go test -v -mod=vendor -cover -race ./...
 
+.PHONY: e2e-test
+# e2e-test
+e2e-test:
+	cd tests/e2e \
+		&& ginkgo -r -race -cover -covermode=atomic -coverprofile=coverage.txt --randomize-suites --trace -coverpkg=github.com/douyu/jupiter-layout/... .\
+		&& cd -
+
+.PHONY: covsh-e2e
+## Get the coverage of e2e test
+covsh-e2e: 
+	gocovsh --profile tests/e2e/coverage.txt
+
+
 .PHONY: all
 # run all
 all:
