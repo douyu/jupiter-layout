@@ -13,7 +13,7 @@ jobs:
     name: Build
     runs-on: ubuntu-latest
     strategy:
-      fail-fast: false
+      fail-fast: true
       matrix:
         go: ["1.18.x", "1.19.x"]
 
@@ -57,10 +57,18 @@ jobs:
           make generate
           go build -v ./cmd/...
 
+      - name: Install ginkgo
+        run: |
+          go install github.com/onsi/ginkgo/v2/ginkgo@latest
+          sudo cp ~/go/bin/ginkgo /usr/local/bin
+
       - name: Test
         run: |
           go test -coverprofile=coverage.txt -covermode=atomic ./...
+          make e2e-test
+
       - name: Codecov
         uses: codecov/codecov-action@v3
         with:
           token: ${{secrets.CODECOV_TOKEN}}
+          files: ./coverage.txt, ./tests/e2e/coverage.txt
