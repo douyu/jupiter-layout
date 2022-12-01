@@ -13,7 +13,7 @@ jobs:
     name: Build
     runs-on: ubuntu-latest
     strategy:
-      fail-fast: false
+      fail-fast: true
       matrix:
         go: ["1.18.x", "1.19.x"]
 
