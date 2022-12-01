@@ -57,6 +57,11 @@ jobs:
           make generate
           go build -v ./cmd/...
 
+      - name: Install ginkgo
+        run: |
+          go install github.com/onsi/ginkgo/v2/ginkgo@latest
+          sudo cp ~/go/bin/ginkgo /usr/local/bin
+
       - name: Test
         run: |
           go test -coverprofile=coverage.txt -covermode=atomic ./...
