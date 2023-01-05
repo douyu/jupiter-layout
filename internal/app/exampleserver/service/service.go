@@ -58,7 +58,7 @@ func (s *HelloWorld) SayHello(ctx context.Context, req *helloworldv1.SayHelloReq
 
 	err := s.ExampleMysql.Migrate(ctx)
 	if err != nil {
-		return nil, err
+		return nil, xerror.Internal
 	}
 
 	resp := &commonv1.CommonData{
@@ -76,7 +76,7 @@ func (s *HelloWorld) SayHello(ctx context.Context, req *helloworldv1.SayHelloReq
 		_, err = s.ExampleRedis.Info(ctx)
 		if err != nil {
 			xlog.L(ctx).Error("ExampleRedis.Info failed", zap.Error(err), zap.Any("res", resp), zap.Any("req", req))
-			return nil, err
+			return nil, xerror.Internal
 		}
 		_, err = s.ExampleResty.SayHello(ctx)
 		if err != nil {
@@ -87,7 +87,7 @@ func (s *HelloWorld) SayHello(ctx context.Context, req *helloworldv1.SayHelloReq
 
 	err = s.ExampleRocketMQ.PushExampleMessage(ctx)
 	if err != nil {
-		return nil, err
+		return nil, xerror.Internal
 	}
 
 	return resp, nil
