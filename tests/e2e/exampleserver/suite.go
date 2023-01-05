@@ -45,5 +45,16 @@ var _ = ginkgo.Describe("exampleServer", func() {
 				},
 			},
 		}),
+		ginkgo.Entry("SayHello invalid name", tests.GRPCTestCase{
+			Conf: &grpc.Config{
+				Addr: "localhost:9528",
+			},
+			Method: "/helloworld.v1.GreeterService/SayHello",
+			Args:   &helloworldv1.SayHelloRequest{},
+			ExpectReply: &helloworldv1.SayHelloResponse{
+				Error: 3,
+				Msg:   "name参数错误",
+			},
+		}),
 	)
 })
