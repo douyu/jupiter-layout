@@ -49,11 +49,14 @@ func NewHelloWorldService(options Options) *HelloWorld {
 	}
 }
 
-func (s *HelloWorld) SayHello(ctx context.Context, req *helloworldv1.SayHelloRequest) (*commonv1.CommonData, error) {
+func (s *HelloWorld) SayHello(ctx context.Context, req *helloworldv1.SayHelloRequest) (*helloworldv1.SayHelloResponse, error) {
 	xlog.L(ctx).Info("SayHello started", zap.String("name", req.GetName()))
 
 	if req.GetName() == "" {
-		return nil, xerror.InvalidArgument.WithMsg("name参数错误")
+		return &helloworldv1.SayHelloResponse{
+			Error: uint32(xerror.InvalidArgument.GetEcode()),
+			Msg:   "name is empty",
+		}, nil
 	}
 
 	err := s.ExampleMysql.Migrate(ctx)
@@ -90,7 +93,7 @@ func (s *HelloWorld) SayHello(ctx context.Context, req *helloworldv1.SayHelloReq
 		return nil, xerror.Internal
 	}
 
-	return resp, nil
+	return &helloworldv1.SayHelloResponse{Data: resp}, nil
 }
 
 func (s *HelloWorld) ProcessConsumer(ctx context.Context, msg *primitive.MessageExt) error {

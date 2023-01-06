@@ -2,13 +2,11 @@ package server
 
 import (
 	"github.com/douyu/jupiter"
-	"github.com/douyu/jupiter-layout/internal/app/exampleserver/controller"
 	"github.com/douyu/jupiter/pkg/server/governor"
 	"github.com/google/wire"
 )
 
 var ProviderSet = wire.NewSet(
-	wire.Struct(new(controller.Options), "*"),
 	NewGrpcServer,
 	NewHttpServer,
 	NewGovernServer,
