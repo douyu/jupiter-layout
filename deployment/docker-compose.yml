@@ -122,10 +122,10 @@ services:
       - etcd
 
   grafana:
-    image: grafana/grafana:9.1.7
+    image: grafana/grafana:latest
     restart: always
-    volumes:
-      - ./data/config/juno/juno-grafana.ini:/etc/grafana/grafana.ini
+    # volumes:
+    #   - ./data/config/juno/juno-grafana.ini:/etc/grafana/grafana.ini
     ports:
       - 3000:3000
     depends_on:
