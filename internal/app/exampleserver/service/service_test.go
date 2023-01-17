@@ -6,19 +6,46 @@ import (
 	"testing"
 
 	"github.com/BurntSushi/toml"
+	"github.com/apache/rocketmq-client-go/v2/primitive"
 	commonv1 "github.com/douyu/jupiter-layout/gen/api/go/common/v1"
 	helloworldv1 "github.com/douyu/jupiter-layout/gen/api/go/helloworld/v1"
-	"github.com/douyu/jupiter-layout/internal/pkg/grpc"
-	"github.com/douyu/jupiter-layout/internal/pkg/mysql"
-	"github.com/douyu/jupiter-layout/internal/pkg/redis"
-	"github.com/douyu/jupiter-layout/internal/pkg/resty"
-	"github.com/douyu/jupiter-layout/internal/pkg/rocketmq"
+	mockgrpc "github.com/douyu/jupiter-layout/gen/mocks/grpc"
+	mockmysql "github.com/douyu/jupiter-layout/gen/mocks/mysql"
+	mockredis "github.com/douyu/jupiter-layout/gen/mocks/redis"
+	mockresty "github.com/douyu/jupiter-layout/gen/mocks/resty"
+	mockrocketmq "github.com/douyu/jupiter-layout/gen/mocks/rocketmq"
 	"github.com/douyu/jupiter/pkg/conf"
 	"github.com/douyu/jupiter/pkg/conf/datasource/file"
+	"github.com/stretchr/testify/mock"
 )
 
 func init() {
 	conf.LoadFromDataSource(file.NewDataSource("../../../../config/exampleserver/local-live.toml", false), toml.Unmarshal)
+}
+
+func case1(t *testing.T) Options {
+	mockExampleGrpc := mockgrpc.NewExampleInterface(t)
+	mockExampleGrpc.On("SayHello", mock.Anything, mock.Anything).Return(&helloworldv1.SayHelloResponse{}, nil)
+
+	mockExampleMysql := mockmysql.NewExampleInterface(t)
+	mockExampleMysql.On("Migrate", mock.Anything).Return(nil)
+
+	mockExampleRedis := mockredis.NewExampleInterface(t)
+	mockExampleRedis.On("Info", mock.Anything).Return("info", nil)
+
+	mockExampleResty := mockresty.NewExampleInterface(t)
+	mockExampleResty.On("SayHello", mock.Anything).Return("hello reply", nil)
+
+	mockExampleRocketmq := mockrocketmq.NewExampleInterface(t)
+	mockExampleRocketmq.On("PushExampleMessage", mock.Anything, mock.Anything).Return(nil)
+
+	return Options{
+		ExampleGrpc:     mockExampleGrpc,
+		ExampleMysql:    mockExampleMysql,
+		ExampleRedis:    mockExampleRedis,
+		ExampleResty:    mockExampleResty,
+		ExampleRocketMQ: mockExampleRocketmq,
+	}
 }
 
 func TestHelloWorld_SayHello(t *testing.T) {
@@ -39,13 +66,7 @@ func TestHelloWorld_SayHello(t *testing.T) {
 		{
 			name: "test",
 			fields: fields{
-				Options: Options{
-					ExampleGrpc:     grpc.NewExample(),
-					ExampleMysql:    mysql.NewExample(),
-					ExampleRedis:    redis.NewExample(),
-					ExampleResty:    resty.NewExample(),
-					ExampleRocketMQ: rocketmq.NewInstance(),
-				},
+				Options: case1(t),
 			},
 			args: args{
 				ctx: context.Background(),
@@ -71,6 +92,45 @@ func TestHelloWorld_SayHello(t *testing.T) {
 			}
 			if !reflect.DeepEqual(got, tt.want) {
 				t.Errorf("HelloWorld.SayHello() = %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
+
+func TestHelloWorld_ProcessConsumer(t *testing.T) {
+	type fields struct {
+		Options Options
+	}
+	type args struct {
+		ctx context.Context
+		msg *primitive.MessageExt
+	}
+	tests := []struct {
+		name    string
+		fields  fields
+		args    args
+		wantErr bool
+	}{
+		// TODO: Add test cases.
+		{
+			name: "test",
+			fields: fields{
+				Options: Options{},
+			},
+			args: args{
+				ctx: context.Background(),
+				msg: &primitive.MessageExt{},
+			},
+			wantErr: false,
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			s := &HelloWorld{
+				Options: tt.fields.Options,
+			}
+			if err := s.ProcessConsumer(tt.args.ctx, tt.args.msg); (err != nil) != tt.wantErr {
+				t.Errorf("HelloWorld.ProcessConsumer() error = %v, wantErr %v", err, tt.wantErr)
 			}
 		})
 	}

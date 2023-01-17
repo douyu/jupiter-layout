@@ -53,7 +53,7 @@ var _ = ginkgo.Describe("exampleServer", func() {
 			Args:   &helloworldv1.SayHelloRequest{},
 			ExpectReply: &helloworldv1.SayHelloResponse{
 				Error: 3,
-				Msg:   "name参数错误",
+				Msg:   "name is empty",
 			},
 		}),
 	)
