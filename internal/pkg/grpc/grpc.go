@@ -24,7 +24,7 @@ type Example struct {
 
 func NewExample() ExampleInterface {
 	return &Example{
-		cc: grpcclient.StdConfig("example").Build(),
+		cc: grpcclient.StdConfig("example").MustSingleton(),
 	}
 }
 
