@@ -39,7 +39,7 @@
 [plugin.report]
     enable = true
     debug = true
-    addr = "http://127.0.0.1:50002/api/v1/resource/node/heartbeat"
+    addr = "http://juno-admin:50002/api/v1/resource/node/heartbeat"
     internal = "60s"
     hostName = "JUNO_HOST"                                         # 环境变量的名称，或者命令行参数的名称
     regionCode = "REGION_CODE"                                     # 环境变量的名称，或者命令行参数的名称
