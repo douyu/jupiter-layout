@@ -9,6 +9,6 @@ package main
 //go:generate bash -c "find . -type f -path '*.go'|grep -v vendor/|egrep -e 'interface_|mock_'|xargs -r rm"
 //go:generate jupiter struct2interface -d internal/pkg
 //go:generate buf generate
+//go:generate bash -c "cd api && buf generate --template buf.gen.tag.yaml"
 //go:generate mockery --all --inpackage --dir internal/pkg
 //go:generate wire ./...
-//go:generate bash -c "cd api && buf generate --template buf.gen.tag.yaml"
