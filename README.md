@@ -79,25 +79,21 @@ go run ./cmd/exampleserver --config config/exampleserver/local-live.toml
 * HTTP
 
 ```bash
-curl "localhost:9527?name=bob"
+curl "http://localhost:9527/v1/helloworld.Greeter/SayHello/bob"
 ```
 
 ```json
-{"error":0,"msg":"请求正常","data":{"message":"hello wolrd"}}
+{"error":0,"msg":"","data":{"name":"hello bob","age_number":0,"sex":0,"metadata":null}}
 ```
 
 * GRPC
 
 ```bash
-grpcurl -import-path api -proto api/helloworld/v1/helloworld.proto -plaintext -d '{"name":"bob"}' localhost:9528  helloworld.v1.GreeterService/SayHello
+buf curl --schema api --protocol grpc --http2-prior-knowledge --data '{"name":"bob"}' http://localhost:9528/helloworld.v1.GreeterService/SayHello
 ```
 
 ```json
-{
-  "data": {
-    "message": "hello world"
-  }
-}
+{"data":{"name":"hello bob"}}
 ```
 
 Jaeger Admin
