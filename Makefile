@@ -35,6 +35,11 @@ run:
 lint:
 	golangci-lint run -v
 
+.PHONY: lintproto
+# lintproto
+lintproto:
+	buf lint
+
 .PHONY: test
 # test
 test:
@@ -52,6 +57,13 @@ e2e-test:
 covsh-e2e: 
 	gocovsh --profile tests/e2e/coverage.txt
 
+# validate openapi docs
+validate:
+	swagger validate api/helloworld/v1/helloworld.swagger.json
+
+# serve openapi docs
+serve:
+	swagger serve api/helloworld/v1/helloworld.swagger.json
 
 .PHONY: all
 # run all
