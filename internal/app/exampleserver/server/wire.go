@@ -9,12 +9,11 @@ import (
 	"github.com/google/wire"
 )
 
-func NewApp() (*App, error) {
+func InitApp(app *jupiter.Application) error {
 	panic(wire.Build(
-		jupiter.DefaultApp,
 		wire.Struct(new(Options), "*"),
 		service.ProviderSet,
 		ProviderSet,
-		newApp,
+		initApp,
 	))
 }

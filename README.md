@@ -85,7 +85,7 @@ curl "http://localhost:9527/v1/helloworld.Greeter/SayHello/bob"
 ```
 
 ```json
-{"error":0,"msg":"","data":{"name":"hello bob","age_number":0,"sex":0,"metadata":null}}
+{"error":0,"msg":"","data":{"name":"hello bob","ageNumber":0,"sex":0,"metadata":null}}
 ```
 
 * GRPC

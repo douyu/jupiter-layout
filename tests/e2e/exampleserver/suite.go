@@ -23,7 +23,7 @@ var _ = ginkgo.Describe("exampleServer", func() {
 			Path:         "/v1/helloworld.Greeter/SayHello",
 			Header:       map[string]string{"Content-Type": "application/x-www-form-urlencoded"},
 			Body:         "name=bob",
-			ExpectBody:   `{"error":0,"msg":"","data":{"name":"hello bob","age_number":0,"sex":0,"metadata":null}}`,
+			ExpectBody:   `{"error":0,"msg":"","data":{"name":"hello bob","ageNumber":0,"sex":0,"metadata":null}}`,
 			ExpectStatus: http.StatusOK,
 		}),
 	)
