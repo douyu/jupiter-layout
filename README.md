@@ -12,8 +12,10 @@ Concepts
 * Single Repo and Multiple Applications
 * Dependency Injection
 * Auto Code Generation
-* Unit and E2E Test
+* Unit Test with Mock and E2E Test
 * High Cohesion and Low Coupling
+* Support HTTP and gRPC with Protobuf
+* Swagger API Documentation
 
 Installation
 ---
