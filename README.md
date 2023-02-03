@@ -1,4 +1,4 @@
-[Jupiter](https://github.com/douyu/jupiter) 项目模板
+[Jupiter](https://github.com/douyu/jupiter) Project Layout
 ===
 
 [![GoTest](https://github.com/douyu/jupiter-layout/workflows/Go/badge.svg)](https://github.com/douyu/jupiter-layout/actions)
@@ -6,23 +6,23 @@
 [![Go Report Card](https://goreportcard.com/badge/github.com/douyu/jupiter-layout)](https://goreportcard.com/report/github.com/douyu/jupiter-layout)
 ![license](https://img.shields.io/badge/license-Apache--2.0-green.svg)
 
-概念
+Concepts
 ---
 
-* 单仓库多应用
-* 依赖注入
-* 自动代码生成
-* 单元测试
-* 高内聚低耦合
+* Single Repo and Multiple Applications
+* Dependency Injection
+* Auto Code Generation
+* Unit and E2E Test
+* High Cohesion and Low Coupling
 
-安装依赖
+Installation
 ---
 
 ```bash
 go install -v github.com/douyu/jupiter/cmd/jupiter@latest
 ```
 
-初始化
+Initialize Project
 ---
 
 ```bash
@@ -31,14 +31,14 @@ cd testproject-go
 go mod tidy -v
 ```
 
-启动依赖中间件
+Launch Docker Compose
 ---
 
 ```bash
 docker-compose -f deployment/docker-compose.yml up -d
 ```
 
-生成依赖代码
+Generation
 ---
 
 ```bash
@@ -46,34 +46,34 @@ make init
 make generate
 ```
 
-运行项目
+Running
 ---
 
-* 通过 Makefile 启动 exampleserver
+* Run exampleserver through Makefile
 
 ```bash
 make run
 ```
 
-* 启动，并监听文件变更自动重新构建
+* Run and watch file changes to rebuild
 
 ```bash
 jupiter run -c cmd/exampleserver/.jupiter.toml
 ```
 
-* 通过 docker-compose 启动服务，并监听文件变更自动重新构建
+* Run and watch file changes to rebuild through docker-compose
 
 ```bash
 docker-compose up
 ```
 
-* 仅启动
+* Run only
 
 ```bash
 go run ./cmd/exampleserver --config config/exampleserver/local-live.toml
 ```
 
-测试接口
+Test
 ---
 
 * HTTP
