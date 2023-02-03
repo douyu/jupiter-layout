@@ -8,6 +8,7 @@ init:
 	go install github.com/douyu/jupiter/cmd/protoc-gen-go-gin
 	go install github.com/google/wire/cmd/wire
 	go install github.com/grpc-ecosystem/grpc-gateway/v2/protoc-gen-openapiv2
+	go install github.com/onsi/ginkgo/v2
 	go install github.com/srikrsna/protoc-gen-gotag
 	go install github.com/vektra/mockery/v2
 	go install google.golang.org/grpc/cmd/protoc-gen-go-grpc

@@ -11,6 +11,7 @@ import (
 	_ "github.com/go-swagger/go-swagger/cmd/swagger"
 	_ "github.com/google/wire/cmd/wire"
 	_ "github.com/grpc-ecosystem/grpc-gateway/v2/protoc-gen-openapiv2"
+	_ "github.com/onsi/ginkgo/v2"
 	_ "github.com/srikrsna/protoc-gen-gotag"
 	_ "github.com/vektra/mockery/v2"
 	_ "google.golang.org/grpc/cmd/protoc-gen-go-grpc"
