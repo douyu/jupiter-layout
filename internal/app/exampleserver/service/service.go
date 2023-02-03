@@ -4,8 +4,7 @@ import (
 	"context"
 
 	"github.com/apache/rocketmq-client-go/v2/primitive"
-	commonv1 "github.com/douyu/jupiter-layout/gen/api/go/common/v1"
-	helloworldv1 "github.com/douyu/jupiter-layout/gen/api/go/helloworld/v1"
+	helloworldv1 "github.com/douyu/jupiter-layout/api/helloworld/v1"
 	"github.com/douyu/jupiter-layout/internal/pkg/grpc"
 	"github.com/douyu/jupiter-layout/internal/pkg/mysql"
 	"github.com/douyu/jupiter-layout/internal/pkg/redis"
@@ -64,8 +63,8 @@ func (s *HelloWorld) SayHello(ctx context.Context, req *helloworldv1.SayHelloReq
 		return nil, xerror.Internal
 	}
 
-	resp := &commonv1.CommonData{
-		Message: "hello " + req.GetName(),
+	resp := &helloworldv1.SayHelloResponse_Data{
+		Name: "hello " + req.GetName(),
 	}
 
 	if req.Name != "done" {
@@ -94,6 +93,10 @@ func (s *HelloWorld) SayHello(ctx context.Context, req *helloworldv1.SayHelloReq
 	}
 
 	return &helloworldv1.SayHelloResponse{Data: resp}, nil
+}
+
+func (s *HelloWorld) SayHi(ctx context.Context, req *helloworldv1.SayHiRequest) (*helloworldv1.SayHiResponse, error) {
+	return &helloworldv1.SayHiResponse{}, nil
 }
 
 func (s *HelloWorld) ProcessConsumer(ctx context.Context, msg *primitive.MessageExt) error {

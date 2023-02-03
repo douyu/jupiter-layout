@@ -10,3 +10,4 @@ package main
 //go:generate buf generate
 //go:generate mockery --all --keeptree --dir internal/pkg --output gen/mocks
 //go:generate wire ./...
+//go:generate bash -c "cd api && buf generate --template buf.gen.tag.yaml"

@@ -7,8 +7,7 @@ import (
 
 	"github.com/BurntSushi/toml"
 	"github.com/apache/rocketmq-client-go/v2/primitive"
-	commonv1 "github.com/douyu/jupiter-layout/gen/api/go/common/v1"
-	helloworldv1 "github.com/douyu/jupiter-layout/gen/api/go/helloworld/v1"
+	helloworldv1 "github.com/douyu/jupiter-layout/api/helloworld/v1"
 	mockgrpc "github.com/douyu/jupiter-layout/gen/mocks/grpc"
 	mockmysql "github.com/douyu/jupiter-layout/gen/mocks/mysql"
 	mockredis "github.com/douyu/jupiter-layout/gen/mocks/redis"
@@ -60,7 +59,7 @@ func TestHelloWorld_SayHello(t *testing.T) {
 		name    string
 		fields  fields
 		args    args
-		want    *commonv1.CommonData
+		want    *helloworldv1.SayHelloResponse
 		wantErr bool
 	}{
 		{
@@ -74,8 +73,10 @@ func TestHelloWorld_SayHello(t *testing.T) {
 					Name: "test",
 				},
 			},
-			want: &commonv1.CommonData{
-				Message: "hello test",
+			want: &helloworldv1.SayHelloResponse{
+				Data: &helloworldv1.SayHelloResponse_Data{
+					Name: "hello test",
+				},
 			},
 			wantErr: false,
 		},
