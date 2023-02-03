@@ -6,6 +6,7 @@ init:
 	go install github.com/douyu/jupiter/cmd/jupiter
 	go install github.com/douyu/jupiter/cmd/protoc-gen-go-echo
 	go install github.com/douyu/jupiter/cmd/protoc-gen-go-gin
+	go install github.com/go-swagger/go-swagger/cmd/swagger
 	go install github.com/google/wire/cmd/wire
 	go install github.com/grpc-ecosystem/grpc-gateway/v2/protoc-gen-openapiv2
 	go install github.com/onsi/ginkgo/v2/ginkgo
@@ -35,6 +36,11 @@ run:
 lint:
 	golangci-lint run -v
 
+.PHONY: lintproto
+# lintproto
+lintproto:
+	buf lint
+
 .PHONY: test
 # test
 test:
@@ -52,6 +58,13 @@ e2e-test:
 covsh-e2e: 
 	gocovsh --profile tests/e2e/coverage.txt
 
+# validate openapi docs
+validate:
+	swagger validate api/helloworld/v1/helloworld.swagger.json
+
+# serve openapi docs
+serve:
+	swagger serve api/helloworld/v1/helloworld.swagger.json
 
 .PHONY: all
 # run all
