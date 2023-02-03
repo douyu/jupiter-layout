@@ -8,11 +8,11 @@ import (
 	"github.com/BurntSushi/toml"
 	"github.com/apache/rocketmq-client-go/v2/primitive"
 	helloworldv1 "github.com/douyu/jupiter-layout/api/helloworld/v1"
-	mockgrpc "github.com/douyu/jupiter-layout/gen/mocks/grpc"
-	mockmysql "github.com/douyu/jupiter-layout/gen/mocks/mysql"
-	mockredis "github.com/douyu/jupiter-layout/gen/mocks/redis"
-	mockresty "github.com/douyu/jupiter-layout/gen/mocks/resty"
-	mockrocketmq "github.com/douyu/jupiter-layout/gen/mocks/rocketmq"
+	"github.com/douyu/jupiter-layout/internal/pkg/grpc"
+	"github.com/douyu/jupiter-layout/internal/pkg/mysql"
+	"github.com/douyu/jupiter-layout/internal/pkg/redis"
+	"github.com/douyu/jupiter-layout/internal/pkg/resty"
+	"github.com/douyu/jupiter-layout/internal/pkg/rocketmq"
 	"github.com/douyu/jupiter/pkg/conf"
 	"github.com/douyu/jupiter/pkg/conf/datasource/file"
 	"github.com/stretchr/testify/mock"
@@ -23,19 +23,19 @@ func init() {
 }
 
 func case1(t *testing.T) Options {
-	mockExampleGrpc := mockgrpc.NewExampleInterface(t)
+	mockExampleGrpc := grpc.NewMockExampleInterface(t)
 	mockExampleGrpc.On("SayHello", mock.Anything, mock.Anything).Return(&helloworldv1.SayHelloResponse{}, nil)
 
-	mockExampleMysql := mockmysql.NewExampleInterface(t)
+	mockExampleMysql := mysql.NewMockExampleInterface(t)
 	mockExampleMysql.On("Migrate", mock.Anything).Return(nil)
 
-	mockExampleRedis := mockredis.NewExampleInterface(t)
+	mockExampleRedis := redis.NewMockExampleInterface(t)
 	mockExampleRedis.On("Info", mock.Anything).Return("info", nil)
 
-	mockExampleResty := mockresty.NewExampleInterface(t)
+	mockExampleResty := resty.NewMockExampleInterface(t)
 	mockExampleResty.On("SayHello", mock.Anything).Return("hello reply", nil)
 
-	mockExampleRocketmq := mockrocketmq.NewExampleInterface(t)
+	mockExampleRocketmq := rocketmq.NewMockExampleInterface(t)
 	mockExampleRocketmq.On("PushExampleMessage", mock.Anything, mock.Anything).Return(nil)
 
 	return Options{
