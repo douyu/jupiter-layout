@@ -2,11 +2,18 @@
 .PHONY: init
 # install tools
 init:
-	go install github.com/douyu/jupiter/cmd/jupiter@v0.9.9
-	go install github.com/google/wire/cmd/wire@v0.5.0
-	go install github.com/vektra/mockery/v2@v2.14.0
-	go install gorm.io/gen/tools/gentool@v0.3.13
-	go install github.com/bufbuild/buf/cmd/buf@v1.9.0
+	go install github.com/bufbuild/buf/cmd/buf
+	go install github.com/douyu/jupiter/cmd/jupiter
+	go install github.com/douyu/jupiter/cmd/protoc-gen-go-echo
+	go install github.com/douyu/jupiter/cmd/protoc-gen-go-gin
+	go install github.com/google/wire/cmd/wire
+	go install github.com/grpc-ecosystem/grpc-gateway/v2/protoc-gen-openapiv2
+	go install github.com/onsi/ginkgo/v2/ginkgo
+	go install github.com/srikrsna/protoc-gen-gotag
+	go install github.com/vektra/mockery/v2
+	go install google.golang.org/grpc/cmd/protoc-gen-go-grpc
+	go install google.golang.org/protobuf/cmd/protoc-gen-go
+	go install gorm.io/gen/tools/gentool
 
 .PHONY: generate
 # generate code

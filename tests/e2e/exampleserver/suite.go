@@ -3,8 +3,7 @@ package exampleserver
 import (
 	"net/http"
 
-	commonv1 "github.com/douyu/jupiter-layout/gen/api/go/common/v1"
-	helloworldv1 "github.com/douyu/jupiter-layout/gen/api/go/helloworld/v1"
+	helloworldv1 "github.com/douyu/jupiter-layout/api/helloworld/v1"
 	"github.com/douyu/jupiter/pkg/client/grpc"
 	"github.com/douyu/jupiter/pkg/client/resty"
 	"github.com/douyu/jupiter/pkg/core/tests"
@@ -20,10 +19,11 @@ var _ = ginkgo.Describe("exampleServer", func() {
 			Conf: &resty.Config{
 				Addr: "http://localhost:9527",
 			},
-			Method:       http.MethodGet,
-			Path:         "/",
-			Query:        "name=bob",
-			ExpectBody:   `{"error":0,"msg":"请求正常","data":{"message":"hello bob"}}`,
+			Method:       http.MethodPost,
+			Path:         "/v1/helloworld.Greeter/SayHello",
+			Header:       map[string]string{"Content-Type": "application/x-www-form-urlencoded"},
+			Body:         "name=bob",
+			ExpectBody:   `{"error":0,"msg":"","data":{"name":"hello bob","age_number":0,"sex":0,"metadata":null}}`,
 			ExpectStatus: http.StatusOK,
 		}),
 	)
@@ -40,8 +40,8 @@ var _ = ginkgo.Describe("exampleServer", func() {
 				Name: "bob",
 			},
 			ExpectReply: &helloworldv1.SayHelloResponse{
-				Data: &commonv1.CommonData{
-					Message: "hello bob",
+				Data: &helloworldv1.SayHelloResponse_Data{
+					Name: "hello bob",
 				},
 			},
 		}),
@@ -53,7 +53,7 @@ var _ = ginkgo.Describe("exampleServer", func() {
 			Args:   &helloworldv1.SayHelloRequest{},
 			ExpectReply: &helloworldv1.SayHelloResponse{
 				Error: 3,
-				Msg:   "name参数错误",
+				Msg:   "name is empty",
 			},
 		}),
 	)

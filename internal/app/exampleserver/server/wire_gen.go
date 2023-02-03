@@ -7,7 +7,6 @@
 package server
 
 import (
-	"github.com/douyu/jupiter-layout/internal/app/exampleserver/controller"
 	"github.com/douyu/jupiter-layout/internal/app/exampleserver/service"
 	"github.com/douyu/jupiter-layout/internal/pkg/grpc"
 	"github.com/douyu/jupiter-layout/internal/pkg/mysql"
@@ -34,14 +33,8 @@ func NewApp() (*App, error) {
 		ExampleRocketMQ: rocketmqExampleInterface,
 	}
 	helloWorld := service.NewHelloWorldService(options)
-	helloWorldHTTP := controller.NewHelloWorldHTTPController(helloWorld)
-	helloWorldGRPC := controller.NewHelloWorldGRPCController(helloWorld)
-	controllerOptions := controller.Options{
-		HelloWorldHTTP: helloWorldHTTP,
-		HelloWorldGRPC: helloWorldGRPC,
-	}
-	httpServer := NewHttpServer(controllerOptions)
-	grpcServer := NewGrpcServer(controllerOptions)
+	httpServer := NewHttpServer(helloWorld)
+	grpcServer := NewGrpcServer(helloWorld)
 	server := NewGovernServer()
 	rocketMQ := NewRocketMQ()
 	serverOptions := Options{

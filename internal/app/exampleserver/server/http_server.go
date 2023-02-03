@@ -1,21 +1,19 @@
 package server
 
 import (
-	"github.com/douyu/jupiter-layout/internal/app/exampleserver/controller"
+	helloworldv1 "github.com/douyu/jupiter-layout/api/helloworld/v1"
+	"github.com/douyu/jupiter-layout/internal/app/exampleserver/service"
 	"github.com/douyu/jupiter/pkg/server/xecho"
-	echo "github.com/labstack/echo/v4"
 )
 
 type HttpServer struct {
 	*xecho.Server
 }
 
-func NewHttpServer(opts controller.Options) *HttpServer {
+func NewHttpServer(svc *service.HelloWorld) *HttpServer {
 	s := xecho.StdConfig("http").MustBuild()
 
-	s.GET("/", func(c echo.Context) error {
-		return opts.HelloWorldHTTP.SayHello(c)
-	})
+	helloworldv1.RegisterGreeterServiceEchoServer(s.Echo, svc)
 
 	return &HttpServer{
 		Server: s,

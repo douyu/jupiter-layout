@@ -4,8 +4,7 @@ import (
 	"context"
 
 	"github.com/apache/rocketmq-client-go/v2/primitive"
-	commonv1 "github.com/douyu/jupiter-layout/gen/api/go/common/v1"
-	helloworldv1 "github.com/douyu/jupiter-layout/gen/api/go/helloworld/v1"
+	helloworldv1 "github.com/douyu/jupiter-layout/api/helloworld/v1"
 	"github.com/douyu/jupiter-layout/internal/pkg/grpc"
 	"github.com/douyu/jupiter-layout/internal/pkg/mysql"
 	"github.com/douyu/jupiter-layout/internal/pkg/redis"
@@ -49,11 +48,14 @@ func NewHelloWorldService(options Options) *HelloWorld {
 	}
 }
 
-func (s *HelloWorld) SayHello(ctx context.Context, req *helloworldv1.SayHelloRequest) (*commonv1.CommonData, error) {
+func (s *HelloWorld) SayHello(ctx context.Context, req *helloworldv1.SayHelloRequest) (*helloworldv1.SayHelloResponse, error) {
 	xlog.L(ctx).Info("SayHello started", zap.String("name", req.GetName()))
 
 	if req.GetName() == "" {
-		return nil, xerror.InvalidArgument.WithMsg("name参数错误")
+		return &helloworldv1.SayHelloResponse{
+			Error: uint32(xerror.InvalidArgument.GetEcode()),
+			Msg:   "name is empty",
+		}, nil
 	}
 
 	err := s.ExampleMysql.Migrate(ctx)
@@ -61,8 +63,8 @@ func (s *HelloWorld) SayHello(ctx context.Context, req *helloworldv1.SayHelloReq
 		return nil, xerror.Internal
 	}
 
-	resp := &commonv1.CommonData{
-		Message: "hello " + req.GetName(),
+	resp := &helloworldv1.SayHelloResponse_Data{
+		Name: "hello " + req.GetName(),
 	}
 
 	if req.Name != "done" {
@@ -90,7 +92,11 @@ func (s *HelloWorld) SayHello(ctx context.Context, req *helloworldv1.SayHelloReq
 		return nil, xerror.Internal
 	}
 
-	return resp, nil
+	return &helloworldv1.SayHelloResponse{Data: resp}, nil
+}
+
+func (s *HelloWorld) SayHi(ctx context.Context, req *helloworldv1.SayHiRequest) (*helloworldv1.SayHiResponse, error) {
+	return &helloworldv1.SayHiResponse{}, nil
 }
 
 func (s *HelloWorld) ProcessConsumer(ctx context.Context, msg *primitive.MessageExt) error {

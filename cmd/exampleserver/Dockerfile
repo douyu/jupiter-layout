@@ -7,7 +7,7 @@ RUN go env -w GO111MODULE=on &&\
     go env -w GOPROXY=https://goproxy.cn,direct &&\
     GOPROXY=https://goproxy.cn
 
-RUN go install github.com/douyu/jupiter/cmd/jupiter@v0.6.5
+RUN go install github.com/douyu/jupiter/cmd/jupiter@latest
 
 EXPOSE 9527
 EXPOSE 9528

@@ -3,7 +3,7 @@ package grpc
 import (
 	"context"
 
-	helloworldv1 "github.com/douyu/jupiter-layout/gen/api/go/helloworld/v1"
+	helloworldv1 "github.com/douyu/jupiter-layout/api/helloworld/v1"
 	grpcclient "github.com/douyu/jupiter/pkg/client/grpc"
 	"github.com/douyu/jupiter/pkg/xlog"
 	"github.com/google/wire"
