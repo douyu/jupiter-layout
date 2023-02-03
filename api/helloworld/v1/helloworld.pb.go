@@ -136,7 +136,7 @@ type SayHelloResponse struct {
 	// msg
 	Msg string `protobuf:"bytes,2,opt,name=msg,proto3" json:"msg" form:"msg" query:"msg"`
 	// data ...
-	Data *SayHelloResponse_Data `protobuf:"bytes,3,opt,name=data,proto3" json:"data" query:"data" form:"data"`
+	Data *SayHelloResponse_Data `protobuf:"bytes,3,opt,name=data,proto3" json:"data" form:"data" query:"data"`
 }
 
 func (x *SayHelloResponse) Reset() {
@@ -317,9 +317,9 @@ type SayHelloResponse_Data struct {
 	// name of the user
 	Name string `protobuf:"bytes,1,opt,name=name,proto3" json:"name" form:"name" query:"name"`
 	// age_number is the age number.
-	AgeNumber uint64 `protobuf:"varint,2,opt,name=age_number,json=ageNumber,proto3" json:"age_number" query:"ageNumber" form:"age_number"`
+	AgeNumber uint64 `protobuf:"varint,2,opt,name=age_number,json=ageNumber,proto3" json:"ageNumber" form:"ageNumber" query:"ageNumber"`
 	// sex is the user's sex
-	Sex Sex `protobuf:"varint,3,opt,name=sex,proto3,enum=helloworld.v1.Sex" json:"sex" form:"sex" query:"sex"`
+	Sex Sex `protobuf:"varint,3,opt,name=sex,proto3,enum=helloworld.v1.Sex" json:"sex" query:"sex" form:"sex"`
 	// metadata is the user's metadata
 	Metadata map[string]string `protobuf:"bytes,4,rep,name=metadata,proto3" json:"metadata" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3" form:"metadata" query:"metadata"`
 }
@@ -393,7 +393,7 @@ type SayHiResponse_Data struct {
 	// name of the user
 	Name string `protobuf:"bytes,1,opt,name=name,proto3" json:"name" form:"name" query:"name"`
 	// age_number is the age number.
-	AgeNumber uint64 `protobuf:"varint,2,opt,name=age_number,json=ageNumber,proto3" json:"age_number" query:"ageNumber" form:"age_number"`
+	AgeNumber uint64 `protobuf:"varint,2,opt,name=age_number,json=ageNumber,proto3" json:"ageNumber" form:"ageNumber" query:"ageNumber"`
 }
 
 func (x *SayHiResponse_Data) Reset() {

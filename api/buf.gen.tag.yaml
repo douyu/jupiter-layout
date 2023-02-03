@@ -5,4 +5,4 @@ plugins:
     out: .
     opt:
       - paths=source_relative
-      - auto=json+form+query-as-camel
+      - auto=json-as-camel+form-as-camel+query-as-camel
