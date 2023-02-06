@@ -6,6 +6,11 @@ plugins:
     opt:
       - paths=source_relative
 
+  - name: go-xerror
+    out: api
+    opt:
+      - paths=source_relative
+
   - name: go-grpc
     out: api
     opt:

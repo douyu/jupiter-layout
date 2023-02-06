@@ -63,7 +63,7 @@ func TestHelloWorld_SayHello(t *testing.T) {
 		wantErr bool
 	}{
 		{
-			name: "test",
+			name: "case 1: normal",
 			fields: fields{
 				Options: case1(t),
 			},
@@ -77,6 +77,23 @@ func TestHelloWorld_SayHello(t *testing.T) {
 				Data: &helloworldv1.SayHelloResponse_Data{
 					Name: "hello test",
 				},
+			},
+			wantErr: false,
+		},
+		{
+			name: "case 2: empty name",
+			fields: fields{
+				Options: Options{},
+			},
+			args: args{
+				ctx: context.Background(),
+				req: &helloworldv1.SayHelloRequest{
+					Name: "",
+				},
+			},
+			want: &helloworldv1.SayHelloResponse{
+				Error: 1000,
+				Msg:   "name is empty",
 			},
 			wantErr: false,
 		},
@@ -112,7 +129,6 @@ func TestHelloWorld_ProcessConsumer(t *testing.T) {
 		args    args
 		wantErr bool
 	}{
-		// TODO: Add test cases.
 		{
 			name: "test",
 			fields: fields{

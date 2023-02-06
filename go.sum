@@ -175,8 +175,8 @@ github.com/docker/go-connections v0.4.0 h1:El9xVISelRB7BuFusrZozjnkIM5YnzCViNKoh
 github.com/docker/go-connections v0.4.0/go.mod h1:Gbd7IOopHjR8Iph03tsViu4nIes5XhDvyHbTtUxmeec=
 github.com/docker/go-units v0.5.0 h1:69rxXcBk27SvSaaxTtLh/8llcHD8vYHT7WSdRZ/jvr4=
 github.com/docker/go-units v0.5.0/go.mod h1:fgPhTUdO+D/Jk86RDLlptpiXQzgHJF7gydDDbaIK4Dk=
-github.com/douyu/jupiter v0.10.2 h1:zvVnlGQhy6bL9DI6zvt1ts4Vd/G3bp500UsmthhDVcE=
-github.com/douyu/jupiter v0.10.2/go.mod h1:ff4diTOk2fjPyk/45jYM4XTHJmAo13i5mebOQZqhfRQ=
+github.com/douyu/jupiter v0.0.0-20230206074359-b05007cc0500 h1:o0hirIhReNdfRhE8OFzpF9mT/LPpahOl2l4Pa71m8pg=
+github.com/douyu/jupiter v0.0.0-20230206074359-b05007cc0500/go.mod h1:WVjn10LFehiMBM2Uu7wsZsd4XedBsZ4Du0AYbQHiebY=
 github.com/douyu/jupiter/cmd/protoc-gen-go-echo v0.0.0-20230203043910-f13385e2ed86 h1:2pAyHIyKkNSovcIfJb2KlTU8hL7TbsXRSw7chqzxZck=
 github.com/douyu/jupiter/cmd/protoc-gen-go-echo v0.0.0-20230203043910-f13385e2ed86/go.mod h1:ZU+XpZlqkJscRsrEnBMhS+WJGN+6c7YX1mAtFfLXGN4=
 github.com/douyu/jupiter/cmd/protoc-gen-go-gin v0.0.0-20230203043910-f13385e2ed86 h1:ikt3qOs6mMMH2Mv1F7sMWmNjhlRDl/aA4zFbVwIqVOo=

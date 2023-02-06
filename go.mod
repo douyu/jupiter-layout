@@ -6,16 +6,18 @@ require (
 	github.com/BurntSushi/toml v1.2.1
 	github.com/apache/rocketmq-client-go/v2 v2.1.2-0.20221202035048-f56a2dba2af8
 	github.com/bufbuild/buf v1.13.1
-	github.com/douyu/jupiter v0.10.2
+	github.com/douyu/jupiter v0.0.0-20230206074359-b05007cc0500
 	github.com/douyu/jupiter/cmd/protoc-gen-go-echo v0.0.0-20230203043910-f13385e2ed86
 	github.com/douyu/jupiter/cmd/protoc-gen-go-gin v0.0.0-20230203043910-f13385e2ed86
 	github.com/gin-gonic/gin v1.8.2
 	github.com/go-swagger/go-swagger v0.30.4
 	github.com/google/wire v0.5.0
 	github.com/grpc-ecosystem/grpc-gateway/v2 v2.15.0
+	github.com/imdario/mergo v0.3.13
 	github.com/labstack/echo/v4 v4.10.0
 	github.com/onsi/ginkgo/v2 v2.8.0
 	github.com/onsi/gomega v1.26.0
+	github.com/samber/lo v1.37.0
 	github.com/srikrsna/protoc-gen-gotag v0.6.2
 	github.com/stretchr/testify v1.8.1
 	github.com/vektra/mockery/v2 v2.16.0
@@ -110,7 +112,6 @@ require (
 	github.com/hnlq715/struct2interface v0.1.4 // indirect
 	github.com/huandu/xstrings v1.3.3 // indirect
 	github.com/iancoleman/strcase v0.2.0 // indirect
-	github.com/imdario/mergo v0.3.13 // indirect
 	github.com/inconshreveable/mousetrap v1.1.0 // indirect
 	github.com/jackc/chunkreader/v2 v2.0.1 // indirect
 	github.com/jackc/pgconn v1.13.0 // indirect
@@ -166,7 +167,6 @@ require (
 	github.com/rs/cors v1.8.3 // indirect
 	github.com/rs/zerolog v1.27.0 // indirect
 	github.com/russross/blackfriday/v2 v2.1.0 // indirect
-	github.com/samber/lo v1.37.0 // indirect
 	github.com/satori/go.uuid v1.2.0 // indirect
 	github.com/shirou/gopsutil/v3 v3.21.7 // indirect
 	github.com/shopspring/decimal v1.2.0 // indirect

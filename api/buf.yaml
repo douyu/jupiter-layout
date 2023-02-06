@@ -8,6 +8,8 @@ deps:
 lint:
   ignore:
     - vendor
+    - error/v1
+
   use:
     - DEFAULT
     - COMMENTS
