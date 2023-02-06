@@ -53,8 +53,8 @@ func (s *HelloWorld) SayHello(ctx context.Context, req *helloworldv1.SayHelloReq
 
 	if req.GetName() == "" {
 		return &helloworldv1.SayHelloResponse{
-			Error: uint32(xerror.InvalidArgument.GetEcode()),
-			Msg:   "name is empty",
+			Error: uint32(helloworldv1.XERROR_ERROR_NAME_EMPTY.GetEcode()),
+			Msg:   helloworldv1.XERROR_ERROR_NAME_EMPTY.GetMsg(),
 		}, nil
 	}
 

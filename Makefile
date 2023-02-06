@@ -6,6 +6,7 @@ init:
 	go install github.com/douyu/jupiter/cmd/jupiter
 	go install github.com/douyu/jupiter/cmd/protoc-gen-go-echo
 	go install github.com/douyu/jupiter/cmd/protoc-gen-go-gin
+	go install github.com/douyu/jupiter/cmd/protoc-gen-go-xerror
 	go install github.com/go-swagger/go-swagger/cmd/swagger
 	go install github.com/google/wire/cmd/wire
 	go install github.com/grpc-ecosystem/grpc-gateway/v2/protoc-gen-openapiv2

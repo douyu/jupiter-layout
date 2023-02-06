@@ -84,7 +84,7 @@ type SayHelloRequest struct {
 	unknownFields protoimpl.UnknownFields
 
 	// name ...
-	Name string `protobuf:"bytes,1,opt,name=name,proto3" json:"name" form:"name" query:"name" param:"name" uri:"name"`
+	Name string `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
 }
 
 func (x *SayHelloRequest) Reset() {
@@ -133,11 +133,11 @@ type SayHelloResponse struct {
 	unknownFields protoimpl.UnknownFields
 
 	// error
-	Error uint32 `protobuf:"varint,1,opt,name=error,proto3" json:"error" form:"error" query:"error"`
+	Error uint32 `protobuf:"varint,1,opt,name=error,proto3" json:"error,omitempty"`
 	// msg
-	Msg string `protobuf:"bytes,2,opt,name=msg,proto3" json:"msg" form:"msg" query:"msg"`
+	Msg string `protobuf:"bytes,2,opt,name=msg,proto3" json:"msg,omitempty"`
 	// data ...
-	Data *SayHelloResponse_Data `protobuf:"bytes,3,opt,name=data,proto3" json:"data" form:"data" query:"data"`
+	Data *SayHelloResponse_Data `protobuf:"bytes,3,opt,name=data,proto3" json:"data,omitempty"`
 }
 
 func (x *SayHelloResponse) Reset() {
@@ -200,7 +200,7 @@ type SayHiRequest struct {
 	unknownFields protoimpl.UnknownFields
 
 	// name ...
-	Name string `protobuf:"bytes,1,opt,name=name,proto3" json:"name" form:"name" query:"name"`
+	Name string `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
 }
 
 func (x *SayHiRequest) Reset() {
@@ -249,11 +249,11 @@ type SayHiResponse struct {
 	unknownFields protoimpl.UnknownFields
 
 	// error
-	Error uint32 `protobuf:"varint,1,opt,name=error,proto3" json:"error" form:"error" query:"error"`
+	Error uint32 `protobuf:"varint,1,opt,name=error,proto3" json:"error,omitempty"`
 	// msg
-	Msg string `protobuf:"bytes,2,opt,name=msg,proto3" json:"msg" form:"msg" query:"msg"`
+	Msg string `protobuf:"bytes,2,opt,name=msg,proto3" json:"msg,omitempty"`
 	// data ...
-	Data *SayHiResponse_Data `protobuf:"bytes,3,opt,name=data,proto3" json:"data" form:"data" query:"data"`
+	Data *SayHiResponse_Data `protobuf:"bytes,3,opt,name=data,proto3" json:"data,omitempty"`
 }
 
 func (x *SayHiResponse) Reset() {
@@ -316,13 +316,13 @@ type SayHelloResponse_Data struct {
 	unknownFields protoimpl.UnknownFields
 
 	// name of the user
-	Name string `protobuf:"bytes,1,opt,name=name,proto3" json:"name" form:"name" query:"name"`
+	Name string `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
 	// age_number is the age number.
-	AgeNumber uint64 `protobuf:"varint,2,opt,name=age_number,json=ageNumber,proto3" json:"ageNumber" query:"ageNumber" form:"ageNumber"`
+	AgeNumber uint64 `protobuf:"varint,2,opt,name=age_number,json=ageNumber,proto3" json:"age_number,omitempty"`
 	// sex is the user's sex
-	Sex Sex `protobuf:"varint,3,opt,name=sex,proto3,enum=helloworld.v1.Sex" json:"sex" query:"sex" form:"sex"`
+	Sex Sex `protobuf:"varint,3,opt,name=sex,proto3,enum=helloworld.v1.Sex" json:"sex,omitempty"`
 	// metadata is the user's metadata
-	Metadata map[string]string `protobuf:"bytes,4,rep,name=metadata,proto3" json:"metadata" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3" form:"metadata" query:"metadata"`
+	Metadata map[string]string `protobuf:"bytes,4,rep,name=metadata,proto3" json:"metadata,omitempty" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3"`
 }
 
 func (x *SayHelloResponse_Data) Reset() {
@@ -392,9 +392,9 @@ type SayHiResponse_Data struct {
 	unknownFields protoimpl.UnknownFields
 
 	// name of the user
-	Name string `protobuf:"bytes,1,opt,name=name,proto3" json:"name" form:"name" query:"name"`
+	Name string `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
 	// age_number is the age number.
-	AgeNumber uint64 `protobuf:"varint,2,opt,name=age_number,json=ageNumber,proto3" json:"ageNumber" query:"ageNumber" form:"ageNumber"`
+	AgeNumber uint64 `protobuf:"varint,2,opt,name=age_number,json=ageNumber,proto3" json:"age_number,omitempty"`
 }
 
 func (x *SayHiResponse_Data) Reset() {
