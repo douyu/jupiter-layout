@@ -916,8 +916,8 @@ github.com/valyala/fasttemplate v1.2.1/go.mod h1:KHLXt3tVN2HBp8eijSv/kGJopbvo7S+
 github.com/valyala/fasttemplate v1.2.2 h1:lxLXG0uE3Qnshl9QyaK6XJxMXlQZELvChBOCmQD0Loo=
 github.com/valyala/fasttemplate v1.2.2/go.mod h1:KHLXt3tVN2HBp8eijSv/kGJopbvo7S+qRAEEKiv+SiQ=
 github.com/vbatts/tar-split v0.11.2 h1:Via6XqJr0hceW4wff3QRzD5gAk/tatMw/4ZA7cTlIME=
-github.com/vektra/mockery/v2 v2.16.0 h1:NMfQMZ4dKAHxR0rTHCt47HyJlBgFdYmrLlHhZIj2yeo=
-github.com/vektra/mockery/v2 v2.16.0/go.mod h1:OZL0JSpvEWEHgyNr150zNbP1ktxr6yPZ/W82RHaTHl0=
+github.com/vektra/mockery/v2 v2.18.0 h1:osTyrUI2RAqSmAr5qHmNiuSPgg+GJgfLc6FjEoi8VKc=
+github.com/vektra/mockery/v2 v2.18.0/go.mod h1:mI12pwT9jEsg04dL0FnZNVkmEgfLgRfu4za9uJDpaRg=
 github.com/xdg-go/pbkdf2 v1.0.0/go.mod h1:jrpuAogTd400dnrH08LKmI/xc1MbPOebTwRqcT5RDeI=
 github.com/xdg-go/scram v1.0.2/go.mod h1:1WAq6h33pAW+iRreB34OORO2Nf7qel3VV3fjBj+hCSs=
 github.com/xdg-go/scram v1.1.1/go.mod h1:RaEWvsqvNKKvBPvcKeFjrG2cJqOkHTiyTpzz23ni57g=
