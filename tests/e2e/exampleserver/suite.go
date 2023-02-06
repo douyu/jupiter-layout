@@ -4,18 +4,18 @@ import (
 	"net/http"
 
 	helloworldv1 "github.com/douyu/jupiter-layout/api/helloworld/v1"
+	"github.com/douyu/jupiter-layout/tests/e2e/framework"
 	"github.com/douyu/jupiter/pkg/client/grpc"
 	"github.com/douyu/jupiter/pkg/client/resty"
-	"github.com/douyu/jupiter/pkg/core/tests"
 	"github.com/onsi/ginkgo/v2"
 )
 
 var _ = ginkgo.Describe("exampleServer", func() {
 
-	ginkgo.DescribeTable("HTTP", func(htc tests.HTTPTestCase) {
-		tests.RunHTTPTestCase(htc)
+	ginkgo.DescribeTable("HTTP", func(htc framework.HTTPTestCase) {
+		framework.RunHTTPTestCase(htc)
 	},
-		ginkgo.Entry("SayHello", tests.HTTPTestCase{
+		ginkgo.Entry("SayHello", framework.HTTPTestCase{
 			Conf: &resty.Config{
 				Addr: "http://localhost:9527",
 			},
@@ -28,10 +28,10 @@ var _ = ginkgo.Describe("exampleServer", func() {
 		}),
 	)
 
-	ginkgo.DescribeTable("GRPC", func(gtc tests.GRPCTestCase) {
-		tests.RunGRPCTestCase(gtc)
+	ginkgo.DescribeTable("GRPC", func(gtc framework.GRPCTestCase) {
+		framework.RunGRPCTestCase(gtc)
 	},
-		ginkgo.Entry("SayHello", tests.GRPCTestCase{
+		ginkgo.Entry("SayHello", framework.GRPCTestCase{
 			Conf: &grpc.Config{
 				Addr: "localhost:9528",
 			},
@@ -45,7 +45,7 @@ var _ = ginkgo.Describe("exampleServer", func() {
 				},
 			},
 		}),
-		ginkgo.Entry("SayHello invalid name", tests.GRPCTestCase{
+		ginkgo.Entry("SayHello invalid name", framework.GRPCTestCase{
 			Conf: &grpc.Config{
 				Addr: "localhost:9528",
 			},
