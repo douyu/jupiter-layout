@@ -52,7 +52,7 @@ var _ = ginkgo.Describe("exampleServer", func() {
 			Method: "/helloworld.v1.GreeterService/SayHello",
 			Args:   &helloworldv1.SayHelloRequest{},
 			ExpectReply: &helloworldv1.SayHelloResponse{
-				Error: 3,
+				Error: uint32(helloworldv1.Error_ERROR_NAME_EMPTY),
 				Msg:   "name is empty",
 			},
 		}),
