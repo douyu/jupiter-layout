@@ -1,16 +1,16 @@
 syntax = "proto3";
 
-option java_multiple_files = true;
-option java_package = "com.douyu.helloworld.v1";
-option java_outer_classname = "HelloWorldProtoV1";
-option go_package = "github.com/douyu/jupiter-layout/api/helloworld/v1;helloworldv1";
-
 package helloworld.v1;
 
+import "error/v1/error.proto";
 import "google/api/annotations.proto";
-import "tagger/tagger.proto";
 import "protoc-gen-openapiv2/options/annotations.proto";
+import "tagger/tagger.proto";
 
+option go_package = "github.com/douyu/jupiter-layout/api/helloworld/v1;helloworldv1";
+option java_multiple_files = true;
+option java_outer_classname = "HelloWorldProtoV1";
+option java_package = "com.douyu.helloworld.v1";
 option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {
   info: {
     title: "helloworld demo api definition"
@@ -36,13 +36,11 @@ option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {
 // The greeting service definition.
 service GreeterService {
   // Sends a hello greeting
-  rpc SayHello (SayHelloRequest) returns (SayHelloResponse) {
+  rpc SayHello(SayHelloRequest) returns (SayHelloResponse) {
     option (google.api.http) = {
       post: "/v1/helloworld.Greeter/SayHello"
       body: "*"
-      additional_bindings {
-        get: "/v1/helloworld.Greeter/SayHello/{name}"
-      }
+      additional_bindings {get: "/v1/helloworld.Greeter/SayHello/{name}"}
     };
     option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
       tags: ["Project 001"]
@@ -57,7 +55,7 @@ service GreeterService {
     };
   }
   // Sends a hi greeting
-  rpc SayHi (SayHiRequest) returns (SayHiResponse) {}
+  rpc SayHi(SayHiRequest) returns (SayHiResponse) {}
 }
 
 // The request message containing the user's name.
@@ -77,7 +75,7 @@ message SayHelloResponse {
     // sex is the user's sex
     Sex sex = 3;
     // metadata is the user's metadata
-    map<string,string> metadata = 4;
+    map<string, string> metadata = 4;
   }
   // error
   uint32 error = 1;
@@ -90,7 +88,7 @@ message SayHelloResponse {
 // The request message containing the user's name.
 message SayHiRequest {
   // name ...
-  string name = 1 [(tagger.tags) = "form:\"name\""] ;
+  string name = 1 [(tagger.tags) = "form:\"name\""];
 }
 
 // The response message containing the greetings
