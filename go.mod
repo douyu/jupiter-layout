@@ -27,7 +27,7 @@ require (
 	google.golang.org/grpc/cmd/protoc-gen-go-grpc v1.2.0
 	google.golang.org/protobuf v1.28.2-0.20220831092852-f930b1dc76e8
 	gorm.io/gen v0.3.21
-	gorm.io/gorm v1.24.4
+	gorm.io/gorm v1.24.5
 )
 
 require (
