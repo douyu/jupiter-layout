@@ -8,7 +8,7 @@ import (
 
 func main() {
 	app := jupiter.DefaultApp()
-	lo.Must0(server.InitApp(jupiter.DefaultApp()))
+	lo.Must0(server.InitApp(app))
 
 	_ = app.Run()
 }
