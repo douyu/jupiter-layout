@@ -15,6 +15,7 @@ import (
 	"github.com/douyu/jupiter-layout/internal/pkg/rocketmq"
 	"github.com/douyu/jupiter/pkg/conf"
 	"github.com/douyu/jupiter/pkg/conf/datasource/file"
+	"github.com/douyu/jupiter/pkg/util/xerror"
 	"github.com/stretchr/testify/mock"
 )
 
@@ -109,7 +110,7 @@ func TestHelloWorld_SayHello(t *testing.T) {
 				},
 			},
 			want: &helloworldv1.SayHelloResponse{
-				Error: 2,
+				Error: uint32(xerror.InvalidArgument.GetEcode()),
 				Msg:   "invalid SayHelloRequest.Name: value must equal bob",
 			},
 			wantErr: false,

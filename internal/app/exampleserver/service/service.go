@@ -61,8 +61,8 @@ func (s *HelloWorld) SayHello(ctx context.Context, req *helloworldv1.SayHelloReq
 	err := req.Validate()
 	if err != nil {
 		return &helloworldv1.SayHelloResponse{
-			Error: uint32(xerror.Convert(err).GetEcode()),
-			Msg:   xerror.Convert(err).GetMsg(),
+			Error: uint32(xerror.InvalidArgument.GetEcode()),
+			Msg:   err.Error(),
 		}, nil
 	}
 
@@ -104,6 +104,14 @@ func (s *HelloWorld) SayHello(ctx context.Context, req *helloworldv1.SayHelloReq
 }
 
 func (s *HelloWorld) SayHi(ctx context.Context, req *helloworldv1.SayHiRequest) (*helloworldv1.SayHiResponse, error) {
+	err := req.Validate()
+	if err != nil {
+		return &helloworldv1.SayHiResponse{
+			Error: uint32(xerror.InvalidArgument.GetEcode()),
+			Msg:   err.Error(),
+		}, nil
+	}
+
 	return &helloworldv1.SayHiResponse{}, nil
 }
 
