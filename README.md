@@ -9,13 +9,16 @@
 Concepts
 ---
 
+* Support HTTP/gRPC with Protobuf
 * Single Repo and Multiple Applications
+* High Cohesion and Low Coupling
 * Dependency Injection
 * Auto Code Generation
-* Unit Test with Mock and E2E Test
-* High Cohesion and Low Coupling
-* Support HTTP and gRPC with Protobuf
-* Swagger API Documentation
+* Unit Test with Mock
+* E2E Test with Docker
+* Define errors in Proto
+* Define validate rules in Proto
+* Auto generate Swagger API Documentation
 
 Installation
 ---
