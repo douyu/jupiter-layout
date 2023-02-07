@@ -46,7 +46,7 @@ lintproto:
 .PHONY: test
 # test
 test:
-	go test -v -mod=vendor -cover -race ./...
+	go test -coverprofile=coverage.txt -covermode=atomic ./...
 
 .PHONY: e2e-test
 # e2e-test
