@@ -8,6 +8,7 @@ import (
 	_ "github.com/douyu/jupiter/cmd/jupiter"
 	_ "github.com/douyu/jupiter/cmd/protoc-gen-go-echo"
 	_ "github.com/douyu/jupiter/cmd/protoc-gen-go-gin"
+	_ "github.com/envoyproxy/protoc-gen-validate"
 	_ "github.com/go-swagger/go-swagger/cmd/swagger"
 	_ "github.com/google/wire/cmd/wire"
 	_ "github.com/grpc-ecosystem/grpc-gateway/v2/protoc-gen-openapiv2"

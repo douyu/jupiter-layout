@@ -70,12 +70,12 @@ func TestHelloWorld_SayHello(t *testing.T) {
 			args: args{
 				ctx: context.Background(),
 				req: &helloworldv1.SayHelloRequest{
-					Name: "test",
+					Name: "bob",
 				},
 			},
 			want: &helloworldv1.SayHelloResponse{
 				Data: &helloworldv1.SayHelloResponse_Data{
-					Name: "hello test",
+					Name: "hello bob",
 				},
 			},
 			wantErr: false,
@@ -94,6 +94,23 @@ func TestHelloWorld_SayHello(t *testing.T) {
 			want: &helloworldv1.SayHelloResponse{
 				Error: 1000,
 				Msg:   "name is empty",
+			},
+			wantErr: false,
+		},
+		{
+			name: "case 3: validate name",
+			fields: fields{
+				Options: Options{},
+			},
+			args: args{
+				ctx: context.Background(),
+				req: &helloworldv1.SayHelloRequest{
+					Name: "invalid name",
+				},
+			},
+			want: &helloworldv1.SayHelloResponse{
+				Error: 2,
+				Msg:   "invalid SayHelloRequest.Name: value must equal bob",
 			},
 			wantErr: false,
 		},

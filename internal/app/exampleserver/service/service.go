@@ -58,7 +58,15 @@ func (s *HelloWorld) SayHello(ctx context.Context, req *helloworldv1.SayHelloReq
 		}, nil
 	}
 
-	err := s.ExampleMysql.Migrate(ctx)
+	err := req.Validate()
+	if err != nil {
+		return &helloworldv1.SayHelloResponse{
+			Error: uint32(xerror.Convert(err).GetEcode()),
+			Msg:   xerror.Convert(err).GetMsg(),
+		}, nil
+	}
+
+	err = s.ExampleMysql.Migrate(ctx)
 	if err != nil {
 		return nil, xerror.Internal
 	}
