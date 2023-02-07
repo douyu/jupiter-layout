@@ -4,6 +4,7 @@ deps:
   - buf.build/googleapis/googleapis
   - buf.build/srikrsna/protoc-gen-gotag
   - buf.build/grpc-ecosystem/grpc-gateway
+  - buf.build/envoyproxy/protoc-gen-validate
 
 lint:
   ignore:

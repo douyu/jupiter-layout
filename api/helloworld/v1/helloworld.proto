@@ -5,6 +5,7 @@ package helloworld.v1;
 import "google/api/annotations.proto";
 import "protoc-gen-openapiv2/options/annotations.proto";
 import "tagger/tagger.proto";
+import "validate/validate.proto";
 
 option go_package = "github.com/douyu/jupiter-layout/api/helloworld/v1;helloworldv1";
 option java_multiple_files = true;
@@ -60,7 +61,10 @@ service GreeterService {
 // The request message containing the user's name.
 message SayHelloRequest {
   // name ...
-  string name = 1 [(tagger.tags) = "form:\"name\" param:\"name\" uri:\"name\""];
+  string name = 1 [
+    (tagger.tags) = "form:\"name\" param:\"name\" uri:\"name\"",
+    (validate.rules).string.const = "bob"
+  ];
 }
 
 // The response message containing the greetings

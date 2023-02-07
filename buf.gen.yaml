@@ -6,6 +6,12 @@ plugins:
     opt:
       - paths=source_relative
 
+  - name: validate
+    out: api
+    opt:
+      - paths=source_relative
+      - lang=go
+
   - name: go-xerror
     out: api
     opt:
