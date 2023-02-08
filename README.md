@@ -39,6 +39,20 @@ go mod tidy -v
 Launch Docker Compose
 ---
 
+* All services
+  * Etcd
+  * Mysql
+  * Redis
+  * RocketMQ
+  * Juno-Admin
+  * Juno-Agent
+  * Promethues
+  * Grafana
+  * Jaeger
+  * Uptrace
+  * MySQL-Adminer
+  * RocketMQ-Console
+
 ```bash
 docker-compose -f deployment/docker-compose.yml up -d
 ```
