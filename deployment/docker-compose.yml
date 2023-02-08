@@ -121,13 +121,20 @@ services:
       - 50004:50004
     volumes:
       - ./data/config/juno/:/root/juno/config
-    command: sh -c '/root/juno/config/wait-for.sh mysql:3306 -- /root/juno/config/entry.sh'
+    command: sh -c '/root/juno/config/wait-for.sh db:3306 -- /root/juno/config/entry.sh'
     depends_on:
       - db
 
   juno-agent:
     image: ghcr.io/douyu/juno-agent:latest
     restart: always
+    environment:
+      ENV: dev
+      JUNO_HOST: juno-agent-dev01
+      REGION_CODE: cn-wuhan
+      REGION_NAME: 武汉
+      ZONE_CODE: cn-wuhan-guanggu-f1
+      ZONE_NAME: 武汉光谷F1区
     ports:
       - 50010:50010
     volumes:
