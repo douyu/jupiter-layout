@@ -60,6 +60,11 @@ Running
 make run
 ```
 
+* Run and specify configuration files and application variables
+
+```bash
+./build/run.sh config/exampleserver/local-live.toml 127.0.0.1 9999
+```
 * Run and watch file changes to rebuild
 
 ```bash
