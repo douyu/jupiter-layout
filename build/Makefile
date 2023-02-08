@@ -8,11 +8,8 @@ TITLE:=$(shell basename $(BASE_PATH))
 VCS_INFO:=$(shell $(BUILD_PATH)/script/shell/vcs.sh)
 BUILD_TIME:=$(shell date +%Y-%m-%d--%T)
 APP_PKG:=$(shell $(BUILD_PATH)/script/shell/apppkg.sh)
-ENABLE_GO_MOD:=$(shell $(BUILD_PATH)/script/shell/gomod.sh)
-JUPITER:=$(APP_PKG)/vendor/github.com/douyu/jupiter/pkg
-JUPITER_GOMOD:= github.com/douyu/jupiter/pkg
+JUPITER:= github.com/douyu/jupiter/pkg
 LDFLAGS:= "-X $(JUPITER).appName=$(APP_NAME) -X $(JUPITER).appID=$(APP_ID) -X $(JUPITER).buildTime=$(BUILD_TIME)" 
-LDFLAGS_GOMOD:= "-X $(JUPITER_GOMOD).appName=$(APP_NAME) -X $(JUPITER_GOMOD).appID=$(APP_ID) -X $(JUPITER_GOMOD).buildTime=$(BUILD_TIME)" 
 all:print build zip
 alltar:print build tar
 #all:print fmt lint vet test build tar
@@ -29,8 +26,6 @@ print:
 	@echo BINS:$(BINS)
 	@echo APP_NAME:$(APP_NAME)
 	@echo LDFLAGS:$(LDFLAGS)
-	@echo LDFLAGS_NEW:$(LDFLAGS_GOMOD)
-	@echo ENABLE_GO_MOD:$(ENABLE_GO_MOD)
 	@echo -e "\n"
 
 fmt:
@@ -66,11 +61,7 @@ test:
 build:
 	@echo ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>making build<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<"
 	@chmod +x $(BUILD_PATH)/script/shell/*.sh
-	@if [ $(ENABLE_GO_MOD) == 0 ]; then \
-		$(BUILD_PATH)/script/shell/build.sh $(LDFLAGS) $(BINS); \
-	else \
-		$(BUILD_PATH)/script/shell/buildgomod.sh $(LDFLAGS_GOMOD) $(BINS); \
-	fi
+	$(BUILD_PATH)/script/shell/build.sh $(LDFLAGS) $(BINS)
 	@echo -e "\n"
 
 tar:
