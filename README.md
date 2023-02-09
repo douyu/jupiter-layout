@@ -31,7 +31,7 @@ kubectl apply -f https://github.com/douyu/juno/releases/download/nightly/install
 kubectl apply -f https://github.com/douyu/jupiter-layout/releases/download/latest/install.yml
 ```
 
-* Expose Jupiter-Layout Service
+* Wait for ready... Expose Jupiter-Layout Service
 
 ```bash
 kubectl port-forward deployments/juno-admin 50002:50002 50004:50004 -n default
@@ -60,12 +60,10 @@ buf curl --schema api --protocol grpc --http2-prior-knowledge --data '{"name":"b
 {"data":{"name":"hello bob"}}
 ```
 
-Jaeger Admin
+DEVELOPER Guide
 ---
 
-open [http://localhost:16686/search](http://localhost:16686/search) to checkout opentelemtry trace data.
-
-![Jaeger](https://raw.githubusercontent.com/hnlq715/imgs-all-in-one/main/obsidian/%E6%88%AA%E5%B1%8F2022-09-30%2018.31.27.png)
+* [DEVELOPER.md](DEVELOPER.md)
 
 Bugs and Feedback
 ---
