@@ -25,6 +25,8 @@ CREATE TABLE `access_token` (
   UNIQUE KEY `idx_unique_name` (`name`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
+INSERT INTO `access_token` (`id`, `created_at`, `updated_at`, `deleted_at`, `name`, `app_id`, `secret`) VALUES
+(1,	'2023-02-08 05:43:01.498',	'2023-02-08 05:43:01.498',	NULL,	'API_TEST',	'LhoCOwiwBn2kzwxE',	'wiROR8O3FlT1ICoCw6mEfU9ZF04z53Eg');
 
 DROP TABLE IF EXISTS `app`;
 CREATE TABLE `app` (
@@ -53,7 +55,7 @@ CREATE TABLE `app` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
 INSERT INTO `app` (`aid`, `gid`, `name`, `app_name`, `create_time`, `update_time`, `level`, `lang`, `biz_domain`, `created_by`, `updated_by`, `http_port`, `rpc_port`, `govern_port`, `hook_id`, `users`, `web_url`, `proto_dir`, `git_url`) VALUES
-(1,	1,	'jupiter-demo',	'jupiter-demo',	1673064118,	1673064118,	1,	'go',	'直播系统',	0,	0,	'8011',	'8012',	'9999',	0,	'[\"askuy\", \"lvchao\", \"duminxiang\"]',	'https://github.com/douyu/jupiter-demo',	'',	'git@github.com/douyu/jupiter-demo.git'),
+(1,	1,	'jupiter-agent',	'jupiter-agent',	1673064118,	1675836081,	1,	'go',	'直播系统',	0,	0,	'8011',	'8012',	'9999',	0,	'[\"askuy\", \"lvchao\", \"duminxiang\"]',	'https://github.com/douyu/jupiter-demo',	'',	'git@github.com/douyu/jupiter-agent.git'),
 (2,	2,	'juno-admin',	'juno-admin',	1673064118,	1673064118,	1,	'go',	'直播系统',	0,	0,	'50000',	'0',	'50004',	0,	'[\"askuy\", \"mex\"]',	'https://github.com/douyu/juno',	'',	'git@github.com/douyu/juno.git');
 
 DROP TABLE IF EXISTS `app_change_map`;
@@ -108,7 +110,10 @@ INSERT INTO `app_event` (`id`, `app_name`, `aid`, `zone_code`, `env`, `host_name
 (10,	'',	0,	'',	'',	'',	'user',	'',	0,	'cmdb_app_node_delete',	1673063958,	'cmdb',	'{\"id\":0,\"app_name\":\"\",\"aid\":0,\"host_name\":\"\",\"ip\":\"\",\"device_id\":0,\"env\":\"\",\"region_code\":\"\",\"region_name\":\"\",\"zone_code\":\"\",\"zone_name\":\"\",\"create_time\":0,\"update_time\":0}'),
 (11,	'',	0,	'cn-wuhan-guanggu-f1',	'dev',	'wuhan-host-1-1',	'user',	'',	0,	'cmdb_app_node_create',	1673064118,	'cmdb',	'{\"id\":5,\"app_name\":\"\",\"aid\":0,\"host_name\":\"wuhan-host-1-1\",\"ip\":\"192.168.1.1\",\"device_id\":0,\"env\":\"dev\",\"region_code\":\"cn-wuhan\",\"region_name\":\"武汉\",\"zone_code\":\"cn-wuhan-guanggu-f1\",\"zone_name\":\"武汉光谷F1区\",\"create_time\":1673064118,\"update_time\":1673064118}'),
 (12,	'juno-admin',	2,	'cn-wuhan-guanggu-f1',	'dev',	'wuhan-host-1-1',	'user',	'',	0,	'cmdb_app_node_create',	1675765612,	'cmdb',	'{\"id\":6,\"app_name\":\"juno-admin\",\"aid\":2,\"host_name\":\"wuhan-host-1-1\",\"ip\":\"192.168.1.1\",\"device_id\":0,\"env\":\"dev\",\"region_code\":\"cn-wuhan\",\"region_name\":\"武汉\",\"zone_code\":\"cn-wuhan-guanggu-f1\",\"zone_name\":\"武汉光谷F1区\",\"create_time\":1675765612,\"update_time\":1675765612}'),
-(13,	'jupiter-demo',	1,	'cn-wuhan-guanggu-f1',	'dev',	'wuhan-host-1-1',	'user',	'',	0,	'cmdb_app_node_create',	1675765617,	'cmdb',	'{\"id\":7,\"app_name\":\"jupiter-demo\",\"aid\":1,\"host_name\":\"wuhan-host-1-1\",\"ip\":\"192.168.1.1\",\"device_id\":0,\"env\":\"dev\",\"region_code\":\"cn-wuhan\",\"region_name\":\"武汉\",\"zone_code\":\"cn-wuhan-guanggu-f1\",\"zone_name\":\"武汉光谷F1区\",\"create_time\":1675765617,\"update_time\":1675765617}');
+(13,	'jupiter-demo',	1,	'cn-wuhan-guanggu-f1',	'dev',	'wuhan-host-1-1',	'user',	'',	0,	'cmdb_app_node_create',	1675765617,	'cmdb',	'{\"id\":7,\"app_name\":\"jupiter-demo\",\"aid\":1,\"host_name\":\"wuhan-host-1-1\",\"ip\":\"192.168.1.1\",\"device_id\":0,\"env\":\"dev\",\"region_code\":\"cn-wuhan\",\"region_name\":\"武汉\",\"zone_code\":\"cn-wuhan-guanggu-f1\",\"zone_name\":\"武汉光谷F1区\",\"create_time\":1675765617,\"update_time\":1675765617}'),
+(14,	'',	0,	'',	'',	'572d5a0b2485',	'user',	'',	0,	'cmdb_node_delete',	1675835962,	'cmdb',	'{\"id\":3,\"host_name\":\"\",\"ip\":\"\",\"create_time\":0,\"update_time\":0,\"env\":\"\",\"region_code\":\"\",\"region_name\":\"\",\"zone_code\":\"\",\"zone_name\":\"\",\"agent_heartbeat_time\":0,\"proxy_heartbeat_time\":0,\"node_type\":0,\"agent_type\":0,\"agent_version\":\"\",\"proxy_type\":0,\"proxy_version\":\"\"}'),
+(15,	'',	0,	'',	'',	'a946734f2a23',	'user',	'',	0,	'cmdb_node_delete',	1675835964,	'cmdb',	'{\"id\":2,\"host_name\":\"\",\"ip\":\"\",\"create_time\":0,\"update_time\":0,\"env\":\"\",\"region_code\":\"\",\"region_name\":\"\",\"zone_code\":\"\",\"zone_name\":\"\",\"agent_heartbeat_time\":0,\"proxy_heartbeat_time\":0,\"node_type\":0,\"agent_type\":0,\"agent_version\":\"\",\"proxy_type\":0,\"proxy_version\":\"\"}'),
+(16,	'jupiter-demo',	1,	'',	'',	'',	'user',	'',	0,	'cmdb_app_update',	1675836081,	'cmdb',	'{\"aid\":1,\"gid\":1,\"name\":\"\",\"app_name\":\"jupiter-agent\",\"create_time\":0,\"update_time\":1675836081,\"level\":0,\"lang\":\"go\",\"biz_domain\":\"直播系统\",\"created_by\":0,\"updated_by\":0,\"http_port\":\"8011\",\"rpc_port\":\"8012\",\"govern_port\":\"9999\",\"hook_id\":0,\"users\":null,\"web_url\":\"\",\"proto_dir\":\"\",\"git_url\":\"git@github.com/douyu/jupiter-agent.git\"}');
 
 DROP TABLE IF EXISTS `app_log`;
 CREATE TABLE `app_log` (
@@ -293,7 +298,21 @@ INSERT INTO `app_view_history` (`id`, `created_at`, `updated_at`, `deleted_at`, 
 (19,	'2023-02-07 11:14:05.481',	'2023-02-07 11:14:05.481',	NULL,	1,	1,	'jupiter-demo'),
 (20,	'2023-02-07 11:14:54.547',	'2023-02-07 11:14:54.547',	NULL,	1,	1,	'jupiter-demo'),
 (21,	'2023-02-08 02:10:21.372',	'2023-02-08 02:10:21.372',	NULL,	1,	1,	'jupiter-demo'),
-(22,	'2023-02-08 02:19:43.177',	'2023-02-08 02:19:43.177',	NULL,	1,	1,	'jupiter-demo');
+(22,	'2023-02-08 02:19:43.177',	'2023-02-08 02:19:43.177',	NULL,	1,	1,	'jupiter-demo'),
+(23,	'2023-02-08 03:48:08.028',	'2023-02-08 03:48:08.028',	NULL,	1,	1,	'jupiter-demo'),
+(24,	'2023-02-08 05:42:18.728',	'2023-02-08 05:42:18.728',	NULL,	1,	1,	'jupiter-demo'),
+(25,	'2023-02-08 05:43:36.673',	'2023-02-08 05:43:36.673',	NULL,	1,	1,	'jupiter-demo'),
+(26,	'2023-02-08 05:43:56.493',	'2023-02-08 05:43:56.493',	NULL,	1,	1,	'jupiter-demo'),
+(27,	'2023-02-08 05:56:17.842',	'2023-02-08 05:56:17.842',	NULL,	1,	1,	'jupiter-demo'),
+(28,	'2023-02-08 05:59:43.162',	'2023-02-08 05:59:43.162',	NULL,	1,	1,	'jupiter-demo'),
+(29,	'2023-02-08 05:59:56.808',	'2023-02-08 05:59:56.808',	NULL,	1,	1,	'jupiter-demo'),
+(30,	'2023-02-08 06:00:11.680',	'2023-02-08 06:00:11.680',	NULL,	1,	1,	'jupiter-demo'),
+(31,	'2023-02-08 06:00:37.422',	'2023-02-08 06:00:37.422',	NULL,	1,	1,	'jupiter-demo'),
+(32,	'2023-02-08 06:02:00.697',	'2023-02-08 06:02:00.697',	NULL,	1,	1,	'jupiter-agent'),
+(33,	'2023-02-08 06:04:01.840',	'2023-02-08 06:04:01.840',	NULL,	1,	2,	'juno-admin'),
+(34,	'2023-02-08 06:07:27.761',	'2023-02-08 06:07:27.761',	NULL,	1,	2,	'juno-admin'),
+(35,	'2023-02-08 06:07:34.574',	'2023-02-08 06:07:34.574',	NULL,	1,	2,	'juno-admin'),
+(36,	'2023-02-08 06:08:52.629',	'2023-02-08 06:08:52.629',	NULL,	1,	2,	'juno-admin');
 
 DROP TABLE IF EXISTS `board`;
 CREATE TABLE `board` (
@@ -549,6 +568,17 @@ CREATE TABLE `cron_task` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
 
+DROP TABLE IF EXISTS `example_models`;
+CREATE TABLE `example_models` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `created_at` datetime(3) DEFAULT NULL,
+  `updated_at` datetime(3) DEFAULT NULL,
+  `deleted_at` datetime(3) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `idx_example_models_deleted_at` (`deleted_at`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
+
+
 DROP TABLE IF EXISTS `grpc_proto`;
 CREATE TABLE `grpc_proto` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
@@ -758,7 +788,7 @@ CREATE TABLE `node` (
 
 INSERT INTO `node` (`id`, `host_name`, `ip`, `create_time`, `update_time`, `env`, `region_code`, `region_name`, `zone_code`, `zone_name`, `agent_heartbeat_time`, `proxy_heartbeat_time`, `node_type`, `agent_type`, `agent_version`, `proxy_type`, `proxy_version`) VALUES
 (1,	'wuhan-host-1-1',	'192.168.1.1',	1673061235,	1673061235,	'dev',	'cn-wuhan',	'武汉',	'cn-wuhan-guanggu-f1',	'武汉光谷F1区',	0,	0,	1,	0,	'',	0,	''),
-(2,	'a946734f2a23',	'172.18.0.19',	1675763372,	1675763372,	'',	'',	'',	'',	'',	1675822817,	0,	0,	1,	'0.2.1',	0,	'');
+(4,	'juno-agent-dev01',	'172.18.0.19',	1675828157,	1675828157,	'dev',	'cn-wuhan',	'武汉',	'cn-wuhan-guanggu-f1',	'武汉光谷F1区',	1675836887,	0,	0,	1,	'0.2.1',	0,	'');
 
 DROP TABLE IF EXISTS `ops_supervisor_config`;
 CREATE TABLE `ops_supervisor_config` (
@@ -848,8 +878,8 @@ CREATE TABLE `system_config` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
 INSERT INTO `system_config` (`name`, `content`, `create_time`, `update_time`) VALUES
-('etcd',	'[{\"prefix\":\"/prometheus/job/\",\"info\":\"监控查询\"}]',	1673061016,	0),
-('grafana',	'{\"host\":\"http://127.0.0.1:3000\",\"header_name\":\"X-WEBAUTH-USER\",\"scheme\":\"http\"}',	1673061016,	0),
+('etcd',	'[{\"prefix\":\"/prometheus/job/\",\"info\":\"监控查询\"},{\"prefix\":\"grpc:\",\"info\":\"grpc\"},{\"prefix\":\"http:\",\"info\":\"http\"}]',	1673061016,	1675836035),
+('grafana',	'{\"host\":\"http://grafana:3000\",\"scheme\":\"http\",\"header_name\":\"X-WEBAUTH-USER\"}',	1673061016,	1675836436),
 ('version',	'[{\"name\":\"jupiter1.0\",\"version\":\"v1.0\",\"versionKey\":\"jupiter1.0\",\"host\":\"http://127.0.0.1:3000\",\"header_name\":\"X-WEBAUTH-USER\",\"dashboards\":[{\"name\":\"API监控面板地址\",\"value\":\"/grafana/d/api\"},{\"name\":\"实例监控面板\",\"value\":\"/grafana/d/instance\"},{\"name\":\"概览监控面板\",\"value\":\"/grafana/d/overview\"}]}]',	1673061016,	0);
 
 DROP TABLE IF EXISTS `test_pipeline`;
@@ -958,6 +988,9 @@ CREATE TABLE `user_config` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
+INSERT INTO `user_config` (`id`, `uid`, `aid`, `content`, `create_time`, `update_time`) VALUES
+(1,	1,	1,	'{\"versionKey\":\"jupiter1.0\",\"dashboardPath\":\"/grafana/d/api\"}',	1675834945,	1675836000),
+(2,	1,	2,	'{\"versionKey\":\"jupiter1.0\",\"dashboardPath\":\"/grafana/d/instance\"}',	1675836450,	1675836533);
 
 DROP TABLE IF EXISTS `user_relation`;
 CREATE TABLE `user_relation` (
@@ -1056,7 +1089,49 @@ INSERT INTO `user_visit` (`id`, `uid`, `aid`, `app_name`, `zone_code`, `env`, `t
 (62,	1,	1,	'jupiter-demo',	'',	'dev',	'confgo',	'/app?aid=1&appName=jupiter-demo&env=dev&tab=monitor&versionKey=jupiter1.0&zone=cn-wuhan-guanggu-f1',	1675768446),
 (63,	1,	1,	'jupiter-demo',	'',	'dev',	'confgo',	'/app?aid=1&appName=jupiter-demo&env=dev&tab=confgo&versionKey=jupiter1.0&zone=cn-wuhan-guanggu-f1',	1675768494),
 (64,	1,	1,	'jupiter-demo',	'',	'dev',	'confgo',	'/app?aid=1&appName=jupiter-demo&env=dev&tab=confgo&versionKey=jupiter1.0&zone=cn-wuhan-guanggu-f1',	1675822221),
-(65,	1,	1,	'jupiter-demo',	'',	'dev',	'monitor',	'/app?aid=1&appName=jupiter-demo&env=dev&tab=confgo&versionKey=jupiter1.0&zone=cn-wuhan-guanggu-f1',	1675822626);
+(65,	1,	1,	'jupiter-demo',	'',	'dev',	'monitor',	'/app?aid=1&appName=jupiter-demo&env=dev&tab=confgo&versionKey=jupiter1.0&zone=cn-wuhan-guanggu-f1',	1675822626),
+(66,	1,	1,	'jupiter-demo',	'',	'dev',	'confgo',	'/app?aid=1&appName=jupiter-demo&env=dev&tab=detail&versionKey=jupiter1.0',	1675834941),
+(67,	1,	1,	'jupiter-demo',	'',	'dev',	'monitor',	'/app?aid=1&appName=jupiter-demo&env=dev&tab=confgo&versionKey=jupiter1.0',	1675834942),
+(68,	1,	1,	'jupiter-demo',	'',	'dev',	'detail',	'/app?aid=1&appName=jupiter-demo&env=dev&tab=monitor&versionKey=jupiter1.0',	1675834943),
+(69,	1,	1,	'jupiter-demo',	'',	'dev',	'monitor',	'/app?aid=1&appName=jupiter-demo&env=dev&tab=detail&versionKey=jupiter1.0',	1675834943),
+(70,	1,	1,	'jupiter-demo',	'',	'dev',	'confgo',	'/app?aid=1&appName=jupiter-demo&env=dev&tab=monitor&versionKey=jupiter1.0',	1675834943),
+(71,	1,	1,	'jupiter-demo',	'',	'dev',	'monitor',	'/app?aid=1&appName=jupiter-demo&env=dev&tab=confgo&versionKey=jupiter1.0',	1675834944),
+(72,	1,	1,	'jupiter-demo',	'',	'dev',	'confgo',	'/app?aid=1&appName=jupiter-demo&dashboardPath=%2Fgrafana%2Fd%2Fapi&env=dev&tab=monitor&versionKey=jupiter1.0&zone=cn-wuhan-guanggu-f1',	1675834951),
+(73,	1,	1,	'jupiter-demo',	'',	'dev',	'monitor',	'/app?aid=1&appName=jupiter-demo&dashboardPath=%2Fgrafana%2Fd%2Fapi&env=dev&tab=confgo&versionKey=jupiter1.0&zone=cn-wuhan-guanggu-f1',	1675834956),
+(74,	1,	1,	'jupiter-demo',	'',	'dev',	'detail',	'/app?aid=1&appName=jupiter-demo&dashboardPath=%2Fgrafana%2Fd%2Fapi&env=dev&tab=monitor&versionKey=jupiter1.0&zone=cn-wuhan-guanggu-f1',	1675834957),
+(75,	1,	1,	'jupiter-demo',	'',	'dev',	'confgo',	'/app?aid=1&appName=jupiter-demo&dashboardPath=%2Fgrafana%2Fd%2Fapi&env=dev&tab=detail&versionKey=jupiter1.0&zone=cn-wuhan-guanggu-f1',	1675834957),
+(76,	1,	1,	'jupiter-demo',	'',	'dev',	'applog',	'/app?aid=1&appName=jupiter-demo&dashboardPath=%2Fgrafana%2Fd%2Fapi&env=dev&tab=confgo&versionKey=jupiter1.0&zone=cn-wuhan-guanggu-f1',	1675834958),
+(77,	1,	1,	'jupiter-demo',	'',	'dev',	'detail',	'/app?aid=1&appName=jupiter-demo&dashboardPath=%2Fgrafana%2Fd%2Fapi&env=dev&tab=applog&versionKey=jupiter1.0&zone=cn-wuhan-guanggu-f1',	1675834959),
+(78,	1,	1,	'jupiter-demo',	'',	'dev',	'detail',	'/app?aid=1&appName=jupiter-demo&dashboardPath=%2Fgrafana%2Fd%2Fapi&env=dev&tab=detail&versionKey=jupiter1.0&zone=cn-wuhan-guanggu-f1',	1675835016),
+(79,	1,	1,	'jupiter-demo',	'',	'dev',	'monitor',	'/app?aid=1&appName=jupiter-demo&dashboardPath=%2Fgrafana%2Fd%2Fapi&env=dev&tab=detail&versionKey=jupiter1.0&zone=cn-wuhan-guanggu-f1',	1675835018),
+(80,	1,	1,	'jupiter-demo',	'',	'dev',	'confgo',	'/app?aid=1&appName=jupiter-demo&dashboardPath=%2Fgrafana%2Fd%2Fapi&env=dev&tab=monitor&versionKey=jupiter1.0&zone=cn-wuhan-guanggu-f1',	1675835018),
+(81,	1,	1,	'jupiter-demo',	'',	'dev',	'applog',	'/app?aid=1&appName=jupiter-demo&dashboardPath=%2Fgrafana%2Fd%2Fapi&env=dev&tab=confgo&versionKey=jupiter1.0&zone=cn-wuhan-guanggu-f1',	1675835019),
+(82,	1,	1,	'jupiter-demo',	'',	'dev',	'pprof',	'/app?aid=1&appName=jupiter-demo&dashboardPath=%2Fgrafana%2Fd%2Fapi&env=dev&tab=applog&versionKey=jupiter1.0&zone=cn-wuhan-guanggu-f1',	1675835021),
+(83,	1,	1,	'jupiter-demo',	'',	'dev',	'etcd',	'/app?aid=1&appName=jupiter-demo&dashboardPath=%2Fgrafana%2Fd%2Fapi&env=dev&tab=pprof&versionKey=jupiter1.0&zone=cn-wuhan-guanggu-f1',	1675835025),
+(84,	1,	1,	'jupiter-demo',	'',	'dev',	'event',	'/app?aid=1&appName=jupiter-demo&dashboardPath=%2Fgrafana%2Fd%2Fapi&env=dev&tab=etcd&versionKey=jupiter1.0&zone=cn-wuhan-guanggu-f1',	1675835026),
+(85,	1,	1,	'jupiter-demo',	'',	'dev',	'grpc',	'/app?aid=1&appName=jupiter-demo&dashboardPath=%2Fgrafana%2Fd%2Fapi&env=dev&tab=event&versionKey=jupiter1.0&zone=cn-wuhan-guanggu-f1',	1675835026),
+(86,	1,	1,	'jupiter-demo',	'',	'dev',	'etcd',	'/app?aid=1&appName=jupiter-demo&dashboardPath=%2Fgrafana%2Fd%2Fapi&env=dev&tab=grpc&versionKey=jupiter1.0&zone=cn-wuhan-guanggu-f1',	1675835027),
+(87,	1,	1,	'jupiter-demo',	'',	'dev',	'detail',	'/app?aid=1&appName=jupiter-demo&dashboardPath=%2Fgrafana%2Fd%2Fapi&env=dev&tab=etcd&versionKey=jupiter1.0&zone=cn-wuhan-guanggu-f1',	1675835032),
+(88,	1,	1,	'jupiter-demo',	'',	'dev',	'detail',	'/app?aid=1&appName=jupiter-demo&dashboardPath=%2Fgrafana%2Fd%2Fapi&env=dev&tab=detail&versionKey=jupiter1.0&zone=cn-wuhan-guanggu-f1',	1675835036),
+(89,	1,	1,	'jupiter-demo',	'',	'dev',	'detail',	'/app?aid=1&appName=jupiter-demo&env=dev&tab=detail&versionKey=jupiter1.0&zone=cn-wuhan-guanggu-f1',	1675835983),
+(90,	1,	1,	'jupiter-demo',	'',	'dev',	'detail',	'/app?aid=1&appName=jupiter-demo&env=dev&tab=detail&versionKey=jupiter1.0&zone=cn-wuhan-guanggu-f1',	1675835996),
+(91,	1,	1,	'jupiter-demo',	'',	'dev',	'monitor',	'/app?aid=1&appName=jupiter-demo&env=dev&tab=detail&versionKey=jupiter1.0&zone=cn-wuhan-guanggu-f1',	1675835997),
+(92,	1,	1,	'jupiter-demo',	'',	'dev',	'monitor',	'/app?aid=1&appName=jupiter-demo&dashboardPath=%2Fgrafana%2Fd%2Fapi&env=dev&tab=monitor&versionKey=jupiter1.0&zone=cn-wuhan-guanggu-f1',	1675836011),
+(93,	1,	1,	'jupiter-demo',	'',	'dev',	'etcd',	'/app?aid=1&appName=jupiter-demo&dashboardPath=%2Fgrafana%2Fd%2Fapi&env=dev&tab=monitor&versionKey=jupiter1.0&zone=cn-wuhan-guanggu-f1',	1675836012),
+(94,	1,	1,	'jupiter-demo',	'',	'dev',	'etcd',	'/app?aid=1&appName=jupiter-demo&dashboardPath=%2Fgrafana%2Fd%2Fapi&env=dev&tab=etcd&versionKey=jupiter1.0&zone=cn-wuhan-guanggu-f1',	1675836037),
+(95,	1,	1,	'jupiter-demo',	'',	'dev',	'confgo',	'/app?aid=1&appName=jupiter-demo&dashboardPath=%2Fgrafana%2Fd%2Fapi&env=dev&tab=etcd&versionKey=jupiter1.0&zone=cn-wuhan-guanggu-f1',	1675836041),
+(96,	1,	1,	'jupiter-demo',	'',	'dev',	'monitor',	'/app?aid=1&appName=jupiter-demo&dashboardPath=%2Fgrafana%2Fd%2Fapi&env=dev&tab=confgo&versionKey=jupiter1.0&zone=cn-wuhan-guanggu-f1',	1675836041),
+(97,	1,	1,	'jupiter-demo',	'',	'dev',	'detail',	'/app?aid=1&appName=jupiter-demo&dashboardPath=%2Fgrafana%2Fd%2Fapi&env=dev&tab=monitor&versionKey=jupiter1.0&zone=cn-wuhan-guanggu-f1',	1675836042),
+(98,	1,	1,	'jupiter-demo',	'',	'dev',	'pprof',	'/app?aid=1&appName=jupiter-demo&dashboardPath=%2Fgrafana%2Fd%2Fapi&env=dev&tab=detail&versionKey=jupiter1.0&zone=cn-wuhan-guanggu-f1',	1675836043),
+(99,	1,	1,	'jupiter-demo',	'',	'dev',	'etcd',	'/app?aid=1&appName=jupiter-demo&dashboardPath=%2Fgrafana%2Fd%2Fapi&env=dev&tab=pprof&versionKey=jupiter1.0&zone=cn-wuhan-guanggu-f1',	1675836043),
+(100,	1,	1,	'jupiter-demo',	'',	'dev',	'monitor',	'/app?aid=1&appName=jupiter-demo&dashboardPath=%2Fgrafana%2Fd%2Fapi&env=dev&tab=etcd&versionKey=jupiter1.0&zone=cn-wuhan-guanggu-f1',	1675836049),
+(101,	1,	1,	'jupiter-agent',	'',	'dev',	'monitor',	'/app?aid=1&appName=jupiter-demo&dashboardPath=%2Fgrafana%2Fd%2Fapi&env=dev&tab=monitor&versionKey=jupiter1.0&zone=cn-wuhan-guanggu-f1',	1675836120),
+(102,	1,	1,	'jupiter-agent',	'',	'dev',	'etcd',	'/app?aid=1&appName=jupiter-demo&dashboardPath=%2Fgrafana%2Fd%2Fapi&env=dev&tab=monitor&versionKey=jupiter1.0&zone=cn-wuhan-guanggu-f1',	1675836122),
+(103,	1,	2,	'juno-admin',	'',	'dev',	'etcd',	'/app?aid=2&appName=juno-admin&dashboardPath=%2Fgrafana%2Fd%2Fapi&env=dev&tab=etcd&versionKey=jupiter1.0&zone=cn-wuhan-guanggu-f1',	1675836241),
+(104,	1,	2,	'juno-admin',	'',	'dev',	'etcd',	'/app?aid=2&appName=juno-admin&dashboardPath=%2Fgrafana%2Fd%2Fapi&env=dev&tab=etcd&versionKey=jupiter1.0&zone=cn-wuhan-guanggu-f1',	1675836447),
+(105,	1,	2,	'juno-admin',	'',	'dev',	'monitor',	'/app?aid=2&appName=juno-admin&dashboardPath=%2Fgrafana%2Fd%2Fapi&env=dev&tab=etcd&versionKey=jupiter1.0&zone=cn-wuhan-guanggu-f1',	1675836449),
+(106,	1,	2,	'juno-admin',	'',	'dev',	'monitor',	'/app?aid=2&appName=juno-admin&dashboardPath=%2Fgrafana%2Fd%2Fapi&env=dev&tab=monitor&versionKey=jupiter1.0&zone=cn-wuhan-guanggu-f1',	1675836454),
+(107,	1,	2,	'juno-admin',	'',	'dev',	'monitor',	'/app?aid=2&appName=juno-admin&dashboardPath=%2Fgrafana%2Fd%2Fapi&env=dev&tab=monitor&versionKey=jupiter1.0&zone=cn-wuhan-guanggu-f1',	1675836532);
 
 DROP TABLE IF EXISTS `worker_node`;
 CREATE TABLE `worker_node` (
@@ -1093,6 +1168,6 @@ CREATE TABLE `zone` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
 INSERT INTO `zone` (`id`, `env`, `region_code`, `region_name`, `zone_code`, `zone_name`, `create_time`, `update_time`, `created_by`, `updated_by`) VALUES
-(1,	'dev',	'cn-wuhan',	'武汉',	'cn-wuhan-guanggu-f1',	'武汉光谷F1区',	1673064118,	1673064118,	0,	0);
+(1,	'dev',	'cn-wuhan',	'武汉',	'cn-wuhan-guanggu-f1',	'武汉光谷F1区',	1675836887,	1675836887,	0,	0);
 
--- 2023-02-08 02:20:20
+-- 2023-02-08 06:14:47
