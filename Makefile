@@ -68,6 +68,9 @@ validate:
 serve:
 	swagger serve api/helloworld/v1/helloworld.swagger.json
 
+gen-deployment:
+	kompose convert -f deployment/docker-compose-for-k8s.yml -o deployment/install.yml
+
 .PHONY: all
 # run all
 all:

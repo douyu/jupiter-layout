@@ -1,0 +1,17 @@
+version: '3.3'
+
+# jaeger: http://localhost:16686
+# prometheus: http://localhost:9090
+# grafana: http://localhost:3000
+# juno-admin: http://localhost:50002
+
+services:
+  juiter-layout:
+    image: ghcr.io/douyu/jupiter-layout:latest
+    restart: always
+    labels:
+      - kompose.volume.type=configMap
+    ports:
+      - "9527:9527"
+      - "9528:9528"
+      - "9529:9529"
