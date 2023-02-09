@@ -87,7 +87,7 @@ jobs:
           files: |
               ./deployment/install.yml
           body: |
-            This is the "latest" release of **Juno**, which contains the most recent commits from the main branch.
+            This is the "latest" release of **Jupiter-Layout**, which contains the most recent commits from the main branch.
 
             This release **might not be stable**.
             It is only intended for developers wishing to try out the latest features in Juno, some of which may not be fully implemented.
