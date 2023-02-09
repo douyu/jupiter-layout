@@ -6,6 +6,7 @@
 [![Go Report Card](https://goreportcard.com/badge/github.com/douyu/jupiter-layout)](https://goreportcard.com/report/github.com/douyu/jupiter-layout)
 ![license](https://img.shields.io/badge/license-Apache--2.0-green.svg)
 
+
 Concepts
 ---
 
@@ -20,76 +21,20 @@ Concepts
 * Define validate rules in Proto
 * Auto generate Swagger API Documentation
 
-Installation
+Quick Start with Kubernetes
 ---
 
+* Install Juno and Jupiter-Layout
+
 ```bash
-go install -v github.com/douyu/jupiter/cmd/jupiter@latest
+kubectl apply -f https://github.com/douyu/juno/releases/download/nightly/install.yml
+kubectl apply -f https://github.com/douyu/jupiter-layout/releases/download/latest/install.yml
 ```
 
-Initialize Project
----
+* Expose Jupiter-Layout Service
 
 ```bash
-jupiter new testproject-go
-cd testproject-go
-go mod tidy -v
-```
-
-Launch Docker Compose
----
-
-* All services
-  * Etcd
-  * Mysql
-  * Redis
-  * RocketMQ
-  * Juno-Admin
-  * Juno-Agent
-  * Promethues
-  * Grafana
-  * Jaeger
-  * Uptrace
-  * MySQL-Adminer
-  * RocketMQ-Console
-
-```bash
-docker-compose -f deployment/docker-compose.yml up -d
-```
-
-Generation
----
-
-```bash
-make init
-make generate
-```
-
-Running
----
-
-* Run exampleserver through Makefile
-
-```bash
-make run
-```
-
-* Run and watch file changes to rebuild
-
-```bash
-jupiter run -c cmd/exampleserver/.jupiter.toml
-```
-
-* Run and watch file changes to rebuild through docker-compose
-
-```bash
-docker-compose up
-```
-
-* Run only
-
-```bash
-go run ./cmd/exampleserver --config config/exampleserver/local-live.toml
+kubectl port-forward deployments/juno-admin 50002:50002 50004:50004 -n default
 ```
 
 Test

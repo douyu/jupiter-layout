@@ -1,0 +1,93 @@
+name: Jupiter Layout Latest Build
+
+env:
+  REGISTRY: ghcr.io
+  IMAGE_NAME: jupiter-layout
+
+on:
+  schedule:
+    # schedule build every night
+    - cron: "0 0 * * *"
+  workflow_dispatch:
+
+jobs:
+  goreleaser:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Set up Go 1.19
+        uses: actions/setup-go@v3
+        with:
+          go-version: 1.19
+
+      - uses: actions/cache@v3
+        with:
+          path: |
+            ~/.cache/go-build
+            ~/go/pkg/mod
+          key: ${{ runner.os }}-go-${{ hashFiles('**/go.sum') }}
+          restore-keys: |
+            ${{ runner.os }}-go-${{ hashFiles('**/go.sum') }}
+      - name: Get dependencies
+        run: |
+          go env
+          go get -v -t -d ./...
+
+      - name: Build exampleserver
+        run: |
+          go build ./cmd/exampleserver -o dist/exampleserver
+
+      - name: image_name
+        run: echo ${{ env.IMAGE_NAME }}
+      - name: Extract metadata (tags, labels) for Docker
+        id: meta
+        uses: docker/metadata-action@v4.3.0
+        with:
+          images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build and push Docker image
+        uses: mr-smithers-excellent/docker-build-push@v5.9
+        with:
+          registry: ${{ env.REGISTRY }}
+          image: ${{ env.IMAGE_NAME }}
+          addLatest: false
+          tags: latest
+          directory: .
+          dockerfile: ./cmd/jupiter-layout/Dockerfile
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      # Ignore the error when we delete the latest release, it might not exist.
+      - name: Delete the latest Release
+        continue-on-error: true
+        run: |
+          gh release delete latest --repo $GITHUB_REPOSITORY
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPOSITORY: ${{ github.repository_owner }}/${{ github.event.repository.name }}
+
+      # Ignore the error when we delete the latest tag, it might not exist.
+      - name: Delete the latest Tag
+        continue-on-error: true
+        run:
+          gh api --method DELETE /repos/$GITHUB_REPOSITORY/git/refs/tags/latest
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPOSITORY: ${{ github.repository_owner }}/${{ github.event.repository.name }}
+
+      - name: Recreate the latest Release and Tag
+        uses: softprops/action-gh-release@v1
+        with:
+          draft: false
+          prerelease: true
+          tag_name: latest
+          files: |
+              ./deployment/install.yml
+          body: |
+            This is the "latest" release of **Juno**, which contains the most recent commits from the main branch.
+
+            This release **might not be stable**.
+            It is only intended for developers wishing to try out the latest features in Juno, some of which may not be fully implemented.

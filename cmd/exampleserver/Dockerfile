@@ -1,15 +1,12 @@
-FROM golang:1.18 AS builder
+FROM alpine:latest
 
-# COPY . /src
-WORKDIR /src
+WORKDIR /app
 
-RUN go env -w GO111MODULE=on &&\
-    go env -w GOPROXY=https://goproxy.cn,direct &&\
-    GOPROXY=https://goproxy.cn
-
-RUN go install github.com/douyu/jupiter/cmd/jupiter@latest
+COPY exampleserver /app/bin/exampleserver
+COPY config /app/config
 
 EXPOSE 9527
 EXPOSE 9528
+EXPOSE 9529
 
-ENTRYPOINT ["/go/bin/jupiter", "run" , "-c", "./cmd/exampleserver/.jupiter.toml"]
+ENTRYPOINT ["/app/bin/exampleserver", "--config", "config/exampleserver/local-live.toml"]
