@@ -6,6 +6,7 @@
 [![Go Report Card](https://goreportcard.com/badge/github.com/douyu/jupiter-layout)](https://goreportcard.com/report/github.com/douyu/jupiter-layout)
 ![license](https://img.shields.io/badge/license-Apache--2.0-green.svg)
 
+
 Concepts
 ---
 
@@ -20,62 +21,37 @@ Concepts
 * Define validate rules in Proto
 * Auto generate Swagger API Documentation
 
-Installation
+Quick Start with Kubernetes
 ---
 
+* Deploy Juno
+
 ```bash
-go install -v github.com/douyu/jupiter/cmd/jupiter@latest
+kubectl apply -f https://github.com/douyu/juno/releases/download/nightly/install.yml
 ```
 
-Initialize Project
----
+* Wait for ready
 
 ```bash
-jupiter new testproject-go
-cd testproject-go
-go mod tidy -v
+kubectl wait --for=condition=available --timeout=600s deployment/juno-admin -n default
 ```
 
-Launch Docker Compose
----
+* Deploy Jupiter-Layout
 
 ```bash
-docker-compose -f deployment/docker-compose.yml up -d
+kubectl apply -f https://github.com/douyu/jupiter-layout/releases/download/latest/install.yml
 ```
 
-Generation
----
+* Wait for ready
 
 ```bash
-make init
-make generate
+kubectl wait --for=condition=available --timeout=600s deployment/juiter-layout-exampleserver -n default
 ```
 
-Running
----
-
-* Run exampleserver through Makefile
+* Expose Jupiter-Layout Deployment
 
 ```bash
-make run
-```
-
-* Run and watch file changes to rebuild
-
-```bash
-jupiter run -c cmd/exampleserver/.jupiter.toml
-```
-
-* Run and watch file changes to rebuild through docker-compose
-
-```bash
-docker-compose up
-```
-
-* Run only
-
-```bash
-go run ./cmd/exampleserver --config config/exampleserver/local-live.toml
+kubectl port-forward deployments/juiter-layout-exampleserver 9527:9527 9528:9528 9529:9529 -n default
 ```
 
 Test
@@ -101,12 +77,10 @@ buf curl --schema api --protocol grpc --http2-prior-knowledge --data '{"name":"b
 {"data":{"name":"hello bob"}}
 ```
 
-Jaeger Admin
+DEVELOPER Guide
 ---
 
-open [http://localhost:16686/search](http://localhost:16686/search) to checkout opentelemtry trace data.
-
-![Jaeger](https://raw.githubusercontent.com/hnlq715/imgs-all-in-one/main/obsidian/%E6%88%AA%E5%B1%8F2022-09-30%2018.31.27.png)
+* [DEVELOPER.md](DEVELOPER.md)
 
 Bugs and Feedback
 ---

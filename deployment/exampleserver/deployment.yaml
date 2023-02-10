@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: juiter-layout-exampleserver
+  labels:
+    name: juiter-layout-exampleserver
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: juiter-layout-exampleserver
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        name: juiter-layout-exampleserver
+    spec:
+      containers:
+        - image: ghcr.io/douyu/jupiter-layout-dev:latest
+          name: juiter-layout-exampleserver
+          command: ["/app/exampleserver", "--config", "/app/config/local-k8s.toml"]
+          ports:
+            - containerPort: 9527
+            - containerPort: 9528
+            - containerPort: 9529
+          resources:
+            limits:
+              cpu: 100m
+              memory: 128Mi
+            requests:
+              cpu: 100m
+              memory: 128Mi
+          volumeMounts:
+            - mountPath: /app/config
+              name: exampleserver-config
+      volumes:
+      - name: exampleserver-config
+        configMap:
+          name: exampleserver-config
+      restartPolicy: Always
