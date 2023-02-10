@@ -2,12 +2,15 @@ name: Jupiter Layout Latest Build
 
 env:
   REGISTRY: ghcr.io
-  IMAGE_NAME: jupiter-layout
+  IMAGE_NAME: jupiter-layout-dev
 
 on:
-  schedule:
-    # schedule build every night
-    - cron: "0 0 * * *"
+  push:
+    branches:
+      - "main"
+  pull_request:
+    branches:
+      - "main"
   workflow_dispatch:
 
 jobs:
@@ -56,7 +59,7 @@ jobs:
           addLatest: false
           tags: latest
           directory: .
-          dockerfile: ./cmd/jupiter-layout/Dockerfile
+          dockerfile: ./cmd/exampleserver/Dockerfile
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
