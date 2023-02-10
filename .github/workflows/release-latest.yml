@@ -40,7 +40,7 @@ jobs:
 
       - name: Build exampleserver
         run: |
-          go build ./cmd/exampleserver -o dist/exampleserver
+          go build ./cmd/exampleserver -o exampleserver
 
       - name: image_name
         run: echo ${{ env.IMAGE_NAME }}
