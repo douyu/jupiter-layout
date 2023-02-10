@@ -37,7 +37,7 @@ jobs:
 
       - name: Build exampleserver
         run: |
-          go build ./cmd/exampleserver
+          go build -o ./cmd/exampleserver ./cmd/exampleserver
 
       - name: image_name
         run: echo ${{ env.IMAGE_NAME }}
@@ -55,7 +55,7 @@ jobs:
           image: ${{ env.IMAGE_NAME }}
           addLatest: false
           tags: latest
-          directory: .
+          directory: ./cmd/exampleserver
           dockerfile: ./cmd/exampleserver/Dockerfile
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
