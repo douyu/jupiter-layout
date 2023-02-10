@@ -69,7 +69,10 @@ serve:
 	swagger serve api/helloworld/v1/helloworld.swagger.json
 
 gen-deployment:
-	kompose convert -f deployment/docker-compose-for-k8s.yml -o deployment/install.yml
+	cd deployment/exampleserver && kustomize build . -o install.yml
+
+deploy:
+	cd deployment/exampleserver && kubectl apply -f install.yml
 
 .PHONY: all
 # run all
