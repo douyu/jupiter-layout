@@ -37,7 +37,7 @@ jobs:
 
       - name: Build exampleserver
         run: |
-          go build -o ./cmd/exampleserver ./cmd/exampleserver
+          CGO_ENABLED=0 go build -o ./cmd/exampleserver ./cmd/exampleserver
 
       - name: image_name
         run: echo ${{ env.IMAGE_NAME }}
