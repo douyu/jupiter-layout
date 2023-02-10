@@ -1,0 +1,64 @@
+name: Jupiter Layout Latest Build
+
+env:
+  REGISTRY: ghcr.io
+  IMAGE_NAME: jupiter-layout-dev
+
+on:
+  push:
+    branches:
+      - "main"
+  pull_request:
+    branches:
+      - "main"
+  workflow_dispatch:
+
+jobs:
+  goreleaser:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Set up Go 1.19
+        uses: actions/setup-go@v3
+        with:
+          go-version: 1.19
+
+      - uses: actions/cache@v3
+        with:
+          path: |
+            ~/.cache/go-build
+            ~/go/pkg/mod
+          key: ${{ runner.os }}-go-${{ hashFiles('**/go.sum') }}
+          restore-keys: |
+            ${{ runner.os }}-go-${{ hashFiles('**/go.sum') }}
+      - name: Get dependencies
+        run: |
+          go env
+          go get -v -t -d ./...
+
+      - name: Build exampleserver
+        run: |
+          go build ./cmd/exampleserver -o dist/exampleserver
+
+      - name: image_name
+        run: echo ${{ env.IMAGE_NAME }}
+      - name: Extract metadata (tags, labels) for Docker
+        id: meta
+        uses: docker/metadata-action@v4.3.0
+        with:
+          images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build and push Docker image
+        uses: mr-smithers-excellent/docker-build-push@v5.9
+        with:
+          registry: ${{ env.REGISTRY }}
+          image: ${{ env.IMAGE_NAME }}
+          addLatest: false
+          tags: latest
+          directory: .
+          dockerfile: ./cmd/exampleserver/Dockerfile
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
