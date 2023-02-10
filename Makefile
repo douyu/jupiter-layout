@@ -72,9 +72,12 @@ serve:
 gen-deploy:
 	cd deployment && kustomize build . -o install.yml
 
+# gen-deploy install.yml
+gen-deploy-dev:
+	cd deployment && kustomize build overlays/dev -o install.yml
+
 # deploy install.yml
 deploy:
-	cd deployment && kustomize build . -o install.yml
 	cd deployment && kubectl apply -f install.yml
 
 # undeploy install.yml
