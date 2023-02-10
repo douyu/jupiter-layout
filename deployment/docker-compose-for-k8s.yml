@@ -7,7 +7,7 @@ version: '3.3'
 
 services:
   juiter-layout:
-    image: ghcr.io/douyu/jupiter-layout:latest
+    image: ghcr.io/douyu/jupiter-layout-dev:latest
     restart: always
     labels:
       - kompose.volume.type=configMap
@@ -15,3 +15,5 @@ services:
       - "9527:9527"
       - "9528:9528"
       - "9529:9529"
+    volumes:
+      - ./data/config:config

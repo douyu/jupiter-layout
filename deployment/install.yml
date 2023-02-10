@@ -3,7 +3,7 @@ apiVersion: v1
 kind: Service
 metadata:
   annotations:
-    kompose.cmd: kompose convert -f deployment/docker-compose-for-k8s.yml -o deployment/install.yml
+    kompose.cmd: kompose convert -f docker-compose-for-k8s.yml -o install.yml
     kompose.version: 1.28.0 (HEAD)
     kompose.volume.type: configMap
   creationTimestamp: null
@@ -31,7 +31,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   annotations:
-    kompose.cmd: kompose convert -f deployment/docker-compose-for-k8s.yml -o deployment/install.yml
+    kompose.cmd: kompose convert -f docker-compose-for-k8s.yml -o install.yml
     kompose.version: 1.28.0 (HEAD)
     kompose.volume.type: configMap
   creationTimestamp: null
@@ -47,7 +47,7 @@ spec:
   template:
     metadata:
       annotations:
-        kompose.cmd: kompose convert -f deployment/docker-compose-for-k8s.yml -o deployment/install.yml
+        kompose.cmd: kompose convert -f docker-compose-for-k8s.yml -o install.yml
         kompose.version: 1.28.0 (HEAD)
         kompose.volume.type: configMap
       creationTimestamp: null
@@ -56,7 +56,7 @@ spec:
         io.kompose.service: juiter-layout
     spec:
       containers:
-        - image: ghcr.io/douyu/jupiter-layout:latest
+        - image: ghcr.io/douyu/jupiter-layout-dev:latest
           name: juiter-layout
           ports:
             - containerPort: 9527
