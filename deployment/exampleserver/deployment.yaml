@@ -18,7 +18,7 @@ spec:
       containers:
         - image: ghcr.io/douyu/jupiter-layout-dev:latest
           name: juiter-layout-exampleserver
-          command: ["/app/bin/exampleserver", "--config", "/app/config/local-k8s.toml"]
+          command: ["/app/exampleserver", "--config", "/app/config/local-k8s.toml"]
           ports:
             - containerPort: 9527
             - containerPort: 9528

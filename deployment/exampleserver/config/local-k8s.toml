@@ -36,7 +36,7 @@
         timeout = "3s"
 
     [jupiter.mysql.example]
-        dsn = "root:root@tcp(db:3306)/juno?timeout=20s&readTimeout=20s"
+        dsn = "root:root@tcp(db:3306)/mysql?timeout=20s&readTimeout=20s"
         debug = true
         maxIdleConns = 50
         connMaxLifeTime = "20m"
@@ -47,7 +47,7 @@
     [jupiter.rocketmq.example]
         [jupiter.rocketmq.example.consumer]
             enable = true
-            addr = ["rocketmq:9876"]
+            addr = ["namesrv:9876"]
             group = "testGroup"
             dialTimeout = "3s"
             rwTimeout = "3s"
@@ -57,7 +57,7 @@
             enableTrace = true
         [jupiter.rocketmq.example.producer]
             group = "testGroup"
-            addr = ["rocketmq:9876"]
+            addr = ["namesrv:9876"]
             dialTimeout = "3s"
             rwTimeout = "3s"
             topic = "DefaultCluster"

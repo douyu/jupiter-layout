@@ -24,17 +24,34 @@ Concepts
 Quick Start with Kubernetes
 ---
 
-* Install Juno and Jupiter-Layout
+* Deploy Juno
 
 ```bash
 kubectl apply -f https://github.com/douyu/juno/releases/download/nightly/install.yml
+```
+
+* Wait for ready
+
+```bash
+kubectl wait --for=condition=available --timeout=600s deployment/juno-admin -n default
+```
+
+* Deploy Jupiter-Layout
+
+```bash
 kubectl apply -f https://github.com/douyu/jupiter-layout/releases/download/latest/install.yml
 ```
 
-* Wait for ready... Expose Jupiter-Layout Service
+* Wait for ready
 
 ```bash
-kubectl port-forward deployments/juno-admin 50002:50002 50004:50004 -n default
+kubectl wait --for=condition=available --timeout=600s deployment/juiter-layout-exampleserver -n default
+```
+
+* Expose Jupiter-Layout Deployment
+
+```bash
+kubectl port-forward deployments/juiter-layout-exampleserver 9527:9527 9528:9528 9529:9529 -n default
 ```
 
 Test

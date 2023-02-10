@@ -68,11 +68,18 @@ validate:
 serve:
 	swagger serve api/helloworld/v1/helloworld.swagger.json
 
-gen-deployment:
-	cd deployment/exampleserver && kustomize build . -o install.yml
+# gen-deploy install.yml
+gen-deploy:
+	cd deployment && kustomize build . -o install.yml
 
+# deploy install.yml
 deploy:
-	cd deployment/exampleserver && kubectl apply -f install.yml
+	cd deployment && kustomize build . -o install.yml
+	cd deployment && kubectl apply -f install.yml
+
+# undeploy install.yml
+undeploy:
+	cd deployment && kubectl delete -f install.yml
 
 .PHONY: all
 # run all
