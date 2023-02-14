@@ -6,7 +6,7 @@ BUILD_PATH:=$(BASE_PATH)/build
 
 TITLE:=$(shell basename $(BASE_PATH))
 BUILD_TIME:=$(shell date +%Y-%m-%d--%T)
-APP_PKG:=$(shell $(BUILD_PATH)/script/shell/apppkg.sh)
+APP_PKG:=$(abspath ../)
 JUPITER:= github.com/douyu/jupiter/pkg
 LDFLAGS:= "-X $(JUPITER).appName=$(APP_NAME) -X $(JUPITER).appID=$(APP_ID) -X $(JUPITER).buildTime=$(BUILD_TIME)" 
 all:print build zip
