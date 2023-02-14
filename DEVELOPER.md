@@ -21,7 +21,7 @@ Launch Juno Platform
 ---
 
 ```bash
-kubectl apply -f https://github.com/douyu/juno/releases/download/nightly/install.yml
+kubectl apply -f https://github.com/douyu/juno/releases/download/latest/install.yml
 ```
 
 Generation
