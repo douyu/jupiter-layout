@@ -14,8 +14,9 @@ rm -rf ./bin/*
 for task in ${bins[@]}
 do
     echo building ${task}...
-    read pkgPath  <<< $(echo ${task} | awk -F ":" '{ print $1 }')
+    read ProjectPath  <<< $(echo ${task} | awk -F ":" '{ print $1 }')
     read binName  <<< $(echo ${task} | awk -F ":" '{  print $2 }')
+    pkgPath="$PWD/${ProjectPath}"
     echo pkgPath:${pkgPath}, binName:${binName}
     echo ldflags:$1
     go build -ldflags "$1" -o ./bin/$(echo $(echo ${binName} -v | awk -F/ '{print $NF}') ${pkgPath})

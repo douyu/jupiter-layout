@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: jupiter-layout-exampleserver
+spec:
+  ports:
+    - name: "9527"
+      port: 9527
+      targetPort: 9527
+    - name: "9528"
+      port: 9528
+      targetPort: 9528
+    - name: "9529"
+      port: 9529
+      targetPort: 9529
+  selector:
+    name: juiter-layout-exampleserver
+

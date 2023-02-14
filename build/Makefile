@@ -5,7 +5,6 @@ BASE_PATH:=$(shell dirname $(shell dirname $(realpath $(lastword $(MAKEFILE_LIST
 BUILD_PATH:=$(BASE_PATH)/build
 
 TITLE:=$(shell basename $(BASE_PATH))
-VCS_INFO:=$(shell $(BUILD_PATH)/script/shell/vcs.sh)
 BUILD_TIME:=$(shell date +%Y-%m-%d--%T)
 APP_PKG:=$(shell $(BUILD_PATH)/script/shell/apppkg.sh)
 JUPITER:= github.com/douyu/jupiter/pkg
@@ -20,7 +19,6 @@ print:
 	@echo BASE_PATH:$(BASE_PATH)
 	@echo BUILD_PATH:$(BUILD_PATH)
 	@echo TITLE:$(TITLE)
-	@echo VCS_INFO:$(VCS_INFO)
 	@echo BUILD_TIME:$(BUILD_TIME)
 	@echo APP_PKG:$(APP_PKG)
 	@echo BINS:$(BINS)
@@ -66,7 +64,7 @@ build:
 
 tar:
 	@echo ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>making tar<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<"
-	$(eval TAR=$(BASE_PATH)/$(TITLE)_$(VCS_INFO).tar.gz)
+	$(eval TAR=$(BASE_PATH)/$(TITLE).tar.gz)
 	@cd $(BASE_PATH) && tar zcf $(TAR) * >/dev/null
 	@echo $(TAR)
 	@echo -e "\n"

@@ -7,9 +7,6 @@
 # ./build/run.sh config/config-local.toml 127.0.0.1
 # ./build/run.sh config/config-local.toml 127.0.0.1 1234567890
 # ./build/run.sh config/config-local.toml 127.0.0.1 99999 userFlags
-basePath=$(dirname $(dirname $(readlink -f $0)))
-pwd=$(pwd)
-pkgPath=${pwd//$GOPATH\/src\//}
 appName=$(basename "$PWD")
 # 获取启动配置文件，若未传递$1参数，则使用config/exampleserver/config-local.toml。
 configFile=$1
@@ -36,5 +33,5 @@ fi
 userFlags="${@:4:$#}"
 echo "userFlags: $userFlags"
 
-echo -e "\n当前执行指令:\nmake build -C build BINS=\"$pkgPath/cmd/exampleserver:$appName\" APP_NAME=\"$appName\" APP_ID=$appID && ./bin/$appName -config=$configFile --host=$host $userFlags\n\n\n"
-make build -C build BINS="$pkgPath/cmd/exampleserver:$appName" APP_NAME="$appName" APP_ID=$appID && ./bin/$appName -config=$configFile --host=$host $userFlags
+echo -e "\n当前执行指令:\nmake build -C build BINS=\"cmd/exampleserver:$appName\" APP_NAME=\"$appName\" APP_ID=$appID && ./bin/$appName -config=$configFile --host=$host $userFlags\n\n\n"
+make build -C build BINS="cmd/exampleserver:$appName" APP_NAME="$appName" APP_ID=$appID && ./bin/$appName -config=$configFile --host=$host $userFlags

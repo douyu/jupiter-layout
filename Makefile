@@ -1,22 +1,9 @@
 
 .PHONY: init
-# install tools
+# init tools
 init:
-	go install github.com/bufbuild/buf/cmd/buf
-	go install github.com/douyu/jupiter/cmd/jupiter
-	go install github.com/douyu/jupiter/cmd/protoc-gen-go-echo
-	go install github.com/douyu/jupiter/cmd/protoc-gen-go-gin
-	go install github.com/douyu/jupiter/cmd/protoc-gen-go-xerror
-	go install github.com/envoyproxy/protoc-gen-validate
-	go install github.com/go-swagger/go-swagger/cmd/swagger
-	go install github.com/google/wire/cmd/wire
-	go install github.com/grpc-ecosystem/grpc-gateway/v2/protoc-gen-openapiv2
-	go install github.com/onsi/ginkgo/v2/ginkgo
-	go install github.com/srikrsna/protoc-gen-gotag
-	go install github.com/vektra/mockery/v2
-	go install google.golang.org/grpc/cmd/protoc-gen-go-grpc
-	go install google.golang.org/protobuf/cmd/protoc-gen-go
-	go install gorm.io/gen/tools/gentool
+	@echo "Installing tools from tools/tools.go"
+	@cd tools && cat tools.go |grep _|awk -F '"' '{print $$2}' | xargs -tI % go install %
 
 .PHONY: generate
 # generate code
@@ -67,6 +54,22 @@ validate:
 # serve openapi docs
 serve:
 	swagger serve api/helloworld/v1/helloworld.swagger.json
+
+# gen-deploy install.yml
+gen-deploy:
+	cd deployment && kustomize build . -o install.yml
+
+# gen-deploy install.yml
+gen-deploy-dev:
+	cd deployment && kustomize build overlays/dev -o install.yml
+
+# deploy install.yml
+deploy:
+	cd deployment && kubectl apply -f install.yml
+
+# undeploy install.yml
+undeploy:
+	cd deployment && kubectl delete -f install.yml
 
 .PHONY: all
 # run all
