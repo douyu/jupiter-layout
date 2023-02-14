@@ -572,8 +572,8 @@ github.com/toqueteos/webbrowser v1.2.0/go.mod h1:XWoZq4cyp9WeUeak7w7LXRUQf1F1ATJ
 github.com/urfave/cli v1.22.12 h1:igJgVw1JdKH+trcLWLeLwZjU9fEfPesQ+9/e4MQ44S8=
 github.com/urfave/cli v1.22.12/go.mod h1:sSBEIC79qR6OvcmsD4U3KABeOTxDqQtdDnaFuUN30b8=
 github.com/vbatts/tar-split v0.11.2 h1:Via6XqJr0hceW4wff3QRzD5gAk/tatMw/4ZA7cTlIME=
-github.com/vektra/mockery/v2 v2.19.0 h1:zgXkXV/SN6GLREnrgwM9LiLycLpj/Rp/El0bxWEM6ak=
-github.com/vektra/mockery/v2 v2.19.0/go.mod h1:mI12pwT9jEsg04dL0FnZNVkmEgfLgRfu4za9uJDpaRg=
+github.com/vektra/mockery/v2 v2.20.0 h1:/tSAo6+PBWktYELzWVzYaQQTVeomPpAzgBc+7nVz6dU=
+github.com/vektra/mockery/v2 v2.20.0/go.mod h1:mI12pwT9jEsg04dL0FnZNVkmEgfLgRfu4za9uJDpaRg=
 github.com/xdg-go/pbkdf2 v1.0.0/go.mod h1:jrpuAogTd400dnrH08LKmI/xc1MbPOebTwRqcT5RDeI=
 github.com/xdg-go/scram v1.0.2/go.mod h1:1WAq6h33pAW+iRreB34OORO2Nf7qel3VV3fjBj+hCSs=
 github.com/xdg-go/scram v1.1.1/go.mod h1:RaEWvsqvNKKvBPvcKeFjrG2cJqOkHTiyTpzz23ni57g=
