@@ -1,7 +1,7 @@
 # build
 
 ## Usage example
-* We can use this command to quickly build and start jupiter project with specified project parameters
+* Use this command to quickly build and start jupiter project with specified project parameters
 * Use this command in the project root directory
 
 ```shell

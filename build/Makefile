@@ -5,8 +5,9 @@ BASE_PATH:=$(shell dirname $(shell dirname $(realpath $(lastword $(MAKEFILE_LIST
 BUILD_PATH:=$(BASE_PATH)/build
 TITLE:=$(shell basename $(BASE_PATH))
 BUILD_TIME:=$(shell date +%Y-%m-%d--%T)
+COMMIT_VERSION:= $(shell git log -1 --pretty=format:%h)
 JUPITER:= github.com/douyu/jupiter/pkg
-LDFLAGS:= "-X $(JUPITER).appName=$(APP_NAME) -X $(JUPITER).appID=$(APP_ID) -X $(JUPITER).buildTime=$(BUILD_TIME)" 
+LDFLAGS:= "-X $(JUPITER).appName=$(APP_NAME) -X $(JUPITER).appID=$(APP_ID) -X $(JUPITER).buildTime=$(BUILD_TIME) -X $(JUPITER).buildAppVersion=$(COMMIT_VERSION)" 
 all:print build tar
 
 print:
@@ -16,6 +17,7 @@ print:
 	@echo BUILD_PATH:$(BUILD_PATH)
 	@echo TITLE:$(TITLE)
 	@echo BUILD_TIME:$(BUILD_TIME)
+	@echo COMMIT_VERSION:$(COMMIT_VERSION)
 	@echo BINS:$(BINS)
 	@echo APP_NAME:$(APP_NAME)
 	@echo LDFLAGS:$(LDFLAGS)
