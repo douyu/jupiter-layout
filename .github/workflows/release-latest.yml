@@ -61,7 +61,7 @@ jobs:
 
       - name: generate install.yml
         run: |
-          make gen-deploy-dev
+          make gen-dev-deployment
 
       # Ignore the error when we delete the latest release, it might not exist.
       - name: Delete the latest Release
