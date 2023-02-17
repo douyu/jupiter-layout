@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: jupiter-layout-exampleserver
+  name: exampleserver
 spec:
   type: NodePort
   ports:

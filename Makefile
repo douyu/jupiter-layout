@@ -55,12 +55,12 @@ validate:
 serve:
 	swagger serve api/helloworld/v1/helloworld.swagger.json
 
-# gen-deploy install.yml
-gen-deploy:
+# gen-deployment install.yml
+gen-deployment:
 	cd deployment && kustomize build . -o install.yml
 
-# gen-deploy install.yml
-gen-deploy-dev:
+# gen-dev-deployment install.yml
+gen-dev-deployment:
 	cd deployment && kustomize build overlays/dev -o install.yml
 
 # deploy install.yml

@@ -8,10 +8,8 @@ import (
 	"github.com/douyu/jupiter-layout/internal/pkg/grpc"
 	"github.com/douyu/jupiter-layout/internal/pkg/mysql"
 	"github.com/douyu/jupiter-layout/internal/pkg/redis"
-	"github.com/douyu/jupiter-layout/internal/pkg/rocketmq"
-
-	// "github.com/douyu/jupiter-layout/internal/pkg/redis"
 	"github.com/douyu/jupiter-layout/internal/pkg/resty"
+	"github.com/douyu/jupiter-layout/internal/pkg/rocketmq"
 	"github.com/douyu/jupiter/pkg/util/xerror"
 	"github.com/douyu/jupiter/pkg/xlog"
 	"github.com/google/wire"
