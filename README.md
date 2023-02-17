@@ -45,13 +45,13 @@ kubectl apply -f https://github.com/douyu/jupiter-layout/releases/download/lates
 * Wait for ready
 
 ```bash
-kubectl wait --for=condition=available --timeout=600s deployment/juiter-layout-exampleserver -n default
+kubectl wait --for=condition=available --timeout=600s deployment/exampleserver -n default
 ```
 
 * Expose Jupiter-Layout Deployment
 
 ```bash
-kubectl port-forward deployments/juiter-layout-exampleserver 9527:9527 9528:9528 9529:9529 -n default
+kubectl port-forward deployments/exampleserver 9527:9527 9528:9528 9529:9529 -n default
 ```
 
 Test

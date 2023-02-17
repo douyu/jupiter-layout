@@ -2,7 +2,7 @@ name: Jupiter Layout Latest Build
 
 env:
   REGISTRY: ghcr.io
-  IMAGE_NAME: jupiter-layout-dev
+  IMAGE_NAME: exampleserver-dev
 
 on:
   push:
