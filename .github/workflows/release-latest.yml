@@ -53,8 +53,7 @@ jobs:
         with:
           registry: ${{ env.REGISTRY }}
           image: ${{ env.IMAGE_NAME }}
-          addLatest: false
-          tags: latest
+          addLatest: true
           directory: ./cmd/exampleserver
           dockerfile: ./cmd/exampleserver/Dockerfile
           username: ${{ github.actor }}
