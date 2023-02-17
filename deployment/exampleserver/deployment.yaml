@@ -1,23 +1,23 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: juiter-layout-exampleserver
+  name: exampleserver
   labels:
-    name: juiter-layout-exampleserver
+    name: exampleserver
 spec:
   replicas: 1
   selector:
     matchLabels:
-      name: juiter-layout-exampleserver
+      name: exampleserver
   strategy: {}
   template:
     metadata:
       labels:
-        name: juiter-layout-exampleserver
+        name: exampleserver
     spec:
       containers:
         - image: ghcr.io/douyu/jupiter-layout-dev:latest
-          name: juiter-layout-exampleserver
+          name: exampleserver
           command: ["/app/exampleserver", "--config", "/app/config/local-k8s.toml"]
           ports:
             - containerPort: 9527
