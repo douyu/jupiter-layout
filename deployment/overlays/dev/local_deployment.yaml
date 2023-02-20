@@ -14,6 +14,8 @@ spec:
     metadata:
       labels:
         name: exampleserver
+        appName: exampleserver
+        runEnv: dev
     spec:
       containers:
         - image: ghcr.io/douyu/exampleserver-dev:latest
