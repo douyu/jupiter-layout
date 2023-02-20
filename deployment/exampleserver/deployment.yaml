@@ -14,9 +14,11 @@ spec:
     metadata:
       labels:
         name: exampleserver
+        appName: exampleserver
+        runEnv: dev
     spec:
       containers:
-        - image: ghcr.io/douyu/jupiter-layout-dev:latest
+        - image: ghcr.io/douyu/exampleserver-dev:latest
           name: exampleserver
           command: ["/app/exampleserver", "--config", "/app/config/local-k8s.toml"]
           ports:
