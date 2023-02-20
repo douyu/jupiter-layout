@@ -16,27 +16,3 @@ spec:
         name: exampleserver
         appName: exampleserver
         runEnv: dev
-    spec:
-      containers:
-        - image: ghcr.io/douyu/exampleserver-dev:latest
-          name: exampleserver
-          command: ["/app/exampleserver", "--config", "/app/config/local-k8s.toml"]
-          ports:
-            - containerPort: 9527
-            - containerPort: 9528
-            - containerPort: 9529
-          resources:
-            limits:
-              cpu: 100m
-              memory: 128Mi
-            requests:
-              cpu: 100m
-              memory: 128Mi
-          volumeMounts:
-            - mountPath: /app/config
-              name: exampleserver-config
-      volumes:
-      - name: exampleserver-config
-        configMap:
-          name: exampleserver-config
-      restartPolicy: Always
