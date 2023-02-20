@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: exampleserver
+  labels:
+    name: exampleserver
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: exampleserver
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        name: exampleserver
+        appName: exampleserver
+        runEnv: dev

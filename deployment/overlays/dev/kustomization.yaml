@@ -5,6 +5,11 @@ resources:
   - ../../exampleserver
 
 patches:
+
   - target:
       kind: Service
     path: local_service.yaml
+  - target:
+      kind: Deployment
+    path: local_deployment.yaml
+   
