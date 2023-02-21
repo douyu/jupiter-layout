@@ -4,7 +4,7 @@ go 1.19
 
 require (
 	github.com/bufbuild/buf v1.14.0
-	github.com/douyu/jupiter v0.11.1
+	github.com/douyu/jupiter v0.11.2
 	github.com/envoyproxy/protoc-gen-validate v0.9.1
 	github.com/go-swagger/go-swagger v0.30.4
 	github.com/google/wire v0.5.0
@@ -135,7 +135,7 @@ require (
 	github.com/toqueteos/webbrowser v1.2.0 // indirect
 	github.com/urfave/cli v1.22.12 // indirect
 	github.com/xlab/treeprint v1.1.0 // indirect
-	go.mongodb.org/mongo-driver v1.11.1 // indirect
+	go.mongodb.org/mongo-driver v1.11.2 // indirect
 	go.opentelemetry.io/otel v1.13.0 // indirect
 	go.opentelemetry.io/otel/sdk v1.13.0 // indirect
 	go.opentelemetry.io/otel/trace v1.13.0 // indirect
@@ -159,7 +159,7 @@ require (
 	gopkg.in/yaml.v2 v2.4.0 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 	gorm.io/datatypes v1.0.7 // indirect
-	gorm.io/driver/mysql v1.4.5 // indirect
+	gorm.io/driver/mysql v1.4.6 // indirect
 	gorm.io/driver/postgres v1.4.1 // indirect
 	gorm.io/driver/sqlite v1.4.1 // indirect
 	gorm.io/driver/sqlserver v1.4.0 // indirect
