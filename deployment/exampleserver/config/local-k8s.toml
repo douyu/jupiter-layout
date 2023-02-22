@@ -32,7 +32,7 @@
 
 [jupiter.grpc]
     [jupiter.grpc.example]
-        addr = "exampleserver:9528"
+        addr = "etcd:///grpc:exampleserver:v1:local-k8s"
         timeout = "3s"
 
     [jupiter.mysql.example]
