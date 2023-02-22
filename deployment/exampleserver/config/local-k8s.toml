@@ -32,7 +32,7 @@
 
 [jupiter.grpc]
     [jupiter.grpc.example]
-        addr = "127.0.0.1:9528"
+        addr = "exampleserver:9528"
         timeout = "3s"
 
     [jupiter.mysql.example]
@@ -64,7 +64,7 @@
             enableTrace = true
 
 [jupiter.resty.example]
-    addr = "http://127.0.0.1:9527"
+    addr = "http://exampleserver:9527"
 
 [jupiter.redis.example]
     [jupiter.redis.example.stub]
