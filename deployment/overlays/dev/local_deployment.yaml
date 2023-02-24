@@ -13,6 +13,4 @@ spec:
   template:
     metadata:
       labels:
-        name: exampleserver
-        appName: exampleserver
         runEnv: dev

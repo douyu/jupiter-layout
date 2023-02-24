@@ -14,6 +14,8 @@ spec:
     metadata:
       labels:
         name: exampleserver
+        appName: exampleserver
+        runEnv: prod
     spec:
       containers:
         - image: ghcr.io/douyu/exampleserver-dev:latest
@@ -35,6 +37,5 @@ spec:
               name: exampleserver-config
       volumes:
       - name: exampleserver-config
-        configMap:
-          name: exampleserver-config
+        emptyDir: {}
       restartPolicy: Always

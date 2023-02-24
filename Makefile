@@ -62,6 +62,7 @@ gen-deployment:
 # gen-dev-deployment install.yml
 gen-dev-deployment:
 	cd deployment && kustomize build overlays/dev -o install.yml
+	cd deployment && kustomize build overlays/dev-mirror -o install-mirror.yml
 
 # deploy install.yml
 deploy:

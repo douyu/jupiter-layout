@@ -1,0 +1,11 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+  - "../dev"
+
+images:
+  - name: ghcr.io/douyu/exampleserver-dev
+    newName: registry.cn-hangzhou.aliyuncs.com/sophos/exampleserver-dev
+  - name: curlimages/curl
+    newName: registry.cn-hangzhou.aliyuncs.com/sophos/curlimages.curl
