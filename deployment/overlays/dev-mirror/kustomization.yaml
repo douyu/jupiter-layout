@@ -6,6 +6,6 @@ resources:
 
 images:
   - name: ghcr.io/douyu/exampleserver-dev
-    newName: registry.cn-hangzhou.aliyuncs.com/sophos/exampleserver-dev
+    newName: registry.cn-hangzhou.aliyuncs.com/sophos/ghcr.io.douyu.exampleserver-dev
   - name: curlimages/curl
     newName: registry.cn-hangzhou.aliyuncs.com/sophos/curlimages.curl
