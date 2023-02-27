@@ -14,3 +14,7 @@ spec:
     metadata:
       labels:
         runEnv: dev
+    spec:
+      containers:
+        - name: exampleserver
+          command: ["/app/exampleserver", "--config", "etcdv3://etcd:2379/juno-agent/cluster/exampleserver/dev/static/config-dev.toml"]
