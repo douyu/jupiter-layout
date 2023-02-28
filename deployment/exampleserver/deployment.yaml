@@ -31,11 +31,4 @@ spec:
             requests:
               cpu: 100m
               memory: 128Mi
-          volumeMounts:
-            - mountPath: /app/config
-              name: exampleserver-config
-      volumes:
-      - name: exampleserver-config
-        configMap:
-          name: exampleserver-config
       restartPolicy: Always
