@@ -5,7 +5,7 @@ go 1.19
 require (
 	github.com/BurntSushi/toml v1.2.1
 	github.com/apache/rocketmq-client-go/v2 v2.1.2-0.20221202035048-f56a2dba2af8
-	github.com/douyu/jupiter v0.0.0-20230224023714-2998e8132d9c
+	github.com/douyu/jupiter v0.11.2
 	github.com/envoyproxy/protoc-gen-validate v0.9.1
 	github.com/gin-gonic/gin v1.9.0
 	github.com/google/wire v0.5.0
