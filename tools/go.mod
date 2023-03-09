@@ -13,7 +13,7 @@ require (
 	github.com/srikrsna/protoc-gen-gotag v0.6.2
 	github.com/vektra/mockery/v2 v2.20.2
 	google.golang.org/grpc/cmd/protoc-gen-go-grpc v1.3.0
-	google.golang.org/protobuf v1.28.2-0.20230222093303-bc1253ad3743
+	google.golang.org/protobuf v1.29.0
 	gorm.io/gen v0.3.21
 )
 
