@@ -4,12 +4,12 @@ go 1.19
 
 require (
 	github.com/bufbuild/buf v1.15.1
-	github.com/douyu/jupiter v0.11.3
+	github.com/douyu/jupiter v0.11.4
 	github.com/envoyproxy/protoc-gen-validate v0.9.1
 	github.com/go-swagger/go-swagger v0.30.4
 	github.com/google/wire v0.5.0
 	github.com/grpc-ecosystem/grpc-gateway/v2 v2.15.2
-	github.com/onsi/ginkgo/v2 v2.9.0
+	github.com/onsi/ginkgo/v2 v2.9.1
 	github.com/srikrsna/protoc-gen-gotag v0.6.2
 	github.com/vektra/mockery/v2 v2.21.4
 	google.golang.org/grpc/cmd/protoc-gen-go-grpc v1.3.0
@@ -41,7 +41,7 @@ require (
 	github.com/docker/docker-credential-helpers v0.7.0 // indirect
 	github.com/docker/go-connections v0.4.0 // indirect
 	github.com/docker/go-units v0.5.0 // indirect
-	github.com/fatih/color v1.14.1 // indirect
+	github.com/fatih/color v1.15.0 // indirect
 	github.com/fatih/structtag v1.2.0 // indirect
 	github.com/felixge/fgprof v0.9.3 // indirect
 	github.com/felixge/httpsnoop v1.0.3 // indirect
@@ -136,8 +136,8 @@ require (
 	github.com/subosito/gotenv v1.4.2 // indirect
 	github.com/toqueteos/webbrowser v1.2.0 // indirect
 	github.com/urfave/cli v1.22.12 // indirect
-	github.com/xlab/treeprint v1.1.0 // indirect
-	go.mongodb.org/mongo-driver v1.11.2 // indirect
+	github.com/xlab/treeprint v1.2.0 // indirect
+	go.mongodb.org/mongo-driver v1.11.3 // indirect
 	go.opentelemetry.io/otel v1.14.0 // indirect
 	go.opentelemetry.io/otel/sdk v1.14.0 // indirect
 	go.opentelemetry.io/otel/trace v1.14.0 // indirect
