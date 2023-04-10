@@ -13,7 +13,7 @@ require (
 	github.com/imdario/mergo v0.3.14
 	github.com/labstack/echo/v4 v4.10.2
 	github.com/onsi/ginkgo/v2 v2.9.2
-	github.com/onsi/gomega v1.27.4
+	github.com/onsi/gomega v1.27.6
 	github.com/samber/lo v1.38.1
 	github.com/srikrsna/protoc-gen-gotag v0.6.2
 	github.com/stretchr/testify v1.8.2
