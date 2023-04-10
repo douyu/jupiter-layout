@@ -5,11 +5,11 @@ go 1.19
 require (
 	github.com/BurntSushi/toml v1.2.1
 	github.com/apache/rocketmq-client-go/v2 v2.1.2-0.20221202035048-f56a2dba2af8
-	github.com/douyu/jupiter v0.11.4
-	github.com/envoyproxy/protoc-gen-validate v0.9.1
+	github.com/douyu/jupiter v0.11.0
+	github.com/envoyproxy/protoc-gen-validate v0.10.1
 	github.com/gin-gonic/gin v1.9.0
 	github.com/google/wire v0.5.0
-	github.com/grpc-ecosystem/grpc-gateway/v2 v2.15.2
+	github.com/grpc-ecosystem/grpc-gateway/v2 v2.15.0
 	github.com/imdario/mergo v0.3.14
 	github.com/labstack/echo/v4 v4.10.2
 	github.com/onsi/ginkgo/v2 v2.9.1
@@ -18,8 +18,8 @@ require (
 	github.com/srikrsna/protoc-gen-gotag v0.6.2
 	github.com/stretchr/testify v1.8.2
 	go.uber.org/zap v1.24.0
-	google.golang.org/genproto v0.0.0-20230223222841-637eb2293923
-	google.golang.org/grpc v1.54.0
+	google.golang.org/genproto v0.0.0-20221207170731-23e4bf6bdc37
+	google.golang.org/grpc v1.53.0-dev
 	google.golang.org/protobuf v1.30.0
 	gorm.io/gorm v1.24.6
 )
@@ -102,8 +102,8 @@ require (
 	go.opentelemetry.io/otel v1.14.0 // indirect
 	go.opentelemetry.io/otel/exporters/jaeger v1.14.0 // indirect
 	go.opentelemetry.io/otel/exporters/otlp/internal/retry v1.14.0 // indirect
-	go.opentelemetry.io/otel/exporters/otlp/otlptrace v1.14.0 // indirect
-	go.opentelemetry.io/otel/exporters/otlp/otlptrace/otlptracegrpc v1.14.0 // indirect
+	go.opentelemetry.io/otel/exporters/otlp/otlptrace v1.13.0 // indirect
+	go.opentelemetry.io/otel/exporters/otlp/otlptrace/otlptracegrpc v1.13.0 // indirect
 	go.opentelemetry.io/otel/sdk v1.14.0 // indirect
 	go.opentelemetry.io/otel/trace v1.14.0 // indirect
 	go.opentelemetry.io/proto/otlp v0.19.0 // indirect
