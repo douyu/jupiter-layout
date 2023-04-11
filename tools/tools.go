@@ -4,7 +4,6 @@
 package main
 
 import (
-	_ "github.com/bufbuild/buf/cmd/buf"
 	_ "github.com/douyu/jupiter/cmd/jupiter"
 	_ "github.com/douyu/jupiter/cmd/protoc-gen-go-echo"
 	_ "github.com/douyu/jupiter/cmd/protoc-gen-go-gin"
