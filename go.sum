@@ -116,8 +116,8 @@ github.com/dgryski/go-rendezvous v0.0.0-20200823014737-9f7001d12a5f h1:lO4WD4F/r
 github.com/dgryski/go-rendezvous v0.0.0-20200823014737-9f7001d12a5f/go.mod h1:cuUVRXasLTGF7a8hSLbxyZXjz+1KgoB3wDUb6vlszIc=
 github.com/douyu/jupiter v0.11.4 h1:VGUaolkhk0BrObVUzYNzVoIWcQLKf8Sjb9u6SBcT520=
 github.com/douyu/jupiter v0.11.4/go.mod h1:ueQqMqNJyzjpj5zyBN5YP4MSrSxuYYq4rxD7F1k80gc=
-github.com/douyu/proto v0.0.0-20230411022240-5274ec27801c h1:K+LQo55bVrIhg+5G2rqzP560LxCK4SBsuB7wAiuse4Y=
-github.com/douyu/proto v0.0.0-20230411022240-5274ec27801c/go.mod h1:Apl9I5SZQiUhlm+EAs74JQzqCsJx6gt3hM51lj2JABg=
+github.com/douyu/proto v0.0.0-20230411032241-946416ae9d3e h1:lBYhsqK4+ohfR5UoaN/5JvjTTj+jkgRhA+1sVKWT9pE=
+github.com/douyu/proto v0.0.0-20230411032241-946416ae9d3e/go.mod h1:Apl9I5SZQiUhlm+EAs74JQzqCsJx6gt3hM51lj2JABg=
 github.com/dustin/go-humanize v0.0.0-20171111073723-bb3d318650d4/go.mod h1:HtrtbFcZ19U5GC7JDqmcUSB87Iq5E25KnS6fMYU6eOk=
 github.com/eapache/go-resiliency v1.1.0/go.mod h1:kFI+JgMyC7bLPUVY133qvEBtVayf5mFgVsvEsIPBvNs=
 github.com/eapache/go-xerial-snappy v0.0.0-20180814174437-776d5712da21/go.mod h1:+020luEh2TKB4/GOp8oxxtq0Daoen/Cii55CzbTV6DU=
@@ -133,6 +133,8 @@ github.com/envoyproxy/go-control-plane v0.9.9-0.20201210154907-fd9021fe5dad/go.m
 github.com/envoyproxy/go-control-plane v0.9.9-0.20210512163311-63b5d3c536b0/go.mod h1:hliV/p42l8fGbc6Y9bQ70uLwIvmJyVE5k4iMKlh8wCQ=
 github.com/envoyproxy/go-control-plane v0.9.10-0.20210907150352-cf90f659a021/go.mod h1:AFq3mo9L8Lqqiid3OhADV3RfLJnjiw63cSpi+fDTRC0=
 github.com/envoyproxy/protoc-gen-validate v0.1.0/go.mod h1:iSmxcyjqTsJpI2R4NaDN7+kN2VEUnK/pcBlmesArF7c=
+github.com/envoyproxy/protoc-gen-validate v0.9.1 h1:PS7VIOgmSVhWUEeZwTe7z7zouA22Cr590PzXKbZHOVY=
+github.com/envoyproxy/protoc-gen-validate v0.9.1/go.mod h1:OKNgG7TCp5pF4d6XftA0++PMirau2/yoOwVac3AbF2w=
 github.com/fatih/color v1.7.0/go.mod h1:Zm6kSWBoL9eyXnKyktHP6abPY2pDugNf5KwzbycvMj4=
 github.com/fatih/color v1.15.0 h1:kOqh6YHBtK8aywxGerMG2Eq3H6Qgoqeo13Bk2Mv/nBs=
 github.com/fatih/color v1.15.0/go.mod h1:0h5ZqXfHYED7Bhv2ZJamyIOUej9KtShiJESRwBDUSsw=

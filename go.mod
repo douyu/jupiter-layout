@@ -6,7 +6,7 @@ require (
 	github.com/BurntSushi/toml v1.2.1
 	github.com/apache/rocketmq-client-go/v2 v2.1.2-0.20221202035048-f56a2dba2af8
 	github.com/douyu/jupiter v0.11.4
-	github.com/douyu/proto v0.0.0-20230411022240-5274ec27801c
+	github.com/douyu/proto v0.0.0-20230411032241-946416ae9d3e
 	github.com/google/wire v0.5.0
 	github.com/imdario/mergo v0.3.15
 	github.com/onsi/ginkgo/v2 v2.9.2
@@ -32,6 +32,7 @@ require (
 	github.com/davecgh/go-spew v1.1.1 // indirect
 	github.com/dgryski/go-rendezvous v0.0.0-20200823014737-9f7001d12a5f // indirect
 	github.com/emirpasic/gods v1.12.0 // indirect
+	github.com/envoyproxy/protoc-gen-validate v0.9.1 // indirect
 	github.com/fatih/color v1.15.0 // indirect
 	github.com/fsnotify/fsnotify v1.6.0 // indirect
 	github.com/go-logr/logr v1.2.3 // indirect
