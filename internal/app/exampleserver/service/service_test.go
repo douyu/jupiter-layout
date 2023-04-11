@@ -7,7 +7,6 @@ import (
 
 	"github.com/BurntSushi/toml"
 	"github.com/apache/rocketmq-client-go/v2/primitive"
-	helloworldv1 "github.com/douyu/jupiter-layout/api/helloworld/v1"
 	"github.com/douyu/jupiter-layout/internal/pkg/grpc"
 	"github.com/douyu/jupiter-layout/internal/pkg/mysql"
 	"github.com/douyu/jupiter-layout/internal/pkg/redis"
@@ -16,6 +15,7 @@ import (
 	"github.com/douyu/jupiter/pkg/conf"
 	"github.com/douyu/jupiter/pkg/conf/datasource/file"
 	"github.com/douyu/jupiter/pkg/util/xerror"
+	helloworldv1 "github.com/douyu/proto/gen/go/api/helloworld/v1"
 	"github.com/stretchr/testify/mock"
 )
 

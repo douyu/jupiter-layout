@@ -3,9 +3,9 @@ package grpc
 import (
 	"context"
 
-	helloworldv1 "github.com/douyu/jupiter-layout/api/helloworld/v1"
 	grpcclient "github.com/douyu/jupiter/pkg/client/grpc"
 	"github.com/douyu/jupiter/pkg/xlog"
+	helloworldv1 "github.com/douyu/proto/gen/go/api/helloworld/v1"
 	"github.com/google/wire"
 	"go.uber.org/zap"
 	"google.golang.org/grpc"

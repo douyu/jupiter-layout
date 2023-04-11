@@ -3,10 +3,10 @@ package exampleserver
 import (
 	"net/http"
 
-	helloworldv1 "github.com/douyu/jupiter-layout/api/helloworld/v1"
 	"github.com/douyu/jupiter-layout/tests/e2e/framework"
 	"github.com/douyu/jupiter/pkg/client/grpc"
 	"github.com/douyu/jupiter/pkg/client/resty"
+	helloworldv1 "github.com/douyu/proto/gen/go/api/helloworld/v1"
 	"github.com/onsi/ginkgo/v2"
 )
 

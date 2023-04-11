@@ -5,7 +5,7 @@ package grpc
 import (
 	context "context"
 
-	helloworldv1 "github.com/douyu/jupiter-layout/api/helloworld/v1"
+	helloworldv1 "github.com/douyu/proto/gen/go/api/helloworld/v1"
 	mock "github.com/stretchr/testify/mock"
 )
 

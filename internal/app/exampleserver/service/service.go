@@ -4,7 +4,6 @@ import (
 	"context"
 
 	"github.com/apache/rocketmq-client-go/v2/primitive"
-	helloworldv1 "github.com/douyu/jupiter-layout/api/helloworld/v1"
 	"github.com/douyu/jupiter-layout/internal/pkg/grpc"
 	"github.com/douyu/jupiter-layout/internal/pkg/mysql"
 	"github.com/douyu/jupiter-layout/internal/pkg/redis"
@@ -12,6 +11,7 @@ import (
 	"github.com/douyu/jupiter-layout/internal/pkg/rocketmq"
 	"github.com/douyu/jupiter/pkg/util/xerror"
 	"github.com/douyu/jupiter/pkg/xlog"
+	helloworldv1 "github.com/douyu/proto/gen/go/api/helloworld/v1"
 	"github.com/google/wire"
 	"go.uber.org/zap"
 )

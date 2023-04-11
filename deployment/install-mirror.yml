@@ -1,0 +1,79 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    name: exampleserver
+  name: exampleserver
+spec:
+  ports:
+  - name: "9527"
+    port: 9527
+    targetPort: 9527
+  - name: "9528"
+    port: 9528
+    targetPort: 9528
+  - name: "9529"
+    port: 9529
+    targetPort: 9529
+  selector:
+    name: exampleserver
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    name: exampleserver
+  name: exampleserver
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: exampleserver
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        appName: exampleserver
+        name: exampleserver
+        runEnv: dev
+    spec:
+      containers:
+      - command:
+        - /app/exampleserver
+        - --config
+        - etcdv3://etcd:2379/juno-agent/cluster/exampleserver/dev/static/config-dev.toml
+        image: registry.cn-hangzhou.aliyuncs.com/sophos/ghcr.io.douyu.exampleserver-dev:latest
+        name: exampleserver
+        ports:
+        - containerPort: 9527
+        - containerPort: 9528
+        - containerPort: 9529
+        resources:
+          limits:
+            cpu: 100m
+            memory: 128Mi
+          requests:
+            cpu: 100m
+            memory: 128Mi
+      restartPolicy: Always
+---
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: hello
+spec:
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - command:
+            - /bin/sh
+            - -c
+            - curl http://exampleserver:9527/v1/helloworld.Greeter/SayHello/bob
+            image: registry.cn-hangzhou.aliyuncs.com/sophos/curlimages.curl:7.88.1
+            imagePullPolicy: IfNotPresent
+            name: hello
+          restartPolicy: OnFailure
+      ttlSecondsAfterFinished: 100
+  schedule: '* * * * *'
