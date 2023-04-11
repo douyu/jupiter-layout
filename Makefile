@@ -25,11 +25,6 @@ run:
 lint:
 	golangci-lint run -v
 
-.PHONY: lintproto
-# lintproto
-lintproto:
-	buf lint
-
 .PHONY: test
 # test
 test:
@@ -46,14 +41,6 @@ e2e-test:
 ## Get the coverage of e2e test
 covsh-e2e: 
 	gocovsh --profile tests/e2e/coverage.txt
-
-# validate openapi docs
-validate:
-	swagger validate api/helloworld/v1/helloworld.swagger.json
-
-# serve openapi docs
-serve:
-	swagger serve api/helloworld/v1/helloworld.swagger.json
 
 # gen-deployment install.yml
 gen-deployment:

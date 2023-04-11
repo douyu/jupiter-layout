@@ -5,7 +5,7 @@ package grpc
 import (
 	"context"
 
-	helloworldv1 "github.com/douyu/jupiter-layout/api/helloworld/v1"
+	helloworldv1 "github.com/douyu/proto/gen/go/api/helloworld/v1"
 )
 
 // ExampleInterface ...
