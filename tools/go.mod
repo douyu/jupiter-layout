@@ -10,7 +10,7 @@ require (
 	github.com/grpc-ecosystem/grpc-gateway/v2 v2.15.2
 	github.com/onsi/ginkgo/v2 v2.9.2
 	github.com/srikrsna/protoc-gen-gotag v0.6.2
-	github.com/vektra/mockery/v2 v2.25.1
+	github.com/vektra/mockery/v2 v2.26.0
 	google.golang.org/grpc/cmd/protoc-gen-go-grpc v1.3.0
 	google.golang.org/protobuf v1.30.0
 	gorm.io/gen v0.3.22
