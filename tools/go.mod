@@ -8,7 +8,7 @@ require (
 	github.com/go-swagger/go-swagger v0.30.4
 	github.com/google/wire v0.5.0
 	github.com/grpc-ecosystem/grpc-gateway/v2 v2.15.2
-	github.com/onsi/ginkgo/v2 v2.9.2
+	github.com/onsi/ginkgo/v2 v2.9.3
 	github.com/srikrsna/protoc-gen-gotag v0.6.2
 	github.com/vektra/mockery/v2 v2.26.1
 	google.golang.org/grpc/cmd/protoc-gen-go-grpc v1.3.0
@@ -41,7 +41,6 @@ require (
 	github.com/fsnotify/fsnotify v1.6.0 // indirect
 	github.com/go-faster/city v1.0.1 // indirect
 	github.com/go-faster/errors v0.6.1 // indirect
-	github.com/go-logr/logr v1.2.4 // indirect
 	github.com/go-openapi/analysis v0.21.4 // indirect
 	github.com/go-openapi/errors v0.20.3 // indirect
 	github.com/go-openapi/inflect v0.19.0 // indirect
