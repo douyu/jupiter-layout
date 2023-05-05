@@ -111,8 +111,8 @@ github.com/dmarkham/enumer v1.5.5/go.mod h1:qHwULwuCxYFAFM5KCkpF1U/U0BF5sNQKLccv
 github.com/dmarkham/enumer v1.5.6/go.mod h1:eAawajOQnFBxf0NndBKgbqJImkHytg3eFEngUovqgo8=
 github.com/dnaeon/go-vcr v1.1.0/go.mod h1:M7tiix8f0r6mKKJ3Yq/kqU1OYf3MnfmBWVbPx/yU9ko=
 github.com/dnaeon/go-vcr v1.2.0/go.mod h1:R4UdLID7HZT3taECzJs4YgbbH6PIGXB6W/sc5OLb6RQ=
-github.com/douyu/jupiter v0.11.5 h1:uoBahfS132lMfxD3/sbWV/sUslDol23d9I6AshCQIV0=
-github.com/douyu/jupiter v0.11.5/go.mod h1:5H3egSVPWU3K7lAZFsFrGiPL8cgvIYwukeq+1B38M/E=
+github.com/douyu/jupiter v0.11.6 h1:lRp4R3d/hLdTzPVEJ+6u2TEsUpmXjsuxU8yQJyeaqWY=
+github.com/douyu/jupiter v0.11.6/go.mod h1:Qd3/nN90CvTDvGLbsRTAvW5vDyEeL5UZ6kesI6ghQyw=
 github.com/dustin/go-humanize v1.0.0/go.mod h1:HtrtbFcZ19U5GC7JDqmcUSB87Iq5E25KnS6fMYU6eOk=
 github.com/envoyproxy/go-control-plane v0.9.0/go.mod h1:YTl/9mNaCwkRvm6d1a2C3ymFceY/DCBVvsKhRF0iEA4=
 github.com/envoyproxy/go-control-plane v0.9.1-0.20191026205805-5f8ba28d4473/go.mod h1:YTl/9mNaCwkRvm6d1a2C3ymFceY/DCBVvsKhRF0iEA4=
