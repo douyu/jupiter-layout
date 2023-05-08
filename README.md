@@ -27,7 +27,7 @@ Quick Start with Kubernetes
 * Deploy Juno
 
 ```bash
-kubectl apply -f https://github.com/douyu/juno/releases/download/latest/install.yml --server-side=true
+kubectl apply -f https://github.com/douyu/juno/releases/download/latest/install.yml
 ```
 
 * Wait for ready
