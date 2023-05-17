@@ -3,7 +3,7 @@ module github.com/douyu/jupiter-layout/tools
 go 1.19
 
 require (
-	github.com/douyu/jupiter v0.11.7
+	github.com/douyu/jupiter v0.11.8
 	github.com/envoyproxy/protoc-gen-validate v1.0.1
 	github.com/go-swagger/go-swagger v0.30.4
 	github.com/google/wire v0.5.0
@@ -121,11 +121,11 @@ require (
 	github.com/subosito/gotenv v1.4.2 // indirect
 	github.com/tdewolff/parse/v2 v2.6.5 // indirect
 	github.com/toqueteos/webbrowser v1.2.0 // indirect
-	github.com/urfave/cli v1.22.12 // indirect
+	github.com/urfave/cli v1.22.13 // indirect
 	github.com/xlab/treeprint v1.2.0 // indirect
 	go.mongodb.org/mongo-driver v1.11.4 // indirect
-	go.opentelemetry.io/otel v1.14.0 // indirect
-	go.opentelemetry.io/otel/trace v1.14.0 // indirect
+	go.opentelemetry.io/otel v1.15.1 // indirect
+	go.opentelemetry.io/otel/trace v1.15.1 // indirect
 	golang.org/x/crypto v0.7.0 // indirect
 	golang.org/x/exp v0.0.0-20230321023759-10a507213a29 // indirect
 	golang.org/x/lint v0.0.0-20210508222113-6edffad5e616 // indirect
