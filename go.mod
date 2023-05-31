@@ -9,7 +9,7 @@ require (
 	github.com/douyu/proto v0.0.0-20230411032241-946416ae9d3e
 	github.com/google/wire v0.5.0
 	github.com/imdario/mergo v0.3.15
-	github.com/onsi/ginkgo/v2 v2.9.5
+	github.com/onsi/ginkgo/v2 v2.9.7
 	github.com/onsi/gomega v1.27.7
 	github.com/samber/lo v1.38.1
 	github.com/stretchr/testify v1.8.4
