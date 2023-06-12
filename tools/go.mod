@@ -8,7 +8,7 @@ require (
 	github.com/go-swagger/go-swagger v0.30.5
 	github.com/google/wire v0.5.0
 	github.com/grpc-ecosystem/grpc-gateway/v2 v2.16.0
-	github.com/onsi/ginkgo/v2 v2.9.5
+	github.com/onsi/ginkgo/v2 v2.10.0
 	github.com/srikrsna/protoc-gen-gotag v0.6.2
 	github.com/vektra/mockery/v2 v2.28.0
 	google.golang.org/grpc/cmd/protoc-gen-go-grpc v1.3.0
