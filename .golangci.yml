@@ -30,3 +30,11 @@ linters:
     - misspell
     - prealloc
     - unconvert
+
+linters-settings:
+  depguard:
+    deny:
+      - pkg: "github.com/sirupsen/logrus"
+        desc: not allowed
+      - pkg: "github.com/pkg/errors"
+        desc: Should be replaced by standard lib errors package
