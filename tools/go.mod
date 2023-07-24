@@ -3,7 +3,7 @@ module github.com/douyu/jupiter-layout/tools
 go 1.19
 
 require (
-	github.com/douyu/jupiter v0.11.9
+	github.com/douyu/jupiter v0.11.10
 	github.com/envoyproxy/protoc-gen-validate v1.0.2
 	github.com/go-swagger/go-swagger v0.30.5
 	github.com/google/wire v0.5.0
@@ -92,7 +92,7 @@ require (
 	github.com/magiconair/properties v1.8.7 // indirect
 	github.com/mailru/easyjson v0.7.7 // indirect
 	github.com/mattn/go-colorable v0.1.13 // indirect
-	github.com/mattn/go-isatty v0.0.17 // indirect
+	github.com/mattn/go-isatty v0.0.19 // indirect
 	github.com/mattn/go-sqlite3 v1.14.15 // indirect
 	github.com/microsoft/go-mssqldb v0.17.0 // indirect
 	github.com/mitchellh/copystructure v1.2.0 // indirect
