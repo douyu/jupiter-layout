@@ -9,6 +9,7 @@ import (
 	"github.com/douyu/jupiter-layout/internal/pkg/redis"
 	"github.com/douyu/jupiter-layout/internal/pkg/resty"
 	"github.com/douyu/jupiter-layout/internal/pkg/rocketmq"
+	"github.com/douyu/jupiter/pkg/core/metric"
 	"github.com/douyu/jupiter/pkg/util/xerror"
 	"github.com/douyu/jupiter/pkg/xlog"
 	helloworldv1 "github.com/douyu/proto/gen/go/api/helloworld/v1"
@@ -98,6 +99,8 @@ func (s *HelloWorld) SayHello(ctx context.Context, req *helloworldv1.SayHelloReq
 		return nil, xerror.Internal
 	}
 
+	metric.CustomizedHandleCounter.WithLabelValues("SayHello").Inc()
+
 	return &helloworldv1.SayHelloResponse{Data: resp}, nil
 }
 
@@ -110,9 +113,13 @@ func (s *HelloWorld) SayHi(ctx context.Context, req *helloworldv1.SayHiRequest) 
 		}, nil
 	}
 
+	metric.CustomizedHandleCounter.WithLabelValues("SayHi").Inc()
+
 	return &helloworldv1.SayHiResponse{}, nil
 }
 
 func (s *HelloWorld) ProcessConsumer(ctx context.Context, msg *primitive.MessageExt) error {
+	metric.CustomizedHandleCounter.WithLabelValues("ProcessConsumer").Inc()
+
 	return nil
 }
