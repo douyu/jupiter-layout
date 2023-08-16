@@ -3,7 +3,7 @@ module github.com/douyu/jupiter-layout/tools
 go 1.19
 
 require (
-	github.com/douyu/jupiter v0.11.11
+	github.com/douyu/jupiter v0.11.12
 	github.com/envoyproxy/protoc-gen-validate v1.0.2
 	github.com/go-swagger/go-swagger v0.30.5
 	github.com/google/wire v0.5.0
@@ -121,7 +121,7 @@ require (
 	github.com/subosito/gotenv v1.4.2 // indirect
 	github.com/tdewolff/parse/v2 v2.6.5 // indirect
 	github.com/toqueteos/webbrowser v1.2.0 // indirect
-	github.com/urfave/cli v1.22.13 // indirect
+	github.com/urfave/cli v1.22.14 // indirect
 	github.com/xlab/treeprint v1.2.0 // indirect
 	go.mongodb.org/mongo-driver v1.11.6 // indirect
 	go.opentelemetry.io/otel v1.16.0 // indirect
@@ -129,11 +129,11 @@ require (
 	golang.org/x/crypto v0.11.0 // indirect
 	golang.org/x/exp v0.0.0-20230321023759-10a507213a29 // indirect
 	golang.org/x/lint v0.0.0-20210508222113-6edffad5e616 // indirect
-	golang.org/x/mod v0.11.0 // indirect
+	golang.org/x/mod v0.12.0 // indirect
 	golang.org/x/net v0.12.0 // indirect
 	golang.org/x/sys v0.10.0 // indirect
 	golang.org/x/term v0.10.0 // indirect
-	golang.org/x/text v0.11.0 // indirect
+	golang.org/x/text v0.12.0 // indirect
 	golang.org/x/tools v0.10.0 // indirect
 	google.golang.org/genproto v0.0.0-20230706204954-ccb25ca9f130 // indirect
 	google.golang.org/genproto/googleapis/api v0.0.0-20230726155614-23370e0ffb3e // indirect
