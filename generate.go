@@ -6,6 +6,6 @@ package main
 // mock代码生成：https://github.com/vektra/mockery
 
 //go:generate bash -c "find . -type f -path '*.go'|grep -v vendor/|egrep -e 'interface_|mock_'|xargs -r rm"
-//go:generate jupiter struct2interface -d internal/pkg
-//go:generate mockery --all --inpackage --dir internal/pkg
-//go:generate wire ./...
+//go:generate go run github.com/douyu/jupiter/cmd/jupiter struct2interface -d internal/pkg
+//go:generate go run github.com/vektra/mockery/v2 --all --inpackage --dir internal/pkg
+//go:generate go run github.com/google/wire/cmd/wire ./...
