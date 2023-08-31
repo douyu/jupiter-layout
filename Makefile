@@ -2,7 +2,7 @@
 .PHONY: init
 # init tools
 init:
-	@echo "Installing tools from tools/tools.go"
+	@echo "Installing tools from tools.go"
 	@cd tools && cat tools.go |grep _|awk -F '"' '{print $$2}' | xargs -tI % go install %
 
 .PHONY: generate
