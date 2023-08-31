@@ -18,7 +18,7 @@ build:
 .PHONY: run
 # run
 run:
-	jupiter run	-c cmd/exampleserver/.jupiter.toml
+	go run github.com/douyu/jupiter/cmd/jupiter run	-c cmd/exampleserver/.jupiter.toml
 
 .PHONY: lint
 # lint
@@ -34,7 +34,7 @@ test:
 # e2e-test
 e2e-test:
 	cd tests/e2e \
-		&& ginkgo -r -race -cover -covermode=atomic -coverprofile=coverage.txt --randomize-suites --trace -coverpkg=github.com/douyu/jupiter-layout/... .\
+		&& go run github.com/onsi/ginkgo/v2/ginkgo -r -race -cover -covermode=atomic -coverprofile=coverage.txt --randomize-suites --trace -coverpkg=github.com/douyu/jupiter-layout/... .\
 		&& cd -
 
 .PHONY: covsh-e2e
