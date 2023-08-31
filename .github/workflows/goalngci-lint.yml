@@ -32,7 +32,7 @@ jobs:
       - name: Get dependencies
         run: |
           go env
-          go get -v -t -d ./...
+          go mod tidy -v
 
       - name: golangci-lint
         uses: golangci/golangci-lint-action@v3.7.0

@@ -33,7 +33,7 @@ jobs:
       - name: Get dependencies
         run: |
           go env
-          go get -v -t -d ./...
+          go mod tidy -v
 
       - name: Build exampleserver
         run: |
