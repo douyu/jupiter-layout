@@ -61,7 +61,7 @@ jobs:
           make e2e-test
 
       - name: Codecov
-        uses: codecov/codecov-action@v4
+        uses: codecov/codecov-action@v3
         with:
           token: ${{secrets.CODECOV_TOKEN}}
           files: ./coverage.txt, ./tests/e2e/coverage.txt
