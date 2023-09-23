@@ -6,17 +6,19 @@ require (
 	github.com/BurntSushi/toml v1.3.2
 	github.com/apache/rocketmq-client-go/v2 v2.1.2-0.20230628073434-533de03048e1
 	github.com/douyu/jupiter v0.11.12
-	github.com/douyu/proto v0.0.0-20230411032241-946416ae9d3e
-	github.com/envoyproxy/protoc-gen-validate v0.10.1
+	github.com/douyu/proto v0.0.0-20230923021402-b62cfdf604e8
+	github.com/envoyproxy/protoc-gen-validate v1.0.2
 	github.com/go-swagger/go-swagger v0.30.5
 	github.com/google/wire v0.5.0
 	github.com/grpc-ecosystem/grpc-gateway/v2 v2.16.2
 	github.com/imdario/mergo v0.3.16
+	github.com/labstack/echo/v4 v4.11.1
 	github.com/onsi/ginkgo/v2 v2.11.0
 	github.com/onsi/gomega v1.27.10
 	github.com/samber/lo v1.38.1
 	github.com/srikrsna/protoc-gen-gotag v0.6.2
 	github.com/stretchr/testify v1.8.4
+	github.com/swaggo/http-swagger/v2 v2.0.2
 	github.com/vektra/mockery/v2 v2.33.0
 	go.uber.org/zap v1.25.0
 	google.golang.org/grpc v1.57.0
@@ -29,6 +31,7 @@ require (
 require (
 	github.com/ClickHouse/ch-go v0.48.0 // indirect
 	github.com/ClickHouse/clickhouse-go/v2 v2.3.0 // indirect
+	github.com/KyleBanks/depth v1.2.1 // indirect
 	github.com/Masterminds/goutils v1.1.1 // indirect
 	github.com/Masterminds/semver/v3 v3.2.0 // indirect
 	github.com/Masterminds/sprig/v3 v3.2.3 // indirect
@@ -115,10 +118,9 @@ require (
 	github.com/klauspost/compress v1.16.3 // indirect
 	github.com/kr/pretty v0.3.1 // indirect
 	github.com/kr/text v0.2.0 // indirect
-	github.com/labstack/echo/v4 v4.11.1 // indirect
 	github.com/labstack/gommon v0.4.0 // indirect
 	github.com/lyft/protoc-gen-star v0.5.3 // indirect
-	github.com/lyft/protoc-gen-star/v2 v2.0.1 // indirect
+	github.com/lyft/protoc-gen-star/v2 v2.0.3 // indirect
 	github.com/magiconair/properties v1.8.7 // indirect
 	github.com/mailru/easyjson v0.7.7 // indirect
 	github.com/mattn/go-colorable v0.1.13 // indirect
@@ -160,6 +162,8 @@ require (
 	github.com/spf13/viper v1.16.0 // indirect
 	github.com/stretchr/objx v0.5.0 // indirect
 	github.com/subosito/gotenv v1.4.2 // indirect
+	github.com/swaggo/files/v2 v2.0.0 // indirect
+	github.com/swaggo/swag v1.8.1 // indirect
 	github.com/tdewolff/parse/v2 v2.6.5 // indirect
 	github.com/tidwall/gjson v1.13.0 // indirect
 	github.com/tidwall/match v1.1.1 // indirect
@@ -197,7 +201,7 @@ require (
 	golang.org/x/sys v0.10.0 // indirect
 	golang.org/x/term v0.10.0 // indirect
 	golang.org/x/text v0.12.0 // indirect
-	golang.org/x/tools v0.9.3 // indirect
+	golang.org/x/tools v0.10.0 // indirect
 	google.golang.org/genproto v0.0.0-20230706204954-ccb25ca9f130 // indirect
 	google.golang.org/genproto/googleapis/api v0.0.0-20230726155614-23370e0ffb3e // indirect
 	google.golang.org/genproto/googleapis/rpc v0.0.0-20230726155614-23370e0ffb3e // indirect
