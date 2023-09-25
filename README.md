@@ -20,6 +20,7 @@ Concepts
 * Define errors in Proto
 * Define validate rules in Proto
 * Auto generate Swagger API Documentation
+* Builtin Swagger UI
 
 Quick Start with Kubernetes
 ---

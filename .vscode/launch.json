@@ -10,7 +10,8 @@
             "request": "launch",
             "mode": "auto",
             "cwd": "${workspaceFolder}",
-            "program": "cmd/exampleserver"
+            "program": "cmd/exampleserver",
+            "args": ["--config", "config/exampleserver/local-live.toml"]
         }
     ]
 }
