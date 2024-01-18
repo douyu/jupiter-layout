@@ -37,7 +37,7 @@ jobs:
       - name: docker-compose
         run: docker-compose -f tests/e2e/docker-compose.yml up -d
 
-      - uses: actions/cache@v3
+      - uses: actions/cache@v4
         with:
           path: |
             ~/go/pkg/mod
